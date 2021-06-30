@@ -1,0 +1,19 @@
+@import "../vars/vars.scss";
+
+.s {
+  .nav{
+    color: $white;
+    text-decoration: none;
+    
+    margin-left: 1.2em;
+    padding: 14px 10px 15px;
+
+    &:hover{
+    background-color: #ffbd00;
+    transition:  background-color .2s linear;
+    }
+  }
+  .nav:last-child {
+    margin-left: 16em;
+    }
+}
