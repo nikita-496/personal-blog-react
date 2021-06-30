@@ -14,13 +14,13 @@ body{
 
 
 /* Grig */
-.sidebar {
+/*.sidebar {
   grid-area: s;
+  background-color: $primary-color;
 }
-
 .header {
   grid-area: h;
-}
+}*/
 .content {
   grid-area: c;
   background-color: $main-color;

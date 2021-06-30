@@ -1,3 +1,7 @@
+@import "../../../common/scss-blocks/vars/vars.scss";
+
 .wrapper{
+  margin-top: $marTop;
+
   background-color: orange;
 }
