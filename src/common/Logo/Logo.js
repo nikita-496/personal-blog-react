@@ -1,9 +1,9 @@
 import React from "react"
 
-export default function Logo () {
+export default function Logo (props) {
   return (
     <div>
-      <img />
+      <img src={props.src} alt={props.src}/>
     </div>
   )
 }

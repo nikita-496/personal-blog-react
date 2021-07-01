@@ -1,0 +1,44 @@
+
+/* common */
+@mixin boxshadow ($x, $y, $blir, $spread, $c, $t) {
+  box-shadow: $x $y $blir $spread rgba($c, $t);
+}
+
+
+@mixin descriptions ($c, $f, $fw, $ta) {
+  color: $c;
+
+  font-size: $f;
+  font-weight: $f;
+
+  text-align: $ta;
+} 
+
+/* btn */
+@mixin btn () {
+  display: inline-block;
+  vertical-align: top;
+  padding: 1.1em 1.9em;
+
+  background: $main-color;
+  border: none;
+  cursor: pointer;
+  border-radius: 3em;
+
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: inherit;
+
+  line-height: 1.1;
+
+  transition: background-color .2s linear;
+}
+
+@mixin bxshad ($c) {
+  background-color: $c;
+  box-shadow: 0 4px 4px 0 rgba($c, .25);
+  &:hover{
+    background-color: darken($c, 5%) 
+  }
+}
+

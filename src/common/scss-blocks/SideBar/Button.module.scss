@@ -1,0 +1,26 @@
+@import "../_vars/vars.scss";
+@import "../_mixins/mixins.scss";
+
+
+.btnWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5em;
+  .work, .feedback {
+    @include btn;
+    a {
+      text-decoration: none;
+      color:$white;
+    }
+  }
+  .work{
+    @include bxshad(#CD251A);
+  }
+    
+  .feedback{
+    @include bxshad($btnBlue)
+  }
+
+}
+
+

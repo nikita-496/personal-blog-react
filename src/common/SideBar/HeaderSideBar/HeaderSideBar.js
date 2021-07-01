@@ -1,11 +1,13 @@
 import React from "react"
+import logoHeader from "../../../img/side-bar/default.jpg"
 import Logo from "../../Logo/Logo"
 
 
-export default function HeaderSideBar () {
+
+export default function HeaderSideBar () { 
   return (
     <div>
-     <Logo />
+     <Logo src={logoHeader}/>
     </div>
   )
 }

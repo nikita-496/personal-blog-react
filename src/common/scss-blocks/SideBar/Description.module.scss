@@ -1,0 +1,10 @@
+@import "../_vars/vars.scss";
+@import "../_mixins/mixins.scss";
+
+.heading{
+ @include descriptions($white, 1.8rem, 600, center) 
+}
+
+.subTitle{
+  @include descriptions($gray, 1.4rem, 300, center) 
+}

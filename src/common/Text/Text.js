@@ -1,9 +1,11 @@
 import React from "react"
+import styles from "../scss-blocks/Text.module.scss"
 
-export default function Title () {
+
+export default function Text (props) {
   return (
     <div>
-      <p />
+      <p className={styles.text}>{props.text}</p>
     </div>
   )
 }
