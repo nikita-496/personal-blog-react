@@ -5,6 +5,14 @@
  @include descriptions($white, 1.8rem, 600, center) 
 }
 
-.subTitle{
+.headingArticle {
+  @include descriptions($white, 1.8rem, 600, left) 
+}
+
+.subTitleArticle, .subTitleNotes{
+  @include descriptions($gray, 1.4rem, 300, left)
+}
+
+.about{
   @include descriptions($gray, 1.4rem, 300, center) 
 }

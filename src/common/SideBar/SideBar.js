@@ -13,7 +13,7 @@ export default function Sidebar () {
     <div className={styles.sidebar}>
       <HeaderSideBar />
       <Avatar />
-      <Description />
+      <Description title="Никита Шевкунов" about="блог Front-end разработчика"/>
       <Social />
       <AboutMe />
       <Button />

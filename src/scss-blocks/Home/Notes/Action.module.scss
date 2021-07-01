@@ -1,0 +1,23 @@
+@import "../../../common/scss-blocks/_vars/vars.scss";
+@import "../../../common/scss-blocks/_mixins/mixins.scss";
+
+
+.formActions{
+  width: 11%;
+  display: flex;
+  justify-content: space-between;
+  .addPostFile{
+    @include tеmplAction (#989898, .5);
+    background: #989898 url("../../../img/notes/add-photo.svg") center no-repeat;
+  
+    input{
+      display: none;
+    }
+
+  }
+
+  .addPostSend{
+    @include tеmplAction ($btnBlue, .5);
+  }
+
+}

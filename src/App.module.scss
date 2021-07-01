@@ -8,7 +8,9 @@ html {
 }
 
 body{
-  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  /*font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";*/
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+  font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
 }
@@ -26,14 +28,14 @@ body{
   grid-area: c;
   background-color: $main-color;
   .container {
-    margin: 5em;
+    margin: 8em;
   } 
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  grid-template-rows: 40px 1866px;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 40px 100%;
   grid-template-areas: 
     "s h"
     "s c";

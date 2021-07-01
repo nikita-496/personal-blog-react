@@ -1,7 +1,45 @@
 @import "../../../common/scss-blocks/_vars/vars.scss";
+@import "../../../common/scss-blocks/_mixins/mixins.scss";
 
 .wrapper{
   margin-top: $marTop;
+  
+  .content{
+    padding: $padContent;
+  }
+  .footerPost {
+   display: flex;
+   justify-content: space-between
+  }
 
-  background-color: orange;
+  .date{
+    &::after{
+      content: "";
+      display:inline-block;
+      width: 6px;
+      height: 6px;
+
+      margin: 0 1.5rem;
+      border-radius: 50%;
+      background-color: #C4C4C4;
+    }
+  }
+  .date, .caregoty{
+    @include tags();
+  };
+  .caregoty{
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  .link {
+    font-size: 1.4rem;
+    color: $btnBlue;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

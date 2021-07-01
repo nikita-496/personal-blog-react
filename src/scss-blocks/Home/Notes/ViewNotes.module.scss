@@ -1,6 +1,16 @@
 @import "../../../common/scss-blocks/_vars/vars.scss";
+@import "../../../common/scss-blocks/_mixins/mixins.scss";
 
-.wrapper{
-  margin-top: $marTop;
-  background-color: lightseagreen;
-}
+  .wrapper{
+    .content{
+      padding: $padContent;
+    }
+    .text{
+      font-size: 1.4rem;
+    }
+    span{
+      @include tags();
+    }
+  }
+  
+

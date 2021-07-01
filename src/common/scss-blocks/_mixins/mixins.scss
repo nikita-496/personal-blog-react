@@ -42,3 +42,28 @@
   }
 }
 
+/* Action */
+@mixin tеmplAction ($c, $d) {
+  display: block;
+  width: 4.4rem;
+  height: 4.4rem;
+
+  border:none;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: background-color .2s linear;
+  &:hover {
+    background-color: darken($c,$d);
+  }
+}
+
+/* Card  */
+@mixin tags () {
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      color:$tagColor;
+}
