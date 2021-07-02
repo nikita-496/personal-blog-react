@@ -1,4 +1,4 @@
-
+@import "../_vars/vars.scss";
 /* common */
 @mixin boxshadow ($x, $y, $blir, $spread, $c, $t) {
   box-shadow: $x $y $blir $spread rgba($c, $t);
@@ -40,6 +40,17 @@
   &:hover{
     background-color: darken($c, 5%) 
   }
+}
+
+/* field enter text*/
+@mixin fieldEnter($bg, $fz) {
+  border:none;
+  outline: none;
+  background: $bg;
+  color:$white;
+
+  font-size: $fz;
+  font-family: inherit;
 }
 
 /* Action */

@@ -5,8 +5,10 @@
     color: $white;
     text-decoration: none;
     
-    margin-left: 1.2em;
+    margin-left: 2em;
     padding: 14px 10px 15px;
+
+    font-size: 1.4rem;
 
     &:hover{
     background-color: #ffbd00;
@@ -14,6 +16,6 @@
     }
   }
   .nav:last-child {
-    margin-left: 16em;
+    margin-left: 23em;
     }
 }
