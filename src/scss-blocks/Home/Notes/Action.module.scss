@@ -3,7 +3,7 @@
 
 
 .formActions{
-  width: 11%;
+  width: 13%;
   display: flex;
   justify-content: space-between;
   .addPostFile{
@@ -15,7 +15,10 @@
     }
 
   }
-
+  img {
+    margin-left: -.62rem;
+    margin-top: -.15rem;
+  }
   .addPostSend{
     @include tеmplAction ($btnBlue, .5);
   }
