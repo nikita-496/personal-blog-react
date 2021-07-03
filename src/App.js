@@ -7,9 +7,9 @@ import Home from "../src/сomponents/Home/Home";
 import Profile from "../src/сomponents/Profile/Profile";
 import SearchResult from "../src/сomponents/SearchResult/SearchResult";
 import TextPage from "../src/сomponents/TextPage/TextPage";
-import Works from "../src/сomponents/Works/Works";
 import styles from "./App.module.scss";
-
+import Notes from "./сomponents/Notes/Notes";
+import Works from "./сomponents/Works/Works";
 
 function App() {
   return (
@@ -21,9 +21,10 @@ function App() {
             <div className={styles.container}>
             <Route path="/Home" component={Home}/>
             <Route path="/TextPage" component={TextPage}/>
-            <Route path="/Works" component={Works}/>
+            <Route path="/Notes" component={Notes}/>
             <Route path="/Profile" component={Profile}/>
             <Route path="/SearchResult" component={SearchResult}/>
+            <Route path="/Works" component={Works}/>
             </div>
         </main>
       </div>
