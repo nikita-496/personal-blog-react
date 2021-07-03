@@ -7,7 +7,7 @@ export default function Comments () {
   return (
     <div className={styles.wrapperCommets}>
       <h4 className={styles.title}>Обсуждения</h4>
-      <Field/ >
+      <Field text="Отправить" placeholder="Текст комментария"/>
       <Comment />
     </div>
   )
