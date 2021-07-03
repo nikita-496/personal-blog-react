@@ -11,12 +11,12 @@ export default function Profile () {
       <p className={styles.title}>Профиль</p>
       <div className={styles.profileWrapper}>
         <div className={styles.field}>
-          <Filed type="profile" placeholder="Имя пользователя"/>
-          <Filed type="profile" placeholder="E-mail"/>
-          <Filed type="profile" placeholder="Новый пароль"/>
-          <Filed text="Сохранить" placeholder="Подтвердить пароль"/>
+          <Filed  placeholder="Имя пользователя"/>
+          <Filed type="email" placeholder="E-mail"/>
+          <Filed  type="password" placeholder="Новый пароль"/>
+          <Filed  btn="true" type="password" text="Сохранить" placeholder="Подтвердить пароль"/>
         </div>
-      
+
         <div>
           <Logo src={src}/>
           <label>

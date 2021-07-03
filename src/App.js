@@ -8,8 +8,14 @@ import Profile from "../src/сomponents/Profile/Profile";
 import SearchResult from "../src/сomponents/SearchResult/SearchResult";
 import TextPage from "../src/сomponents/TextPage/TextPage";
 import styles from "./App.module.scss";
+import Auth from "./сomponents/Auth/Auth";
 import Notes from "./сomponents/Notes/Notes";
+import Reset from "./сomponents/Reset/Reset";
+import SignUp from "./сomponents/SignUp/SignUp";
 import Works from "./сomponents/Works/Works";
+
+
+
 
 function App() {
   return (
@@ -25,6 +31,9 @@ function App() {
             <Route path="/Profile" component={Profile}/>
             <Route path="/SearchResult" component={SearchResult}/>
             <Route path="/Works" component={Works}/>
+            <Route path="/Auth" component={Auth}/>
+            <Route path="/SignUp" component={SignUp}/>
+            <Route path="/Reset" component={Reset}/>
             </div>
         </main>
       </div>
