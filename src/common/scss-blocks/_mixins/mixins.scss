@@ -10,20 +10,21 @@
 
   font-size: $f;
   font-weight: $f;
+  font-family: $Roboto;
 
   text-align: $ta;
 } 
 
 /* btn */
-@mixin btn () {
+@mixin btn ($br, $pT, $pR) {
   display: inline-block;
   vertical-align: top;
-  padding: 1.1em 1.9em;
+  padding: $pT  $pR;
 
   background: $main-color;
   border: none;
   cursor: pointer;
-  border-radius: 3em;
+  border-radius: $br;
 
   font-size: 1.2rem;
   font-weight: 400;
@@ -71,10 +72,60 @@
 }
 
 /* Card  */
-@mixin tags () {
+@mixin tags ($ff) {
   @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-      font-family: 'Lato', sans-serif;
+      font-family: $ff;
       font-weight: 400;
       font-size: 1.2rem;
       color:$tagColor;
+}
+
+@mixin dotTags ($c) {
+  &::after{
+    content: "";
+    display:inline-block;
+    width: 6px;
+    height: 6px;
+
+    margin: 0 1.5rem;
+    border-radius: 50%;
+    background-color: $c;
+  }
+}
+
+@mixin link () {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+@mixin titleH4 () {
+  font-size: 1.6rem;
+  color:$white
+}
+  
+
+@mixin field () {
+  display: block;
+  width: 100%;
+  height: 25px;
+  padding: .5rem 0;
+  
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba($white, .4);
+  border-radius: 0;
+  resize: none;
+  outline: none;
+
+  margin-bottom: 1.5rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  color:$white;
+
+  overflow: hidden;
+
+  &::placeholder{
+    color: rgba($white, .4)
+  }
 }

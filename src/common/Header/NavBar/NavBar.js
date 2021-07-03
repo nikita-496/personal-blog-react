@@ -10,7 +10,7 @@ export default function NavBar () {
     <span className={styles.s}>
       <NavLink className={styles.nav} to="/Home">Главная</NavLink>
       <NavLink className={styles.nav} to="/TextPage">Статьи</NavLink>
-      <NavLink className={styles.nav} to="/Works">Обо мне</NavLink>
+      {/*<NavLink className={styles.nav} to="/Works">Обо мне</NavLink>*/}
       <NavLink className={styles.nav} to="/SearchResult">Заметки</NavLink>
       <NavLink className={styles.nav} to="/Profile">Профиль</NavLink>
     </span>

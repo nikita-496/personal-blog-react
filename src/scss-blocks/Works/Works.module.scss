@@ -1,0 +1,9 @@
+@import "../../common/scss-blocks/_vars/vars.scss";
+@import "../../common/scss-blocks/_mixins/mixins.scss";
+
+.title {
+  font-family: $Roboto;
+  font-size: 2.1rem;
+  font-weight: 300;
+  color: $white;
+}

@@ -1,0 +1,37 @@
+@import "../_vars/vars.scss";
+@import "../_mixins/mixins.scss";
+
+.tagsWrapper{
+  display: flex;
+  justify-content: space-between;
+
+  .tags{
+    margin-top: -2rem;
+  }
+  .date{
+    @include dotTags(#C4C4C4);
+  }
+  .date, .caregoty, .datePublic{
+    @include tags($Loto);
+  }
+  .action,.actionShare{
+    @include tags($Roboto);
+    color: #ffff;
+    opacity: .6;
+
+    @include link ();
+    &:hover {
+      opacity: .9;
+      color: $btnBlue;
+    }
+  }
+
+
+  .caregoty{
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  
+}

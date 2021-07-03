@@ -1,0 +1,37 @@
+@import "../../../common/scss-blocks/_vars/vars.scss";
+@import "../../../common/scss-blocks/_mixins/mixins.scss";
+
+.wrapperReference{
+  border-bottom: 1px solid #1C1C1C;  
+  border-top: 1px solid #1C1C1C;
+
+  &:hover {
+    border-bottom: 1px solid $effect;  
+    border-top: 1px solid $effect;
+  }
+
+  .title{
+   @include titleH4()
+  }
+
+  .list{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    .listItem{
+      h4{
+        width: 270px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.4rem;
+        color:#F3EBA2;
+      }
+      a{
+        cursor: pointer;
+        @include link();
+      }
+    }
+  }
+  
+}

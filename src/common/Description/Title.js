@@ -5,8 +5,8 @@ export default function Title (props) {
   
   return (
     <div>
-      {(props.title) ? <p className={styles.heading}>{props.title}</p> 
-      :  <p className={styles.headingArticle}>{props.titleArticle}</p> 
+      {(props.title) ? <h3 className={styles.heading}>{props.title}</h3> 
+      :  <h3 className={styles.headingArticle}>{props.titleArticle}</h3> 
       }
     </div>
   )

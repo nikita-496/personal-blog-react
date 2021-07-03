@@ -7,9 +7,10 @@
 
 .headingArticle {
   @include descriptions($white, 1.8rem, 600, left) 
+
 }
 
-.subTitleArticle, .subTitleNotes{
+.subTitleArticle, .subTitleNotes {
   @include descriptions($gray, 1.4rem, 300, left)
 }
 

@@ -5,41 +5,13 @@
   margin-top: $marTop;
   
   .content{
-    padding: $padContent;
-  }
-  .footerPost {
-   display: flex;
-   justify-content: space-between
-  }
+    padding: $padContentPost;
 
-  .date{
-    &::after{
-      content: "";
-      display:inline-block;
-      width: 6px;
-      height: 6px;
+    .link {
+      font-size: 1.4rem;
+      color: $btnBlue;
+      @include link ()
+    } 
 
-      margin: 0 1.5rem;
-      border-radius: 50%;
-      background-color: #C4C4C4;
-    }
-  }
-  .date, .caregoty{
-    @include tags();
-  };
-  .caregoty{
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-  .link {
-    font-size: 1.4rem;
-    color: $btnBlue;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }

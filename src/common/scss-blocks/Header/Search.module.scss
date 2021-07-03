@@ -1,0 +1,14 @@
+@import "../_vars/vars.scss";
+@import "../_mixins/mixins.scss";
+
+.search {
+  width: 20%;
+  height: 100vw;
+  padding: 14px 12px 20px ;
+  @include fieldEnter($primary-color,1.2rem);
+
+  &::placeholder{
+    color:$second-gray;
+    opacity: .6;
+  }
+}

@@ -3,13 +3,13 @@
 
   .wrapper{
     .content{
-      padding: $padContent;
+      padding: $padContentPost;
     }
     .text{
       font-size: 1.4rem;
     }
     span{
-      @include tags();
+      @include tags($Loto);
     }
   }
   
