@@ -7,7 +7,7 @@ export default function Home (props) {
   return(
     <div>
       <CategoriesArticles />
-      <Notes addNotes={props.addNotes} updateNotesText={props.updateNotesText} notes={props.home}/>
+      <Notes addNotes={props.addNotes} updateNotesText={props.updateNotesText} notes={props.home.notes}/>
       <Posts posts={props.home}/>
     </div>
   )

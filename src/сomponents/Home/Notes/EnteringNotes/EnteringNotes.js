@@ -6,6 +6,7 @@ import Action from "./Action/Action"
 export default function EnteringNotes (props) {
   
   function handleTextNotes (e) {
+    debugger
     props.updateNotesText(e.target.value)
   }
   return(

@@ -1,6 +1,9 @@
 import srcPost from "../img/post/Conference.jpg";
 import srcText from "../img/text-page/code.jpg";
-import { rerenderEntireTree } from "../render";
+
+function rerenderEntireTree () {
+  console.log("state changed")
+}
 
 let state = {
   home: {
@@ -23,7 +26,7 @@ window.state = state
 
 export function updateNotesText (textNotes) {
   state.home.textNotes = textNotes
-  rerenderEntireTree(state)
+  rerenderEntireTree()
 }
 
 export function addNotes () {
@@ -33,9 +36,12 @@ export function addNotes () {
   }
   state.home.notes.push(newNotes)
   state.home.textNotes = ""
-  rerenderEntireTree(state)
+  rerenderEntireTree()
 }
 
+export function subscribe(observer) {
+  rerenderEntireTree = observer  // observer
+}
 export default state
 
  
