@@ -10,13 +10,13 @@ export default function Tags (props) {
   return (
     <>
        {
-      (props.headerTags) ?  <div className={styles.tagsWrapper}>
+      (props.headerTags) ?  <div className={styles.tagsWrapperArticle}>
       <a href="/" className={styles.action}> вернуться назад</a>
       <a href="/" className={styles.action}> поделиться <img src={share} alt="share"/>
       </a>
       </div>
 
-      : (props.tagsName)  ?  <div className={styles.tagsWrapper}>
+      : (props.tagsName)  ?  <div className={styles.tagsWrapperPosts}>
       <div className={styles.tags}>
           <time className={styles.date} dateTime="2021-07-01">{date}</time>
           <span className={styles.caregoty}>{props.tagsName}</span>

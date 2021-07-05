@@ -1,7 +1,7 @@
 @import "../_vars/vars.scss";
 @import "../_mixins/mixins.scss";
 
-.tagsWrapper{
+.tagsWrapperArticle, .tagsWrapperPosts{
   display: flex;
   justify-content: space-between;
 
@@ -55,4 +55,8 @@
     margin-top: auto;
     text-align: right;
   }
+}
+
+.tagsWrapperPosts{
+  margin-top: 4rem;
 }
