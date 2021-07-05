@@ -3,17 +3,24 @@
 
 .tagsWrapperArticle, .tagsWrapperPosts{
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
 
   .tags{
     margin-top: -2rem;
   }
+  .link {
+    font-size: 1.4rem;
+    color: $blue;
+    @include link ()
+  } 
   .date{
     @include dotTags(#C4C4C4);
   }
   .date, .caregoty, .datePublic{
     @include tags($Loto);
   }
+  
   .action,.actionShare{
     @include tags($Roboto);
     color: #ffff;

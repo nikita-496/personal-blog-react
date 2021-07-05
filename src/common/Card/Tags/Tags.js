@@ -5,8 +5,6 @@ import styles from "../../scss-blocks/Card/Tags.module.scss"
 
 
 export default function Tags (props) {
-  let date = "1.07.2021" 
- 
   return (
     <>
        {
@@ -17,11 +15,13 @@ export default function Tags (props) {
       </div>
 
       : (props.tagsName)  ?  <div className={styles.tagsWrapperPosts}>
-      <div className={styles.tags}>
-          <time className={styles.date} dateTime="2021-07-01">{date}</time>
-          <span className={styles.caregoty}>{props.tagsName}</span>
+        <div className={styles.tags}>
+            <time className={styles.date} dateTime="2021-07-01">{props.date}</time>
+            <span className={styles.caregoty}>{props.tagsName}</span>
         </div>
-           {props.children}
+        <div>
+          <a href="/" className={styles.link}>{props.nameLink}</a>
+        </div>
         </div>
       : (props.workTags) ? <div className={styles.wrapper}>
             <ul className={styles.workTags}>
@@ -34,7 +34,7 @@ export default function Tags (props) {
             </div>
             </div>
       :  <div className={styles.tagsWrapper}> 
-        <time className={styles.datePublic} dateTime="2021-07-01">{date}</time>
+        <time className={styles.datePublic} dateTime="2021-07-01">{props.date}</time>
       </div>
       }
    </>
