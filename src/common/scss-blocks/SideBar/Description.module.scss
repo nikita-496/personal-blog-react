@@ -11,9 +11,10 @@
 }
 
 .subTitleArticle, .subTitleNotes {
-  @include descriptions($gray, 1.4rem, 300, left)
+  @include descriptions($gray, 1.4rem, 300, left);
 }
 
 .about{
   @include descriptions($gray, 1.4rem, 300, center) 
 }
+
