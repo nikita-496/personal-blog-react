@@ -25,7 +25,7 @@ function App(props) {
         <Header className={styles.header}/>
         <main className={styles.content}>
             <div className={styles.container}>
-            <Route path="/Home" render={() => <Home posts={props.posts}/>}/>
+            <Route path="/Home" render={() => <Home posts={props.state.home}/>}/>
             <Route path="/TextPage" render={() => <TextPage />}/>
             <Route path="/Notes" render={() => <Notes />}/>
             <Route path="/Profile" render={() => <Profile />}/>
