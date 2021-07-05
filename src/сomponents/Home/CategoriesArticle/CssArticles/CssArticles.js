@@ -5,7 +5,7 @@ import styles from "../../../../scss-blocks/Home/CategoriesArticle/CardArticle.m
 export default function CssArticles (props) {
   return (
     <>
-    <img className={styles.cssCard} src={props.src}></img>
+    <img className={styles.cssCard} src={props.src} alt="CssArticles"></img>
     <p style={{color:"blue"}} >CssArticles</p>
   </>
   )
