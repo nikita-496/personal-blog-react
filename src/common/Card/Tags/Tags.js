@@ -5,7 +5,7 @@ import styles from "../../scss-blocks/Card/Tags.module.scss"
 
 
 export default function Tags (props) {
-  debugger
+  
   return (
     <>
        {
