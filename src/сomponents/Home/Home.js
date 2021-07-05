@@ -3,12 +3,12 @@ import CategoriesArticles from "./CategoriesArticle/CategoriesArticles"
 import Notes from "./Notes/Notes"
 import Posts from "./Posts/Posts"
 
-export default function Home () {
+export default function Home (props) {
   return(
     <div>
       <CategoriesArticles />
       <Notes />
-      <Posts />
+      <Posts posts={props.posts}/>
     </div>
   )
 }

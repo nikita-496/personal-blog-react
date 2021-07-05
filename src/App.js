@@ -17,7 +17,7 @@ import Works from "./сomponents/Works/Works";
 
 
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className={styles.wrapper}>
@@ -25,15 +25,15 @@ function App() {
         <Header className={styles.header}/>
         <main className={styles.content}>
             <div className={styles.container}>
-            <Route path="/Home" component={Home}/>
-            <Route path="/TextPage" component={TextPage}/>
-            <Route path="/Notes" component={Notes}/>
-            <Route path="/Profile" component={Profile}/>
-            <Route path="/SearchResult" component={SearchResult}/>
-            <Route path="/Works" component={Works}/>
-            <Route path="/Auth" component={Auth}/>
-            <Route path="/SignUp" component={SignUp}/>
-            <Route path="/Reset" component={Reset}/>
+            <Route path="/Home" render={() => <Home posts={props.posts}/>}/>
+            <Route path="/TextPage" render={() => <TextPage />}/>
+            <Route path="/Notes" render={() => <Notes />}/>
+            <Route path="/Profile" render={() => <Profile />}/>
+            <Route path="/SearchResult" render={() => <SearchResult />}/>
+            <Route path="/Works" render={() => <Works />}/>
+            <Route path="/Auth" render={() => <Auth />}/>
+            <Route path="/SignUp" render={() => <SignUp />}/>
+            <Route path="/Reset" render={() => <Reset />}/>
             </div>
         </main>
       </div>
