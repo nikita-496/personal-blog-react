@@ -9,7 +9,7 @@ import styles from "../../../../scss-blocks/Home/Post/Post.module.scss"
 
 
 export default function Post (props) {
- debugger
+ 
   return(
     <div className={styles.wrapper}>
       <Card>
