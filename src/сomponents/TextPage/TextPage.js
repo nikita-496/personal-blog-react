@@ -1,10 +1,11 @@
 import React from "react"
-import Article from "./Article/Article"
+import Articles from "./Articles/Articles"
 
-export default function TextPage () {
+
+export default function TextPage (props) {
   return(
     <div>
-      <Article />
+      <Articles text={props.article}/>
     </div>
   )
 }
