@@ -4,7 +4,7 @@ import styles from "../../../../scss-blocks/Home/CategoriesArticle/CardArticle.m
 export default function JavaScriptArticles (props) {
   return(
     <>
-     <img className={styles} src={props.src}></img>
+     <img className={styles} src={props.src} alt="JavaScriptArticles"></img>
     <p style={{color:"gold"}}>JavaScriptArticles</p>
   </>
   )

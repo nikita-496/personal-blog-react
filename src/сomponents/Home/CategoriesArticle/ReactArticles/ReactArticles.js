@@ -4,7 +4,7 @@ import styles from "../../../../scss-blocks/Home/CategoriesArticle/CardArticle.m
 export default function ReactArticles (props) {
   return(
     <>
-     <img className={styles} src={props.src}></img>
+     <img className={styles} src={props.src} alt="ReactArticles"></img>
     <p style={{color:"pink"}}>React</p>
   </>
   )  

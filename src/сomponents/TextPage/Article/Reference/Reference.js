@@ -9,14 +9,14 @@ export default function Reference () {
         <div className={styles.left}>
           <li className={styles.listItem}>
             <h4>
-              <a>Как я сходил на FrontEnd Conf 2021</a>
+              <a href="/">Как я сходил на FrontEnd Conf 2021</a>
             </h4>
           <Tags />
           </li>
 
           <li className={styles.listItem}>
             <h4> 
-              <a>Купил новый ноутбук за 150 000 руб</a>
+              <a  href="/">Купил новый ноутбук за 150 000 руб</a>
             </h4>
           <Tags />
           </li>
@@ -25,14 +25,14 @@ export default function Reference () {
         <div className={styles.right}>
           <li className={styles.listItem}>
             <h4>
-              <a>Как писать код быстро и безболезненно? Как писать код быстро и безболезненно?</a>
+              <a  href="/">Как писать код быстро и безболезненно? Как писать код быстро и безболезненно?</a>
           </h4>
         <Tags />
         </li>
 
         <li className={styles.listItem}>
           <h4>
-            <a>Купил новый ноутбук за 150 000 руб</a>
+            <a  href="/">Купил новый ноутбук за 150 000 руб</a>
           </h4>
         <Tags />
         </li>

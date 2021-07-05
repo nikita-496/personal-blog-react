@@ -3,26 +3,16 @@ import share from "../../../img/text-page/share.svg"
 import Button from "../../Button/Button"
 import styles from "../../scss-blocks/Card/Tags.module.scss"
 
-/*function ListTags (props) {
-  return(
-    <li>
-      {props.value}
-    </li>
-  )
-}*/
 
 export default function Tags (props) {
   let date = "1.07.2021" 
-  /*const listTags = props.workTags.map(tag => {
-    <ListTags key={tag} value={tag} /> 
-  })*/
-
+ 
   return (
     <>
        {
       (props.headerTags) ?  <div className={styles.tagsWrapper}>
       <a href="/" className={styles.action}> вернуться назад</a>
-      <a href="/" className={styles.action}> поделиться <img src={share}/>
+      <a href="/" className={styles.action}> поделиться <img src={share} alt="share"/>
       </a>
       </div>
 
