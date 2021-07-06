@@ -15,6 +15,7 @@ import SignUp from "./сomponents/SignUp/SignUp";
 import Works from "./сomponents/Works/Works";
 
 function App(props) {
+  console.log(props.store.getState())
   return (
     <BrowserRouter>
       <div className={styles.wrapper}>
@@ -22,7 +23,7 @@ function App(props) {
         <Header className={styles.header}/>
         <main className={styles.content}>
             <div className={styles.container}>
-            <Route path="/Home" render={() => <Home home={props.state.home} dispatch={props.dispatch}/>}/>
+            <Route path="/Home" render={() => <Home state={props.state} dispatch={props.dispatch}/>}/>
             <Route path="/TextPage" render={() => <TextPage article={props.state.textPage}/>}/>
             <Route path="/Notes" render={() => <Notes />}/>
             <Route path="/Profile" render={() => <Profile />}/>

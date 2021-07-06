@@ -1,7 +1,12 @@
 const UPDATE_NOTES_TEXT = "UPDATE-NOTES-TEXT"
 const ADD_NOTES = "ADD-NOTES"
 
-let notesReducer = (state, action) => {
+let initialState = {
+    notes : [],
+    textNotes: ""
+  }
+
+const notesReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_NOTES_TEXT: 
     state.textNotes = action.newTextNotes
