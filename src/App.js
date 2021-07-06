@@ -11,7 +11,7 @@ import styles from "./App.module.scss";
 import Auth from "./сomponents/Auth/Auth";
 import Notes from "./сomponents/Notes/Notes";
 import Reset from "./сomponents/Reset/Reset";
-import SandBox from "./сomponents/SandBox/SandBox";
+import SandBoxContainer from "./сomponents/SandBox/SandBoxContainer";
 import SignUp from "./сomponents/SignUp/SignUp";
 import Works from "./сomponents/Works/Works";
 
@@ -24,10 +24,10 @@ function App(props) {
         <Header className={styles.header}/>
         <main className={styles.content}>
             <div className={styles.container}>
-            <Route path="/Home" render={() => <Home state={props.state} dispatch={props.dispatch}/>}/>
+            <Route path="/Home" render={() => <Home store={props.store} />}/>
             <Route path="/TextPage" render={() => <TextPage article={props.state.textPage}/>}/>
             <Route path="/Notes" render={() => <Notes state={props.state} dispatch={props.dispatch}/>}/>
-            <Route path="/SandBox" render={() => <SandBox sandBox={props.state.sandBox} dispatch={props.dispatch}/>}/>
+            <Route path="/SandBox" render={() => <SandBoxContainer store={props.store}/>} />
             <Route path="/Profile" render={() => <Profile />}/>
             <Route path="/SearchResult" render={() => <SearchResult />}/>
             <Route path="/Works" render={() => <Works />}/>

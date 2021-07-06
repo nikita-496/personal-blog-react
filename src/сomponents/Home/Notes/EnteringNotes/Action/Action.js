@@ -1,11 +1,10 @@
 import React from "react"
 import send from "../../../../../img/notes/send.svg"
-import { addNotesTextActionCreator } from "../../../../../redux/notes-reducer.js"
 import styles from "../../../../../scss-blocks/Home/Notes/Action.module.scss"
 
 export default function Action (props) {
-  function handleNotes () {
-    props.dispatch(addNotesTextActionCreator())
+  function onAddNotes () {
+    props.handleAddNotes()
   }
   return(
     <div className={styles.formActions}>
@@ -13,7 +12,7 @@ export default function Action (props) {
         <input type="file"/>
       </label>
       
-      <button className={styles.addPostSend} onClick={handleNotes}>
+      <button className={styles.addPostSend} onClick={onAddNotes}>
           <img src={send} alt="Отправить"/>
       </button>
     </div>
