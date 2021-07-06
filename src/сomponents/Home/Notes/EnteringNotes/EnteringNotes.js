@@ -1,12 +1,12 @@
 import React from "react"
-import { udDateNotesTextActionCreator } from "../../../../redux/notes-reducer.js"
+import { updateNotesTextActionCreator } from "../../../../redux/notes-reducer.js"
 import style from "../../../../scss-blocks/Home/Notes/EnteringNotes.module.scss"
 import Action from "./Action/Action"
 
 export default function EnteringNotes (props) {
   
   function handleTextNotes (e) {
-    props.dispatch(udDateNotesTextActionCreator(e.target.value))
+    props.dispatch(updateNotesTextActionCreator(e.target.value))
   }
   return(
     <div className={style.wrapper}>

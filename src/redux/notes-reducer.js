@@ -24,8 +24,8 @@ const notesReducer = (state = initialState, action) => {
   }
 }
 
-export const udDateNotesTextActionCreator = (text) => ({
-  type:UPDATE_NOTES_TEXT, 
+export const updateNotesTextActionCreator = (text) => ({
+  type: UPDATE_NOTES_TEXT, 
   newTextNotes: text
 })
 export const addNotesTextActionCreator = () => ({type:ADD_NOTES})
