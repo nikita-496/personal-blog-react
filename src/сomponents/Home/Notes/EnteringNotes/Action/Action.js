@@ -4,7 +4,7 @@ import styles from "../../../../../scss-blocks/Home/Notes/Action.module.scss"
 
 export default function Action (props) {
   function handleNotes () {
-    props.addNotes()
+    props.dispatch({type: "ADD-NOTES"})
   }
   return(
     <div className={styles.formActions}>

@@ -19,26 +19,27 @@ export let store = {
     }
   },
   getState() {
-    debugger
     return this._state
   },
   _callSubscribe () {
       console.log("state changed")
     },
-  updateNotesText(textNotes) {
-      debugger
-      this._state.home.textNotes = textNotes
-      this._callSubscribe()
-  },
-  addNotes() {
-    let newNotes = {
-      id: Date.now(),
-      text: this._state.home.textNotes
-    }
-    this._state.home.notes.push(newNotes)
-    this._state.home.textNotes = ""
-    this._callSubscribe()
-  },
+  disaptch(action) {
+    
+    if (action.type === "UPDATE-NOTES-TEXT") {
+        this._state.home.textNotes = action.newTextNotes
+        this._callSubscribe()
+    }else if (action.type === "ADD-NOTES") {
+        
+        let newNotes = {
+          id: Date.now(),
+          text: this._state.home.textNotes
+        }
+        this._state.home.notes.push(newNotes)
+        this._state.home.textNotes = ""
+        this._callSubscribe()
+      }
+    },
   subscribe(observer) {
     this._callSubscribe = observer  // observer
   }
