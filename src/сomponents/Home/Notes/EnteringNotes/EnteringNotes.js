@@ -1,5 +1,5 @@
 import React from "react"
-import { udDateNotesTextActionCreator } from "../../../../redux/store"
+import { udDateNotesTextActionCreator } from "../../../../redux/notes-reducer.js"
 import style from "../../../../scss-blocks/Home/Notes/EnteringNotes.module.scss"
 import Action from "./Action/Action"
 

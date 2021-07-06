@@ -8,7 +8,7 @@ export default function Home (props) {
     <div>
       <CategoriesArticles />
       <Notes dispatch={props.dispatch} textNotes={props.home.textNotes}/>
-      <Posts posts={props.home}/>
+      <Posts home={props.home}/>
     </div>
   )
 }

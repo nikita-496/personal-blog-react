@@ -1,6 +1,6 @@
 import React from "react"
 import send from "../../../../../img/notes/send.svg"
-import { addNotesTextActionCreator } from "../../../../../redux/store"
+import { addNotesTextActionCreator } from "../../../../../redux/notes-reducer.js"
 import styles from "../../../../../scss-blocks/Home/Notes/Action.module.scss"
 
 export default function Action (props) {
