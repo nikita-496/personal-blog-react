@@ -1,14 +1,22 @@
-import React from "react"
+import { connect } from "react-redux"
 import { addNotesTextActionCreator, updateNotesTextActionCreator } from "../../../../redux/notes-reducer.js"
 import EnteringNotes from "./EnteringNotes.js"
 
-export default function EnteringNotesContainer (props) {
-  function onAddNotes () {
-    props.store.dispatch(addNotesTextActionCreator())
+let mapStateToProps = (state) => {
+  return {
+    textNotes: state.notesComponent.textNotes
   }
-  function onTextNotes (text) {
-    props.store.dispatch(updateNotesTextActionCreator(text))
+}
+let mapDipsatchToProps = (dispatch) => {
+  return {
+    handleTextNotes: (text) => {
+      dispatch(updateNotesTextActionCreator(text))
+    },
+    handleAddNotes: () => {
+      dispatch(addNotesTextActionCreator())
+    }
   }
-  return(<EnteringNotes handleTextNotes={onTextNotes} handleAddNotes={onAddNotes} textNotes={props.state.notesComponent.textNotes}/>)
 }
 
+const EnteringNotesContainer = connect (mapStateToProps, mapDipsatchToProps)(EnteringNotes)
+export default EnteringNotesContainer
