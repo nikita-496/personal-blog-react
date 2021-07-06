@@ -3,6 +3,7 @@ import srcText from "../img/text-page/code.jpg";
 import articleReducer from "./article-reducer";
 import notesReducer from "./notes-reducer";
 import postsReducer from "./posts-reducer";
+import sandboxReducer from "./sandbox-reducer";
 
 export let store = {
   _state: {
@@ -21,7 +22,12 @@ export let store = {
         id: 1, title: "Как я сходил на FrontEnd Conf 2021", paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.", img: srcText,publicDate: "1.07.2021", category: "создание сайтов"
         }
       ]
+    },
+    sandBox : {
+      article: [],
+      newArticleBody: ""
     }
+
   },
   getState() {
     return this._state
@@ -33,6 +39,7 @@ export let store = {
     this._state.notesComponent = notesReducer(this._state.notesComponent,action)
     this._state.postsComponent = postsReducer(this._state.postsComponent,action)
     this._state.textPage = articleReducer(this._state.textPage,action)
+    this._state.sandBox = sandboxReducer(this._state.sandBox,action)
     this._callSubscribe(this._state)
     }, 
   subscribe(observer) {

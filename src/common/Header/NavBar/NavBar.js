@@ -11,6 +11,7 @@ export default function NavBar () {
       <NavLink className={styles.nav} to="/Home">Главная</NavLink>
       <NavLink className={styles.nav} to="/TextPage">Статьи</NavLink>
       <NavLink className={styles.nav} to="/Notes">Заметки</NavLink>
+      <NavLink className={styles.nav} to="/SandBox"></NavLink>
       <NavLink className={styles.nav} to="/SearchResult"></NavLink>
       <NavLink className={styles.nav} to="/Works"></NavLink>
       <NavLink className={styles.nav} to="/Auth"></NavLink>
