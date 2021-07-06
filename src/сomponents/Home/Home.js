@@ -4,12 +4,12 @@ import Notes from "./Notes/Notes"
 import Posts from "./Posts/Posts"
 
 export default function Home (props) {
-
+  let state = props.store.getState()
   return(
     <div>
       <CategoriesArticles />
-      <Notes dispatch={props.dispatch} textNotes={props.state.notesComponent.textNotes}/>
-      <Posts posts={props.state.postsComponent.posts}/>
+      <Notes store={props.store} state={state}/>
+      <Posts posts={state.postsComponent.posts}/>
     </div>
   )
 }

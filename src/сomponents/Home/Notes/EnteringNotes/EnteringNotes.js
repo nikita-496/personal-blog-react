@@ -1,18 +1,16 @@
 import React from "react"
-import { updateNotesTextActionCreator } from "../../../../redux/notes-reducer.js"
 import style from "../../../../scss-blocks/Home/Notes/EnteringNotes.module.scss"
 import Action from "./Action/Action"
 
 export default function EnteringNotes (props) {
-  
-  function handleTextNotes (e) {
-    props.dispatch(updateNotesTextActionCreator(e.target.value))
+  function onTextNotes (e) {
+    props.handleTextNotes(e.target.value)
   }
   return(
     <div className={style.wrapper}>
       <div className={style.addPost} >
-        <textarea placeholder="Написать заметку" value={props.textNotes} onChange={handleTextNotes}/>
-        <Action dispatch={props.dispatch} />
+        <textarea placeholder="Написать заметку" value={props.textNotes} onChange={onTextNotes}/>
+        <Action handleAddNotes={props.handleAddNotes} />
       </div>
     </div>
   )
