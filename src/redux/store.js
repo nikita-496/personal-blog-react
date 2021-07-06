@@ -1,6 +1,9 @@
 import srcPost from "../img/post/Conference.jpg";
 import srcText from "../img/text-page/code.jpg";
 
+const UPDATE_NOTES_TEXT = "UPDATE-NOTES-TEXT"
+const ADD_NOTES = "ADD-NOTES"
+
 export let store = {
   _state: {
     home: {
@@ -26,10 +29,10 @@ export let store = {
     },
   disaptch(action) {
     
-    if (action.type === "UPDATE-NOTES-TEXT") {
+    if (action.type === UPDATE_NOTES_TEXT) {
         this._state.home.textNotes = action.newTextNotes
         this._callSubscribe()
-    }else if (action.type === "ADD-NOTES") {
+    }else if (action.type === ADD_NOTES) {
         
         let newNotes = {
           id: Date.now(),
@@ -39,10 +42,16 @@ export let store = {
         this._state.home.textNotes = ""
         this._callSubscribe()
       }
-    },
+    }, 
   subscribe(observer) {
     this._callSubscribe = observer  // observer
   }
 }
+
+export const udDateNotesTextActionCreator = (text) => ({
+  type:UPDATE_NOTES_TEXT, 
+  newTextNotes: text
+})
+export const addNotesTextActionCreator = () => ({type:ADD_NOTES})
 
 window.store = store
