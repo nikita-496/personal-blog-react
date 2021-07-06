@@ -1,19 +1,23 @@
-import React from "react";
+import { connect } from "react-redux";
 import { createArticleActionCreator, updateArticleBodyActionCreator } from "../../redux/sandbox-reducer";
 import SandBox from "./SandBox";
 
-function SandBoxContainer (props) {
-  let state = props.store.getState()
-
-  function handleArticleBody (text) {
-    props.store.dispatch(updateArticleBodyActionCreator(text))
+let mapStateToProps = (state) => {
+  return {
+    newArticleBody: state.sandBox.newArticleBody
   }
-
-  let articlePublication = () => {
-    props.store.dispatch(createArticleActionCreator())
-  }
-  
-  return (<SandBox newArticleBody={state.sandBox.newArticleBody} onArticleBody={handleArticleBody} onPublickCLick={articlePublication}/>)
 }
 
+let mapDipsatchToProps = (dispatch) => {
+  return {
+    handleArticleBody: (text) => {
+      dispatch(updateArticleBodyActionCreator(text))
+  },
+    articlePublication: () => {
+      dispatch(createArticleActionCreator())
+    }
+  }
+}
+
+const SandBoxContainer = connect(mapStateToProps, mapDipsatchToProps)(SandBox)
 export default SandBoxContainer
