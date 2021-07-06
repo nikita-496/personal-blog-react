@@ -6,7 +6,7 @@ import ViewNotes from "../Notes/ViewNotes/ViewNotes"
 export default function Notes (props) {
   return(
     <div className={styles.wrapper}>
-      <EnteringNotes addNotes={props.addNotes} updateNotesText={props.updateNotesText} notes={props.notes}/>
+      <EnteringNotes dispatch={props.dispatch} textNotes={props.textNotes}/>
       <ViewNotes />
     </div>
   )

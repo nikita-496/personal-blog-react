@@ -7,10 +7,10 @@ import reportWebVitals from './reportWebVitals';
 
 
 //rerenderEntireTree = setState
-function rerenderEntireTree (state) {
+function rerenderEntireTree () {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={store.getState()} store={store}/>
+      <App state={store.getState()} dispatch={store.disaptch.bind(store)}/>
     </React.StrictMode>,
     document.getElementById('root')
   );

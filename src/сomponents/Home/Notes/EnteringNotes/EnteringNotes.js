@@ -6,14 +6,13 @@ import Action from "./Action/Action"
 export default function EnteringNotes (props) {
   
   function handleTextNotes (e) {
-    debugger
-    props.updateNotesText(e.target.value)
+    props.dispatch({type: "UPDATE-NOTES-TEXT", newTextNotes: e.target.value})
   }
   return(
     <div className={style.wrapper}>
       <div className={style.addPost} >
-        <textarea placeholder="Написать заметку" value={props.notes.textNotes} onChange={handleTextNotes}/>
-        <Action addNotes={props.addNotes} value={props.notes.textNotes}/>
+        <textarea placeholder="Написать заметку" value={props.textNotes} onChange={handleTextNotes}/>
+        <Action dispatch={props.dispatch} />
       </div>
     </div>
   )
