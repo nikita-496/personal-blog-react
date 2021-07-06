@@ -1,5 +1,6 @@
 import srcPost from "../img/post/Conference.jpg";
 import srcText from "../img/text-page/code.jpg";
+import notesReducer from "./notes-reducer";
 
 export let store = {
   _state: {
@@ -25,24 +26,13 @@ export let store = {
       console.log("state changed")
     },
   disaptch(action) {
-    
-    if (action.type === "UPDATE-NOTES-TEXT") {
-        this._state.home.textNotes = action.newTextNotes
-        this._callSubscribe()
-    }else if (action.type === "ADD-NOTES") {
-        
-        let newNotes = {
-          id: Date.now(),
-          text: this._state.home.textNotes
-        }
-        this._state.home.notes.push(newNotes)
-        this._state.home.textNotes = ""
-        this._callSubscribe()
-      }
-    },
+    this._state.home = notesReducer(this._state.home,action)
+    this._callSubscribe(this._state)
+    }, 
   subscribe(observer) {
     this._callSubscribe = observer  // observer
   }
 }
+
 
 window.store = store
