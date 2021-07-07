@@ -16,6 +16,7 @@ import SignUp from "./сomponents/SignUp/SignUp";
 import Works from "./сomponents/Works/Works";
 
 function App(props) {
+  window.store = props.store
   return (
     <BrowserRouter>
       <div className={styles.wrapper}>
