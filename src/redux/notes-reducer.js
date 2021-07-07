@@ -8,17 +8,25 @@ let initialState = {
 
 const notesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_NOTES_TEXT: 
-    state.textNotes = action.newTextNotes
-      return state
-    case ADD_NOTES:
+
+    case UPDATE_NOTES_TEXT: {
+      let stateCopy = {...state}
+      stateCopy.textNotes = action.newTextNotes
+      return stateCopy
+    }
+
+    case ADD_NOTES: {
       let newNotes = {
         id: Date.now(),
         text: state.textNotes
       }
-      state.notes.push(newNotes)
-      state.textNotes = ""
-      return state
+      let stateCopy = {...state}
+      stateCopy.notes = [...state.notes]
+      stateCopy.notes.push(newNotes)
+      stateCopy.textNotes = ""
+      return stateCopy
+    }
+
     default: 
       return state  
   }

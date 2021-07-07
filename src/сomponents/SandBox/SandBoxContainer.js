@@ -4,7 +4,8 @@ import SandBox from "./SandBox";
 
 let mapStateToProps = (state) => {
   return {
-    newArticleBody: state.sandBox.newArticleBody
+    newArticleBody: state.sandBox.newArticleBody,
+    articles: state.sandBox.articles
   }
 }
 

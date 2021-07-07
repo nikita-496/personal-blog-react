@@ -2,23 +2,31 @@ const UPDATE_ARTICLE_BODY = "UPDATE-ARTICLE-BODY"
 const CREATE_ARTICLE = "CREATE-ARTICLE"
 
 let initialState = {
-    article: [],
+    articles: [],
     newArticleBody: ""
   }
 
 const sandboxReducer = (state = initialState, action) => {
     switch (action.type) {
-      case UPDATE_ARTICLE_BODY:
-        state.newArticleBody = action.newTextArticle
-        return state
-      case CREATE_ARTICLE: 
+
+      case UPDATE_ARTICLE_BODY: {
+        let stateCopy = {...state}
+        stateCopy.newArticleBody = action.newTextArticle
+        return stateCopy
+      }
+
+      case CREATE_ARTICLE: {
         let body = {
           id: Date.now(),
           text: state.newArticleBody
         }
-        state.article.push(body)
-        state.newArticleBody = ""
-        return state
+        let stateCopy = {...state}
+        stateCopy.articles = [...state.articles]
+        stateCopy.articles.push(body)
+        stateCopy.newArticleBody = ""
+        return stateCopy
+      }
+
       default: 
         return state
     }

@@ -3,9 +3,10 @@ import Articles from "./Articles/Articles"
 
 
 export default function TextPage (props) {
+  let state = props.store.getState()
   return(
     <div>
-      <Articles text={props.article}/>
+      <Articles arcticle={state.textPage.arcticle}/>
     </div>
   )
 }
