@@ -4,7 +4,8 @@ import EnteringNotes from "./EnteringNotes.js"
 
 let mapStateToProps = (state) => {
   return {
-    textNotes: state.notesComponent.textNotes
+    textNotes: state.notesComponent.textNotes,
+    notes: state.notesComponent.notes
   }
 }
 let mapDipsatchToProps = (dispatch) => {
