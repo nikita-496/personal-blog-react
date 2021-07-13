@@ -18,6 +18,7 @@ module.exports = function(app,db){
       if (err) {
         res.send({"error": "An error has occurred"})
       }else{
+        console.log(req.body)
         res.send(result.ops[0])
       }
     })
@@ -26,7 +27,7 @@ module.exports = function(app,db){
   app.delete("/articles/:id", (req, res) => {
     const id = req.params.id
     const details = {"_id": new ObjectID(id)}
-    db.collection("articles").remove(details, (err, item) => {
+    db.collection("articles").deleteOne(details, (err, item) => {
       if (err) {
         res.send({"error": "An error has occurred"})
       }else {
