@@ -3,6 +3,7 @@ import Button from "../../common/Button/Button";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
 
 function SandBox (props) {
+  
   const onArticleBody = (e) => {
     props.handleArticleBody(e.target.value)
   }

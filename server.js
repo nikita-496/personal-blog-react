@@ -1,16 +1,19 @@
 const express = require("express")
 const bodyParser = require("body-parser")
+const pino = require("express-pino-logger")()
+
 const db = require("./db.js")
-const link = require("./config/default.json")
+const link = require("./config/link")
+
+
 const app = express()
-
-
-const PORT = 5000
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(pino)
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', function(req, res) {
-	res.send('Hello API');
+  const name = req.query.name || "API"
+	res.setHeader("Content-Type", "application/json")
+  res.send(JSON.stringify({greeting: `Hello ${name}!`}))
 });
 
 
@@ -21,6 +24,8 @@ app.get('/', function(req, res) {
       console.log("Server has been started on " + PORT);
     })
   })
+
+  const PORT = process.env.PORT || 5000
 
   
 
