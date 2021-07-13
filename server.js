@@ -11,6 +11,7 @@ const app = express()
 //const imgText = require("./client/src/img/text-page/code.jpg")
 
 const PORT = 5000
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
   MongoClient.connect(db.url, 
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({extended: true}))
     useNewUrlParser: true
  },
   function (err, client) {
-    var db = client.db("articles")
+    var db = client.db("personal-blog")
       if (err) {
       return console.log(err)
       }
