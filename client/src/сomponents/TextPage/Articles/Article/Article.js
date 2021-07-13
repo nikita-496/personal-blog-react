@@ -8,6 +8,7 @@ import styles from "../../../../scss-blocks/TextPage/TextPage.module.scss"
 import Comments from "./Comments/Comments"
 import Reference from "./Reference/Reference"
 
+
 export default function Article (props) {
   return(
     <Card>
