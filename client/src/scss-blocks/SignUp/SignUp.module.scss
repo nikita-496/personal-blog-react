@@ -1,0 +1,32 @@
+@import "../../common/scss-blocks/_mixins/mixins.scss";
+@import "../../common/scss-blocks/_vars/vars.scss";
+
+.title {
+  @include title();
+  text-align: center;
+}
+
+.profileWrapper{
+  div{
+    max-width: 28rem;
+    margin: 0 auto;
+  }
+}
+
+.authFooter{
+  text-align: center;
+}
+ul{
+  display: flex;
+  justify-content: center;
+  li{
+    margin: 0 .5rem;
+  }
+  li a {
+    color: $white;
+    &:hover{
+      text-decoration: underline;
+    }
+    
+  }
+}

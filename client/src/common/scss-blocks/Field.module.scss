@@ -1,0 +1,29 @@
+@import "../scss-blocks/_vars/vars.scss";
+@import "../scss-blocks/_mixins/mixins.scss";
+
+.form{
+  .formGroup{
+    position: relative;
+    .formControl{
+      @include field();
+
+      &:focus + .formLine{
+        width:100%;
+      }
+    }
+    .formLine{
+      width: 0;
+      height: 1px;
+      background-color: $effect;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+
+      transition: width .2s linear;
+
+   }
+  }
+  
+}

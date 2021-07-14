@@ -1,0 +1,139 @@
+@import "../_vars/vars.scss";
+/* common */
+@mixin boxshadow ($x, $y, $blir, $spread, $c, $t) {
+  box-shadow: $x $y $blir $spread rgba($c, $t);
+}
+
+
+@mixin descriptions ($c, $f, $fw, $ta) {
+  color: $c;
+
+  font-size: $f;
+  font-weight: $f;
+  font-family: $Roboto;
+
+  text-align: $ta;
+} 
+
+/* btn */
+@mixin btn ($br, $pT, $pR) {
+  display: inline-block;
+  vertical-align: top;
+  padding: $pT  $pR;
+
+  background: $main-color;
+  border: none;
+  cursor: pointer;
+  border-radius: $br;
+
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: inherit;
+
+  line-height: 1.1;
+
+  transition: background-color .2s linear;
+}
+
+@mixin bxshad ($c) {
+  background-color: $c;
+  box-shadow: 0 4px 4px 0 rgba($c, .25);
+  &:hover{
+    background-color: darken($c, 5%) 
+  }
+}
+
+/* field enter text*/
+@mixin fieldEnter($bg, $fz) {
+  border:none;
+  outline: none;
+  background: $bg;
+  color:$white;
+
+  font-size: $fz;
+  font-family: inherit;
+}
+
+/* Action */
+@mixin tеmplAction ($c, $d) {
+  display: block;
+  width: 4.4rem;
+  height: 4.4rem;
+
+  border:none;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: background-color .2s linear;
+  &:hover {
+    background-color: darken($c,$d);
+  }
+}
+
+/* Card  */
+@mixin tags ($ff) {
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+      font-family: $ff;
+      font-weight: 400;
+      font-size: 1.2rem;
+      color:$tagColor;
+}
+
+@mixin dotTags ($c) {
+  &::after{
+    content: "";
+    display:inline-block;
+    width: 6px;
+    height: 6px;
+
+    margin: 0 1.5rem;
+    border-radius: 50%;
+    background-color: $c;
+  }
+}
+
+@mixin link () {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+@mixin titleH4 () {
+  font-size: 1.6rem;
+  color:$white
+}
+  
+
+@mixin field () {
+  display: block;
+  width: 100%;
+  height: 25px;
+  padding: .5rem 0;
+  
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba($white, .4);
+  border-radius: 0;
+  resize: none;
+  outline: none;
+
+  margin-bottom: 1.5rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  color:$white;
+
+  overflow: hidden;
+
+  &::placeholder{
+    color: rgba($white, .4)
+  }
+}
+
+/* Title */
+@mixin title {
+  font-family: $Roboto;
+  font-size: 2.1rem;
+  font-weight: 300;
+  color: rgba($white, .96);
+}

@@ -1,0 +1,69 @@
+@import "../_vars/vars.scss";
+@import "../_mixins/mixins.scss";
+
+.tagsWrapperArticle, .tagsWrapperPosts{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  .tags{
+    margin-top: -2rem;
+  }
+  .link {
+    font-size: 1.4rem;
+    color: $blue;
+    @include link ()
+  } 
+  .date{
+    @include dotTags(#C4C4C4);
+  }
+  .date, .caregoty, .datePublic{
+    @include tags($Loto);
+  }
+  
+  .action,.actionShare{
+    @include tags($Roboto);
+    color: #ffff;
+    opacity: .6;
+
+    @include link ();
+    &:hover {
+      opacity: .9;
+      color: $btnBlue;
+    }
+  }
+  .caregoty{
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  .workTags{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+    li{
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      padding: .4rem .9rem;
+  
+      background-color: $gold;
+      border-radius: 3px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+  }
+  .footer{
+    margin-top: auto;
+    text-align: right;
+  }
+}
+
+.tagsWrapperPosts{
+  margin-top: 4rem;
+}

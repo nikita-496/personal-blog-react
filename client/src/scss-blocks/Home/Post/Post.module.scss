@@ -1,0 +1,17 @@
+@import "../../../common/scss-blocks/_vars/vars.scss";
+@import "../../../common/scss-blocks/_mixins/mixins.scss";
+
+.wrapper{
+  margin-top: $marTop;
+  
+  .content{
+    padding: $padContentPost;
+
+    .link {
+      font-size: 1.4rem;
+      color: $blue;
+      @include link ()
+    } 
+
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../common/scss-blocks/_vars/vars.scss";
+@import "../../common/scss-blocks/_mixins/mixins.scss";
+
+.title {
+ @include title()
+}
+
+.work{
+  display: grid;
+
+  overflow: hidden;
+  .content{
+    grid-area: c;
+    margin: 0 2.5rem;
+  }
+
+  .workPrewiew{
+    grid-area: wP;
+  }
+  grid-template-columns: repaet(2,300px);
+  grid-template-rows: repaet(2,600);
+  grid-template-areas: 
+    "wP c"
+    "wP c";
+}
