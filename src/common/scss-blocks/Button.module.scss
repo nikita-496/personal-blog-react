@@ -1,8 +1,0 @@
-@import "../scss-blocks/_mixins/mixins.scss";
-@import "../scss-blocks/_vars/vars.scss";
-
-.link{
-  @include btn (5px, 0.66em, 1.25em);
-  color:$white;
-  @include bxshad($btnBlue);
-}

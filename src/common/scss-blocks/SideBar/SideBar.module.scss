@@ -1,8 +1,0 @@
-@import "../_vars/vars.scss";
-@import "../_mixins/mixins.scss";
-
-.sidebar {
-  grid-area: s;
-  background-color: $primary-color;
-  @include boxshadow(5px, 0, 15px, 0, #050505, .1);
-}

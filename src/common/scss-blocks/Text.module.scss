@@ -1,8 +1,0 @@
-@import "./_vars/vars.scss";
-@import "./_mixins/mixins.scss";
-
-
-.text{
-  margin-top: 6rem;
-  @include descriptions($white, 1.2rem, 600, center)
-}

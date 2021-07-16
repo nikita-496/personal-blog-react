@@ -30,7 +30,10 @@
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+<<<<<<< HEAD
     "express-pino-logger": "^6.0.0",
+=======
+>>>>>>> 9c591ab83eb18da72a414d54517dfd460786ebb7
     "mongodb": "^3.6.10"
   },
   "devDependencies": {
