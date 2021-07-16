@@ -7,6 +7,7 @@ const link = require("./config/link")
 
 
 const app = express()
+app.use(express.json())
 app.use(pino)
 app.use(bodyParser.urlencoded({extended: false}))
 

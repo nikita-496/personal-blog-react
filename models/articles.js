@@ -22,9 +22,11 @@ exports.create = function(article, callback) {
   })
 }
 
-exports.update = function(id, newData, callback) {
-  const details = {"_id": new ObjectID(id)}
-  db.get().collection("articles").updateOne(details, newData, (err, result) => {
+exports.update = function(id=req.params.id , newData, callback) {
+  db.get().collection("articles").update(
+    {"_id": new ObjectID(id)}, 
+    newData, 
+    function (err, result) {
     callback(err,result)
   })
 }
@@ -32,6 +34,6 @@ exports.update = function(id, newData, callback) {
 exports.delete = function (id, callback) {
   const details = {"_id": new ObjectID(id)}
   db.get().collection("articles").deleteOne(details, (err, result) => {
-   callback
+   callback (err, result)
   })
 }
