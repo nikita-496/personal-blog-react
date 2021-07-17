@@ -2,11 +2,12 @@ import React from "react";
 import styles from "../../../../scss-blocks/Home/CategoriesArticle/CardArticle.module.scss";
 
 
-export default function CssArticles (props) {
+export default function ItemCategory (props) {
   return (
     <>
+    <button className={styles.btn}>{props.category}
     <img className={styles.cssCard} src={props.src} alt="CssArticles"></img>
-    <p style={{color:"blue"}} >CssArticles</p>
+    </button>
   </>
   )
 }

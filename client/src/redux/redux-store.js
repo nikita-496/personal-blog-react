@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import arcticleReducer from "./article-reducer";
 import notesReducer from "./notes-reducer";
 import postReducer from "./posts-reducer";
@@ -8,11 +8,11 @@ let reducers = combineReducers({
   notesComponent: notesReducer,
   postsComponent: postReducer,
   textPage: arcticleReducer,
-  sandBox: sandboxReducer
+  sandBox: sandboxReducer,
 })
 
-let store = createStore(reducers)
-
-window.store = store
+ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+ const store = createStore(reducers, composeEnhancers(applyMiddleware()
+  ));
 
 export default store

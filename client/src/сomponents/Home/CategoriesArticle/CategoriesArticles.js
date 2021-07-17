@@ -1,19 +1,14 @@
 import React from "react";
-import css from "../../../img/categories-article/css(2).png";
-import js from "../../../img/categories-article/JS.png";
-import react from "../../../img/categories-article/react.png";
 import style from "../../../scss-blocks/Home/CategoriesArticle/CategoriesArticle.module.scss";
-import CssArticles from "./CssArticles/CssArticles";
-import JavaScriptArticles from "./JavaScriptArticles/JavaScriptArticles";
-import ReactArticles from "./ReactArticles/ReactArticles";
+import ItemCategory from "./ItemCategory/ItemCategory";
 
 
-export default function CategoriesArticles () {
+export default function CategoriesArticles (props) {
+  let categoryList = props.state.categoryData.map(c=>
+    <ItemCategory key={c.id} category={c.category}/>)
   return (
     <div className={style.wrapper}>
-    <CssArticles src={css}/>
-    <JavaScriptArticles src={js}/>
-    <ReactArticles src={react}/>
+    {categoryList}
   </div>
   )
 }

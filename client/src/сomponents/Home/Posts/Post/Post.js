@@ -23,14 +23,3 @@ export default function Post (props) {
   )
 }
 
-
-/*
-<div className={styles.footerPost}>
-            <div className={styles.tags}>
-              <time className={styles.date} dateTime="2021-07-01">{props.date}</time>
-              <span className={styles.caregoty}>{props.tagNames}</span>
-            </div>
-            <a href="/" className={styles.link}>{props.nameLink}</a>
-          </div>
-        </div>
-*/
