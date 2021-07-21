@@ -6,9 +6,9 @@ export default function Home (props) {
   let state = props.store.getState()
   return(
     <div>
-      <CategoriesArticles state={state.postsComponent}/>
-      <Posts state={state.postsComponent}/>
-      <Notes store={props.store} state={state}/>
+      <CategoriesArticles category={state.filters}/>
+      <Posts posts={state.posts}/>
+      {/*<Notes store={props.store} state={state}/>*/}
     </div>
   )
 }

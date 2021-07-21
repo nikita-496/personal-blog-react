@@ -4,7 +4,7 @@ import ItemCategory from "./ItemCategory/ItemCategory";
 
 
 export default function CategoriesArticles (props) {
-  let categoryList = props.state.categoryData.map(c=>
+  let categoryList = props.category.map(c=>
     <ItemCategory key={c.id} category={c.category}/>)
   return (
     <div className={style.wrapper}>
