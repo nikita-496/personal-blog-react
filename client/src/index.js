@@ -22,6 +22,7 @@ const unsubscribe = store.subscribe(() =>
 store.dispatch({type: "posts/postsFilter", payload: "javascript"})
 store.dispatch({type: "posts/postsFilter", payload: "react"})
 store.dispatch({type: "posts/postsFilter", payload: "css"})
+store.dispatch({type: "posts/postsFilter", payload: "другое"})
 
 store.dispatch({type: "posts/postsSelected", payload: 1})
 store.dispatch({type: "posts/postsSelected", payload: 1})
