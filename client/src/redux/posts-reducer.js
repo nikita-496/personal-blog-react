@@ -58,13 +58,13 @@ let initialState = {
 
 const postReducer = (state = initialState, action ) => {
   switch(action.type) {
-    case CSS : 
-       let stateCopy = {...state, 
+    /*case CSS : 
+        let stateCopy = {...state, 
        posts: state.posts.filter(p=>{
          if (p.category === action.postCategory) return {...p}
         })
        }
-       return stateCopy
+       return stateCopy*/
     case JS : 
     return {
       ...state,
