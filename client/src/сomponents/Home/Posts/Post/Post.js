@@ -5,20 +5,20 @@ import Description from "../../../../common/Description/Description"
 import Logo from "../../../../common/Logo/Logo"
 import styles from "../../../../scss-blocks/Home/Post/Post.module.scss"
 
-
-
-
 export default function Post (props) {
- 
+  const isSelected = props.selected
   return(
     <div className={styles.wrapper}>
-      <Card>
-      <div className={styles.content}>
-        <Logo src={props.src}/>
-        <Description text={props.text} titleArticle={props.titleArticle}/>
-        <Tags tagsName={props.tagsName} date={props.date} nameLink={props.nameLink}/>
-      </div>  
-      </Card> 
+      {isSelected 
+      ? <Card>
+          <div className={styles.content}>
+            <Logo src={props.src}/>
+            <Description text={props.text} titleArticle={props.titleArticle}/>
+            <Tags tagsName={props.tagsName} date={props.date} nameLink={props.nameLink}/>
+          </div>  
+      </Card>
+      : <> </>
+    } 
     </div>
   )
 }

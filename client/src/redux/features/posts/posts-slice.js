@@ -1,3 +1,6 @@
+const POSTS_FILTER = "posts/postsFilter"
+const POSTS_VIEW_ALL = "posts/postsViewAll"
+
 const initialState =  [
         {
             "_id": "60f10c430a513e1a5072dd5e",
@@ -48,7 +51,7 @@ const initialState =  [
    
 const postsReducer = (state = initialState, action) =>{
     switch(action.type) {
-        case "posts/postsFilter" : {
+        case POSTS_FILTER : {
             let stateCopy = state.map(s => {
                 if (s.category === action.payload) {
                     return Object.assign({}, s, {selected: true})
@@ -58,10 +61,19 @@ const postsReducer = (state = initialState, action) =>{
             })
             return stateCopy
         }
+        case POSTS_VIEW_ALL : {
+            let stateCopy = state.map(s => {
+                return Object.assign({}, s, {selected: true})
+            })
+            return stateCopy
+        }
        
         default: 
             return state
         }
     }
+
+export const viewSelectedPostsAC = (payload) => ({type: POSTS_FILTER, payload: payload})
+export const viewAllPostsAC = () => ({type: POSTS_VIEW_ALL})
 
 export default postsReducer
