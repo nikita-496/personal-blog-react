@@ -1,30 +1,23 @@
-import { connect } from "mongodb"
+import { connect } from "react-redux"
+import {viewAllPostsAC, viewSelectedPostsAC } from "../../../redux/features/posts/posts-slice"
 import Posts from "./Posts"
 
 let mapStateToProps = (state) => {
   return {
-    posts: state.postsComponent.posts
+    posts: state.posts
   }
 }
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    CSS: (postCategory) => {
-      dispatch(cssCategoryAC(postCategory))
+    viewSelectedPosts: (payload) => {
+      dispatch(viewSelectedPostsAC(payload))
     },
-    JS: (postCategory) => {
-      dispatch(jsCategoryAC(postCategory))
-    },
-    React: (postCategory) => {
-      dispatch(reactCategoryAC(postCategory))
-    },
-    Others: (postCategory) => {
-      dispatch(otherCategoryAC(postCategory))
-    },
-    SetPosts: (postCategory) => {
-      dispatch(setPostsAC(postCategory))
-    },
+    viewAllPosts : () => {
+      dispatch(viewAllPostsAC())
+    }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts)
+const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts)
+export default PostsContainer
