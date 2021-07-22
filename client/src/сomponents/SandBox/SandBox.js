@@ -15,7 +15,7 @@ function SandBox (props) {
   return (
       <div className={styles.wrapper}>
         <div className={styles.addPost} >
-          <textarea placeholder="Начать писать публикацию" value={props.newArticleBody} onChange={onArticleBody}/>
+          <textarea placeholder="Начать писать публикацию" value={props.createArticles.newArticleText} onChange={onArticleBody}/>
         </div>
        <Button text="готово к публикации" onClick={onPublickCLick}/>
     </div>
