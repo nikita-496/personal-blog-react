@@ -1,25 +1,66 @@
 import React from "react";
 import Button from "../../common/Button/Button";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
+import FormatOptions from "./FormatOptions";
+import TextOptions from "./TextOptions";
+class SandBox extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      editeMode: false,
+      options: false
+    }
+  }
 
-function SandBox (props) {
+  activateEditeMode = () => {
+    this.setState({
+      editeMode: true
+    })
+  }
   
-  const onArticleBody = (e) => {
-    props.handleArticleBody(e.target.value)
+  selectOption = () => {
+    this.setState({
+      options: !this.state.options
+    })
   }
 
-  const onPublickCLick = () => {
-    props.articlePublication()
+   onArticleBody = (e) => {
+    this.props.handleArticleBody(e.target.value)
   }
 
-  return (
+   onPublickCLick = () => {
+    this.props.articlePublication()
+    this.setState({
+      editeMode: false
+    })
+  }
+  render () {
+    return (
       <div className={styles.wrapper}>
-        <div className={styles.addPost} >
-          <textarea placeholder="Начать писать публикацию" value={props.createArticles.newArticleText} onChange={onArticleBody}/>
+        {!this.state.editeMode ?
+        <>
+         <div className={styles.addPost} >
+          <textarea placeholder="Начать писать публикацию" value={this.props.createArticles.newArticleText} onClick={this.activateEditeMode}/>
         </div>
-       <Button text="готово к публикации" onClick={onPublickCLick}/>
+      </>
+      : <>
+      <div className={styles.addPost}>
+          <textarea className={styles.editeTitleTextare} placeholder="Заголовок" />
+
+         <div className={styles.content}>
+          <TextOptions selectOption={this.selectOption} options={this.state.options}/>
+          <textarea className={styles.editeContentTextare}  value={this.props.createArticles.newArticleText} onChange={this.onArticleBody}/>
+         <FormatOptions />
+        </div>
+
+        </div>
+        <Button text="готово к публикации" onClick={this.onPublickCLick} />
+      </>
+        }
     </div>
   )
+  }
+  
 }
 
 export default SandBox

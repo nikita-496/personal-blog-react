@@ -24,4 +24,32 @@
       opacity: .9;
     }
   }
+
+  .editeTitleTextare{
+    display: block;
+    width: 87%;
+    &::placeholder{
+      color:$second-gray;
+      opacity: .5;
+      font-weight: 600;
+      font-size: 1.3em;
+    }
+  }
+  .content{
+    display: flex;
+    justify-content: space-between;
+    justify-self: start;
+    height: 30em;
+    .editeContentTextare{
+      display: block;
+      width: 87%;
+  
+      &::placeholder{
+        color:$second-gray;
+        opacity: .5;
+        font-weight: 600;
+        font-size: 1.3em;
+      }
+    }
+  }
 }
