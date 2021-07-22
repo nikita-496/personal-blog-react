@@ -1,0 +1,14 @@
+@import "../../common/scss-blocks/_vars/vars.scss";
+@import "../../common//scss-blocks/_mixins/mixins.scss";
+
+.svgBtn{
+    background: none;
+    border: none;
+    height: 0;
+    .iconDelete{
+        display: block;
+        width: 1.2em;
+        height: 1.2em;
+        fill: $tagColor;
+  }
+}

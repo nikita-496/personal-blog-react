@@ -1,0 +1,22 @@
+@import "../../common/scss-blocks/_vars/vars.scss";
+@import "../../common//scss-blocks/_mixins/mixins.scss";
+
+.svgBtn{
+    background: none;
+    border: none;
+    height: 0;
+    .iconMore {
+      display: block;
+      width: 1.2em;
+      height: 1.2em;
+      fill: $tagColor;
+      &:hover{ 
+        cursor: pointer;
+        fill: $effect
+      }
+    }
+  }
+  .select{
+    width: 2em;
+    height: 2em;
+  }
