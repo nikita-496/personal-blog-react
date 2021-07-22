@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/maket
+/src/example-addons
+/src/redux/features/filters
+/package-lock.json
