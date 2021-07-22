@@ -1,21 +1,20 @@
 import { connect } from "react-redux";
-import { createArticleActionCreator, updateArticleBodyActionCreator } from "../../redux/sandbox-reducer";
+import { articleAddedAC, updateArticleTextAC } from "../../redux/features/article-creation/articles-slice";
 import SandBox from "./SandBox";
 
 let mapStateToProps = (state) => {
   return {
-    newArticleBody: state.sandBox.newArticleBody,
-    articles: state.sandBox.articles
+    createArticles : state.createArticles
   }
 }
 
 let mapDipsatchToProps = (dispatch) => {
   return {
     handleArticleBody: (text) => {
-      dispatch(updateArticleBodyActionCreator(text))
+      dispatch(updateArticleTextAC(text))
   },
     articlePublication: () => {
-      dispatch(createArticleActionCreator())
+      dispatch(articleAddedAC())
     }
   }
 }

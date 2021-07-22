@@ -73,7 +73,7 @@ const postsReducer = (state = initialState, action) =>{
         }
     }
 
-export const viewSelectedPostsAC = (payload) => ({type: POSTS_FILTER, payload: payload})
+export const viewSelectedPostsAC = (payload) => ({type: POSTS_FILTER, payload})
 export const viewAllPostsAC = () => ({type: POSTS_VIEW_ALL})
 
 export default postsReducer

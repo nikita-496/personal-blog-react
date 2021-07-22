@@ -51,11 +51,9 @@ const state =  [
 test("length of the original array shouldn't changed", () => {
     // 1. test source data
     let action  = {type: "posts/postsFilter", payload: "css"}
-
     const stateLength = state.length
     // 2.action
     let result = postsReducer(state, action)
-
     //3. expectation
     expect (state.length).toBe(stateLength)
 })
@@ -64,15 +62,8 @@ test("length of the original array shouldn't changed", () => {
 test("the output state should not change the contents of the initial state", () => {
     // 1. test source data
     let action  = {type: "posts/postsFilter", payload: "css"}
-    /*const compare = (input,output) => {
-        for (let i = 0; i <= state.length; i++) {
-            output[i] = {...input[i]}
-        }
-        return input[0] === output[0]
-    }*/
     // 2.action
     let result = postsReducer(state, action)
-
     //3. expectation
     expect ((state[0] !== result[0])).toBe(true)
 })
@@ -82,7 +73,6 @@ test("the number of posts should not change", () => {
     let action  = {type: "posts/postsFilter", payload: "css"}
     // 2.action
     let result = postsReducer(state, action)
-
     //3. expectation
     expect (state.length === result.length).toBe(true)
 })

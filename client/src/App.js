@@ -25,9 +25,9 @@ function App(props) {
         <main className={styles.content}>
             <div className={styles.container}>
             <Route path="/Home" render={() => <Home />}/>
-            <Route path="/TextPage" render={() => <TextPage store={props.store}/>}/>
+            <Route path="/TextPage" render={() => <TextPage />}/>
             <Route path="/Notes" render={() => <Notes />}/>
-            <Route path="/SandBox" render={() => <SandBoxContainer store={props.store}/>} />
+            <Route path="/SandBox" render={() => <SandBoxContainer />} />
             <Route path="/Profile" render={() => <Profile />}/>
             <Route path="/SearchResult" render={() => <SearchResult />}/>
             <Route path="/Works" render={() => <Works />}/>
