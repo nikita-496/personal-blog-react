@@ -52,4 +52,16 @@
       }
     }
   }
+  .modal {
+    @include modalWindow(0);
+  }
+  .active {
+    @include modalWindow(1);
+    .flexBtn{
+      margin-bottom: 2em;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+ 
 }

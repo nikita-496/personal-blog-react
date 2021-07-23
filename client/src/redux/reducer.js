@@ -4,7 +4,7 @@ import articleCreationReducer from "./features/article-creation/articles-slice"
 
 const rootReducer = combineReducers({
     posts: postsReducer,
-    createArticles: articleCreationReducer 
+    articles: articleCreationReducer 
 })
 
 export default rootReducer
