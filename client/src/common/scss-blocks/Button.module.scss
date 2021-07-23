@@ -6,3 +6,30 @@
   color:$white;
   @include bxshad($btnBlue);
 }
+
+.cssBtn{
+  margin-right: 2rem;
+  @include btn (5px, 0.66em, 1.25em);
+  color:$white;
+  @include bxshad(#0077b6);
+}
+
+.jsBtn{
+  margin-right: 2rem;
+  @include btn (5px, 0.66em, 1.25em);
+  color:$white;
+  @include bxshad(#ffc300);
+}
+
+.reactBtn{
+  margin-right: 2rem;
+  @include btn (5px, 0.66em, 1.25em);
+  color:$white;
+  @include bxshad(#2ec4b6);
+}
+
+.otherBtn{
+  @include btn (5px, 0.66em, 1.25em);
+  color:$white;
+  @include bxshad(#ffb5a7);
+}
