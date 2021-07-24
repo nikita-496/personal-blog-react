@@ -7,9 +7,10 @@ const link = require("./config/link")
 
 
 const app = express()
+
 app.use(express.json())
 app.use(pino)
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', function(req, res) {
   const name = req.query.name || "API"
