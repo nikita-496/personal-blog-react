@@ -13,7 +13,6 @@ class SandBox extends React.Component {
       modalActive: false
     }
   }
-
   activateEditeMode = () => {
     this.setState({
       editeMode: true
@@ -41,8 +40,9 @@ class SandBox extends React.Component {
   onArticleCategory = (e) => {
     this.props.handleArticleCategory(e.target.innerText)
   }
-   onPublickCLick = () => {
-    this.props.articlePublication()
+   onPublickCLick = () => {   
+     debugger
+    this.props.articlePublication() 
     this.setState({
       editeMode: false,
       modalActive: false
@@ -78,7 +78,7 @@ class SandBox extends React.Component {
                 <Button category={true} react={true} text="react" onClick={this.onArticleCategory}></Button>
                 <Button category={true} other={true} text="другое" onClick={this.onArticleCategory}></Button>
               </div>
-              <Button text="отправть" onClick={this.onPublickCLick} />
+              <Button text="отправить" onClick={this.onPublickCLick} />
             </Card>
         </div>  
       </>
