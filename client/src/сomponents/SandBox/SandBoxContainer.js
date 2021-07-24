@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { articleAddedAC, updateArticleCategoryAC, updateArticleTextAC, updateArticleTitleAC } from "../../redux/features/article-creation/articles-slice";
+import {createArticleThunk, updateArticleCategoryAC, updateArticleTextAC, updateArticleTitleAC } from "../../redux/features/article-creation/articles-slice";
 import SandBox from "./SandBox";
 
 let mapStateToProps = (state) => {
@@ -21,8 +21,9 @@ let mapDipsatchToProps = (dispatch) => {
     dispatch(updateArticleCategoryAC(category))
     },
     articlePublication: () => {
-      dispatch(articleAddedAC())
-    }
+      dispatch(createArticleThunk())
+    },
+    
   }
 }
 

@@ -1,4 +1,4 @@
-import {createArticles} from "../../../api/api" 
+import {articlesAPI} from "../../../api/api" 
 const SET_NEW_ARTICLE_TITLE = "articles/setNewArticleTitle"
 const NEW_ARTICLE_TEXT_UPDATED = "articles/newArticleTextUpdated"
 const NEW_ARTICLE_CATEGORY = "articles/newArticleCategory"
@@ -8,7 +8,7 @@ const initialState = {
     newTitle: "",
     newText: "",
     newCategory: "",
-    aricle: {
+    article: {
         title: "",
         paragraph: "",
         publicDate: null,
@@ -44,6 +44,7 @@ const articleCreationReducer = (state = initialState, action) => {
             return update(state, action, "newCategory", "state.newCategory")
         }
         case ARTICLE_ADDED:
+            debugger
             let stateCopy = {...state}
             let newArticle = {
                 title: state.newTitle,
@@ -51,10 +52,11 @@ const articleCreationReducer = (state = initialState, action) => {
                 publicDate: settignDate(),
                 category: state.newCategory
             }
-             stateCopy.aricle = newArticle
+            stateCopy.article = newArticle
             stateCopy.newTitle = ""
             stateCopy.newText = ""
             stateCopy.newCategory = ""
+            debugger
             return stateCopy
         default: 
             return state
@@ -64,6 +66,18 @@ export const updateArticleTitleAC = (payload) => ({type: SET_NEW_ARTICLE_TITLE, 
 export const updateArticleTextAC = (payload) => ({type: NEW_ARTICLE_TEXT_UPDATED, payload})
 export const updateArticleCategoryAC = (payload) => ({type: NEW_ARTICLE_CATEGORY, payload})
 export const articleAddedAC = () => ({type: ARTICLE_ADDED})
+//createArticleThunkCreator
+
+export const createArticleThunk = () => {
+    return (dispatch, getState) => {
+        dispatch(articleAddedAC())
+        debugger
+        articlesAPI.createArticles(getState()).then(data => {
+            console.log("Статья успешно опубликована!")
+            console.log(data)
+        })
+    }
+}
 
 export default articleCreationReducer
 
