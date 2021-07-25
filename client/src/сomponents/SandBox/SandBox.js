@@ -32,17 +32,17 @@ class SandBox extends React.Component {
 
   
   onArticleTitle = (e) => {
-    this.props.handleArticleTitle(e.target.value)
+    this.props.updateArticleTitle(e.target.value)
   }
 
    onArticleBody = (e) => {
-    this.props.handleArticleBody(e.target.value)
+    this.props.updateArticleText(e.target.value)
   }
   onArticleCategory = (e) => {
-    this.props.handleArticleCategory(e.target.innerText)
+    this.props.updateArticleCategory(e.target.innerText)
   }
    onPublickCLick = () => {   
-    this.props.articlePublication() 
+    this.props.createArticleThunk() 
     this.setState({
       editeMode: false,
       modalActive: false

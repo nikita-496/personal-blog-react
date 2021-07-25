@@ -65,15 +65,15 @@ const articleCreationReducer = (state = initialState, action) => {
             return state
     }
 }
-export const updateArticleTitleAC = (payload) => ({type: SET_NEW_ARTICLE_TITLE, payload})
-export const updateArticleTextAC = (payload) => ({type: NEW_ARTICLE_TEXT_UPDATED, payload})
-export const updateArticleCategoryAC = (payload) => ({type: NEW_ARTICLE_CATEGORY, payload})
-export const articleAddedAC = () => ({type: ARTICLE_ADDED})
-export const toggleIsFetchingAC = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
+export const updateArticleTitle = (payload) => ({type: SET_NEW_ARTICLE_TITLE, payload})
+export const updateArticleText = (payload) => ({type: NEW_ARTICLE_TEXT_UPDATED, payload})
+export const updateArticleCategory = (payload) => ({type: NEW_ARTICLE_CATEGORY, payload})
+export const articleAdded = () => ({type: ARTICLE_ADDED})
+export const toggleIsFetching = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
 
 export const createArticleThunk = () => {
     return (dispatch, getState) => {
-        dispatch(articleAddedAC())
+        dispatch(articleAdded())
         articlesAPI.createArticles(getState()).then(data => {
             console.log("Статья успешно опубликована!")
         })

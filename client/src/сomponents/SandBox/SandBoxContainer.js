@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import {createArticleThunk, toggleIsFetchingAC, updateArticleCategoryAC, updateArticleTextAC, updateArticleTitleAC } from "../../redux/features/article-creation/articles-slice";
+import {createArticleThunk, toggleIsFetching, updateArticleCategory, updateArticleText, updateArticleTitle } from "../../redux/features/article-creation/articles-slice";
 import SandBox from "./SandBox";
 
 let mapStateToProps = (state) => {
@@ -10,27 +10,7 @@ let mapStateToProps = (state) => {
   }
 }
 
-let mapDipsatchToProps = (dispatch) => {
-  return {
-
-    handleArticleTitle: (title) => {
-      dispatch(updateArticleTitleAC(title))
-    },
-    handleArticleBody: (text) => {
-      dispatch(updateArticleTextAC(text))
-    },
-    handleArticleCategory: (category) => {
-    dispatch(updateArticleCategoryAC(category))
-    },
-    articlePublication: () => {
-      dispatch(createArticleThunk())
-    },
-    toggleisFetching: (isFetching) => {
-      dispatch(toggleIsFetchingAC(isFetching))
-    }
-    
-  }
-}
-
-const SandBoxContainer = connect(mapStateToProps, mapDipsatchToProps)(SandBox)
+const SandBoxContainer = connect(mapStateToProps, {
+  updateArticleTitle, updateArticleText, updateArticleCategory,createArticleThunk, toggleIsFetching
+})(SandBox)
 export default SandBoxContainer
