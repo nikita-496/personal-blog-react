@@ -1,10 +1,12 @@
 import { connect } from "react-redux";
-import {createArticleThunk, updateArticleCategoryAC, updateArticleTextAC, updateArticleTitleAC } from "../../redux/features/article-creation/articles-slice";
+import {createArticleThunk, toggleIsFetchingAC, updateArticleCategoryAC, updateArticleTextAC, updateArticleTitleAC } from "../../redux/features/article-creation/articles-slice";
 import SandBox from "./SandBox";
 
 let mapStateToProps = (state) => {
   return {
-    articles : state.articles
+    newTitle: state.articles.newTitle,
+    newText : state.articles.newText,
+    isFetching: state.articles.isFetching
   }
 }
 
@@ -23,6 +25,9 @@ let mapDipsatchToProps = (dispatch) => {
     articlePublication: () => {
       dispatch(createArticleThunk())
     },
+    toggleisFetching: (isFetching) => {
+      dispatch(toggleIsFetchingAC(isFetching))
+    }
     
   }
 }

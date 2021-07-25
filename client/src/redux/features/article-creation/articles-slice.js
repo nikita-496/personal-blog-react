@@ -3,6 +3,7 @@ const SET_NEW_ARTICLE_TITLE = "articles/setNewArticleTitle"
 const NEW_ARTICLE_TEXT_UPDATED = "articles/newArticleTextUpdated"
 const NEW_ARTICLE_CATEGORY = "articles/newArticleCategory"
 const ARTICLE_ADDED = "articles/articleAdded"
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING "
 
 const initialState = {
     newTitle: "",
@@ -14,6 +15,7 @@ const initialState = {
         publicDate: null,
         category: ""
     },
+    isFetching: true
 }       
 
 const update = (state, action, propertyFieldCopy, propertyFieldOrigin) => {
@@ -44,7 +46,6 @@ const articleCreationReducer = (state = initialState, action) => {
             return update(state, action, "newCategory", "state.newCategory")
         }
         case ARTICLE_ADDED:
-            debugger
             let stateCopy = {...state}
             let newArticle = {
                 title: state.newTitle,
@@ -56,9 +57,11 @@ const articleCreationReducer = (state = initialState, action) => {
             stateCopy.newTitle = ""
             stateCopy.newText = ""
             stateCopy.newCategory = ""
-            debugger
             return stateCopy
-        default: 
+        case TOGGLE_IS_FETCHING: {
+            return {...state, isFetching: action.payload}
+        } 
+            default: 
             return state
     }
 }
@@ -66,15 +69,13 @@ export const updateArticleTitleAC = (payload) => ({type: SET_NEW_ARTICLE_TITLE, 
 export const updateArticleTextAC = (payload) => ({type: NEW_ARTICLE_TEXT_UPDATED, payload})
 export const updateArticleCategoryAC = (payload) => ({type: NEW_ARTICLE_CATEGORY, payload})
 export const articleAddedAC = () => ({type: ARTICLE_ADDED})
-//createArticleThunkCreator
+export const toggleIsFetchingAC = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
 
 export const createArticleThunk = () => {
     return (dispatch, getState) => {
         dispatch(articleAddedAC())
-        debugger
         articlesAPI.createArticles(getState()).then(data => {
             console.log("Статья успешно опубликована!")
-            console.log(data)
         })
     }
 }

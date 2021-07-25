@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../common/Button/Button";
 import Card from "../../common/Card/Card";
+import Preloader from "../../common/Preoloader/Preloader";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
 import FormatOptions from "./FormatOptions";
 import TextOptions from "./TextOptions";
@@ -41,7 +42,6 @@ class SandBox extends React.Component {
     this.props.handleArticleCategory(e.target.innerText)
   }
    onPublickCLick = () => {   
-     debugger
     this.props.articlePublication() 
     this.setState({
       editeMode: false,
@@ -52,6 +52,8 @@ class SandBox extends React.Component {
   render () {
     const {options, modalActive} = this.state
     return (
+      <>
+      {this.props.isFetching ? <Preloader/> : null}
       <div className={styles.wrapper}>
         {!this.state.editeMode ?
          <div className={styles.addPost} >
@@ -59,11 +61,11 @@ class SandBox extends React.Component {
         </div>
       : <>
       <div className={styles.addPost}>
-          <textarea className={styles.editeTitleTextare} value={this.props.articles.newTitle} onChange={this.onArticleTitle} placeholder="Заголовок" />
+          <textarea className={styles.editeTitleTextare} value={this.props.newTitle} onChange={this.onArticleTitle} placeholder="Заголовок" />
 
          <div className={styles.content}>
           <TextOptions selectOption={this.selectOption} options={options}/>
-          <textarea className={styles.editeContentTextare}  value={this.props.articles.newText} onChange={this.onArticleBody}/>
+          <textarea className={styles.editeContentTextare}  value={this.props.newText} onChange={this.onArticleBody}/>
          <FormatOptions />
         </div>
 
@@ -85,6 +87,7 @@ class SandBox extends React.Component {
         }
        
     </div>
+    </>
   )
   }
 }
