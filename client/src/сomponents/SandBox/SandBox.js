@@ -1,10 +1,9 @@
 import React from "react";
 import Button from "../../common/Button/Button";
-import Card from "../../common/Card/Card";
 import Preloader from "../../common/Preoloader/Preloader";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
-import FormatOptions from "./FormatOptions";
-import TextOptions from "./TextOptions";
+import ArticleBody from "./ArticleBody/ArticleBody";
+import SelectTag from "./SelectTag/SelectTag";
 class SandBox extends React.Component {
   constructor(props) {
     super(props)
@@ -30,18 +29,10 @@ class SandBox extends React.Component {
     })
   }
 
-  
-  onArticleTitle = (e) => {
-    this.props.updateArticleTitle(e.target.value)
+  handle = (callback, e) => {
+    callback(e.target.innerText)
   }
-
-   onArticleBody = (e) => {
-    this.props.updateArticleText(e.target.value)
-  }
-  onArticleCategory = (e) => {
-    this.props.updateArticleCategory(e.target.innerText)
-  }
-   onPublickCLick = () => {   
+  onPublickCLick = () => {   
     this.props.createArticleThunk() 
     this.setState({
       editeMode: false,
@@ -51,6 +42,7 @@ class SandBox extends React.Component {
 
   render () {
     const {options, modalActive} = this.state
+    const {updateArticleTitle, updateArticleText, updateArticleCategory, newTitle, newText} = this.props
     return (
       <>
       {this.props.isFetching ? <Preloader/> : null}
@@ -59,31 +51,17 @@ class SandBox extends React.Component {
          <div className={styles.addPost} >
           <textarea placeholder="Начать писать публикацию" onClick={this.activateEditeMode}/>
         </div>
-      : <>
-      <div className={styles.addPost}>
-          <textarea className={styles.editeTitleTextare} value={this.props.newTitle} onChange={this.onArticleTitle} placeholder="Заголовок" />
+        : <>
+          <ArticleBody newTitle={newTitle} newText={newText} options={options}  selectOption={this.selectOption}
+          updateArticleTitle={updateArticleTitle} updateArticleText={updateArticleText}/>
 
-         <div className={styles.content}>
-          <TextOptions selectOption={this.selectOption} options={options}/>
-          <textarea className={styles.editeContentTextare}  value={this.props.newText} onChange={this.onArticleBody}/>
-         <FormatOptions />
-        </div>
+          <Button text="готово к публикации" onClick={this.setModalActive}/>
 
-        </div>
-        <Button text="готово к публикации" onClick={this.setModalActive}/>
-        <div className={modalActive ? styles.active : styles.modal} onClick={this.setModalActive}>
-            <Card active={true}>
-              <p>Перед отправкой выберите категории статьи</p>
-              <div className={styles.flexBtn}>
-                <Button category={true} css ={true} text="css" onClick={this.onArticleCategory}></Button>
-                <Button category={true} js={true} text="javascript" onClick={this.onArticleCategory}></Button>
-                <Button category={true} react={true} text="react" onClick={this.onArticleCategory}></Button>
-                <Button category={true} other={true} text="другое" onClick={this.onArticleCategory}></Button>
-              </div>
-              <Button text="отправить" onClick={this.onPublickCLick} />
-            </Card>
-        </div>  
-      </>
+          <div className={modalActive ? styles.active : styles.modal} onClick={this.setModalActive}>
+            <SelectTag modalActive={modalActive} updateArticleCategory={updateArticleCategory} onPublickCLick={this.onPublickCLick}/>
+          </div>
+          
+          </>
         }
        
     </div>
@@ -91,5 +69,5 @@ class SandBox extends React.Component {
   )
   }
 }
-  
+
 export default SandBox

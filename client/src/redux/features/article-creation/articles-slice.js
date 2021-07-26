@@ -15,7 +15,7 @@ const initialState = {
         publicDate: null,
         category: ""
     },
-    isFetching: true
+    isFetching: false
 }       
 
 const update = (state, action, propertyFieldCopy, propertyFieldOrigin) => {
@@ -74,7 +74,9 @@ export const toggleIsFetching = (payload) => ({type: TOGGLE_IS_FETCHING, payload
 export const createArticleThunk = () => {
     return (dispatch, getState) => {
         dispatch(articleAdded())
+        dispatch(toggleIsFetching(true))
         articlesAPI.createArticles(getState()).then(data => {
+            dispatch(toggleIsFetching(false))
             console.log("Статья успешно опубликована!")
         })
     }
