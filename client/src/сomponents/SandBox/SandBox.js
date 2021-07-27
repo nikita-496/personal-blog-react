@@ -13,24 +13,11 @@ class SandBox extends React.Component {
       modalActive: false
     }
   }
-  activateEditeMode = () => {
+  handleState = (statePart) => {
+    debugger
     this.setState({
-      editeMode: true
+      [statePart]:!this.state[statePart]
     })
-  }
-  selectOption = () => {
-    this.setState({
-      options: !this.state.options
-    })
-  }
-  setModalActive = () => {
-    this.setState({
-      modalActive: !this.state.modalActive
-    })
-  }
-
-  handle = (callback, e) => {
-    callback(e.target.innerText)
   }
   onPublickCLick = () => {   
     this.props.createArticleThunk() 
@@ -41,24 +28,26 @@ class SandBox extends React.Component {
   }
 
   render () {
-    const {options, modalActive} = this.state
+    const {options, modalActive, editeMode} = this.state
     const {updateArticleTitle, updateArticleText, updateArticleCategory, newTitle, newText} = this.props
     return (
       <>
       {this.props.isFetching ? <Preloader/> : null}
       <div className={styles.wrapper}>
-        {!this.state.editeMode ?
+        {!editeMode ?
          <div className={styles.addPost} >
-          <textarea placeholder="Начать писать публикацию" onClick={this.activateEditeMode}/>
+          <textarea placeholder="Начать писать публикацию" onClick={() =>this.handleState("editeMode")}/>
         </div>
         : <>
-          <ArticleBody newTitle={newTitle} newText={newText} options={options}  selectOption={this.selectOption}
-          updateArticleTitle={updateArticleTitle} updateArticleText={updateArticleText}/>
+          <div className={styles.addPost}>
+            <ArticleBody newTitle={newTitle} newText={newText} options={options}  selectOption={() =>this.handleState("options")}
+            updateArticleTitle={updateArticleTitle} updateArticleText={updateArticleText}/>
 
-          <Button text="готово к публикации" onClick={this.setModalActive}/>
+            <Button text="готово к публикации" onClick={() => this.handleState("modalActive")}/>
 
-          <div className={modalActive ? styles.active : styles.modal} onClick={this.setModalActive}>
-            <SelectTag modalActive={modalActive} updateArticleCategory={updateArticleCategory} onPublickCLick={this.onPublickCLick}/>
+            <div className={modalActive ? styles.active : styles.modal} onClick={() => this.handleState("modalActive")}>
+              <SelectTag updateArticleCategory={updateArticleCategory} onPublickCLick={this.onPublickCLick}/>
+            </div>
           </div>
           
           </>
