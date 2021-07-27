@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "../../../scss-blocks/SandBox/TextOptions.module.scss"
 
-const TextOptions = (props) => {
+const TextOptions = ({options, selectOption}) => {
 
    const handleSelectOption = () => {
-    props.selectOption()
+    selectOption()
     }
     return (
         <>
@@ -18,7 +18,7 @@ const TextOptions = (props) => {
                 <use xlinkHref={"#moreOptions"}></use>
               </svg>
           </button>
-          {props.options ?
+          {options ?
             <select className={styles.select}> 
               <option value="Заголовок">Заголовок</option>
               <option value="Цитата">Цитата</option>

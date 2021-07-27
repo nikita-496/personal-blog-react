@@ -1,40 +1,34 @@
 import React from "react"
 import styles from "../../../scss-blocks/SandBox/SandBox.module.scss";
-import TextOptions from "./TextOptions"
-import FormatOptions from "./FormatOptions"
-import InputArea from "../../../common/InputArea/InputArea";
+import {InputArea} from "../../../common/InputArea/InputArea"
+import TextOptions from "../Options/TextOptions";
+import FormatOptions from "../Options/FormatOptions";
 
-
-//ОСТАНОВИЛСЯ СДЕСЬ
 const ArticleBody = ({newTitle, newText, options, selectOption, updateArticleTitle, updateArticleText}) => {
-  const handle = (callback, e) => {
-    callback(e.target.value)
-  }
   return (
-    <div className={styles.addPost}>
-    <textarea className={styles.editeTitleTextare} value={newTitle} onChange={(e) => handle(updateArticleTitle, e)} placeholder="Заголовок" />
-    {atr => (
-        <>
-          <InputArea atr={atr}/>
-        </>
-      )
-    }
+    <>
+    <InputArea handle={updateArticleTitle}>
+      {(onChange) => <textarea 
+      className={styles.editeTitleTextare} 
+      value={newTitle} 
+      onChange={onChange}
+      placeholder="Загаловок"
+      />}
+    </InputArea>
+
     <div className={styles.content}>
       <TextOptions selectOption={selectOption} options={options}/>
-      <textarea className={styles.editeContentTextare}  value={newText} onChange={(e) => handle(updateArticleText, e)}/>
-      <FormatOptions />
+      <InputArea handle={updateArticleText}>
+      {(onChange) => <textarea 
+      className={styles.editeTitleTextare} 
+      value={newText} 
+      onChange={onChange}
+      />}
+    </InputArea>
+    <FormatOptions />
     </div>
-
-  </div>
+    </>
   )
 }
-
-
-/*
-    <InputArea>
-      {atribute => 
-      <textarea className={styles.editeTitleTextare} atribute={atribute}/>}
-    </InputArea>
-*/
 
 export default ArticleBody
