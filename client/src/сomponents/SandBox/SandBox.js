@@ -4,6 +4,8 @@ import Preloader from "../../common/Preoloader/Preloader";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
 import ArticleBody from "./ArticleBody/ArticleBody";
 import SelectTag from "./SelectTag/SelectTag";
+
+
 class SandBox extends React.Component {
   constructor(props) {
     super(props)
@@ -14,7 +16,6 @@ class SandBox extends React.Component {
     }
   }
   handleState = (statePart) => {
-    debugger
     this.setState({
       [statePart]:!this.state[statePart]
     })
@@ -31,6 +32,7 @@ class SandBox extends React.Component {
     const {options, modalActive, editeMode} = this.state
     const {updateArticleTitle, updateArticleText, updateArticleCategory, newTitle, newText} = this.props
     return (
+    
       <>
       {this.props.isFetching ? <Preloader/> : null}
       <div className={styles.wrapper}>
@@ -52,9 +54,9 @@ class SandBox extends React.Component {
           
           </>
         }
-       
     </div>
     </>
+   
   )
   }
 }

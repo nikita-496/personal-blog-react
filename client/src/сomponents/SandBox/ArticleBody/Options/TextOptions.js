@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../scss-blocks/SandBox/TextOptions.module.scss"
+import styles from "../../../../scss-blocks/SandBox/TextOptions.module.scss"
 
 const TextOptions = ({options, selectOption}) => {
 

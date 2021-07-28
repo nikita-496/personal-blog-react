@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../scss-blocks/SandBox/FormatOptions.module.scss"
+import styles from "../../../../scss-blocks/SandBox/FormatOptions.module.scss"
 
 const FormatOptions = (props) => {
 
