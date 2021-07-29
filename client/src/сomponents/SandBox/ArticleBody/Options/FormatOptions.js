@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "../../../../scss-blocks/SandBox/FormatOptions.module.scss"
 
-const FormatOptions = (props) => {
-
+const FormatOptions = () => {
      return (
         <button className={styles.svgBtn} >
         <svg display={"none"}>

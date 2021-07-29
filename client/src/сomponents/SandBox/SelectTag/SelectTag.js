@@ -8,7 +8,7 @@ const SelectTag = ({updateArticleCategory, onPublickCLick}) => {
   const handleCategory = (callback, e) => {
     callback(e.target.innerText)
   }
-  const call = () => {
+  const send = () => {
     onPublickCLick()
   }
   return (
@@ -22,7 +22,7 @@ const SelectTag = ({updateArticleCategory, onPublickCLick}) => {
                                   
         </div>
 
-      <Button text="отправить" onClick={call} />
+      <Button text="отправить" onClick={send} />
     </Card>
   )
     

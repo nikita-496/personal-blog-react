@@ -1,14 +1,14 @@
 import React from "react";
+import useContentBody from "../../../../hooks/useContentBody";
 import styles from "../../../../scss-blocks/SandBox/TextOptions.module.scss"
 
-const TextOptions = ({options, selectOption}) => {
+const TextOptions = () => {
 
-   const handleSelectOption = () => {
-    selectOption()
-    }
+    const options = useContentBody(false)
+
     return (
         <>
-        <button className={styles.svgBtn} onClick={handleSelectOption}>
+        <button className={styles.svgBtn} onClick={options.handleStatusChange}>
             <svg display={"none"}>
                 <symbol id={"moreOptions"} viewBox="0 0 448 448">
                 <path d="m272 184c-4.417969 0-8-3.582031-8-8v-176h-80v176c0 4.417969-3.582031 8-8 8h-176v80h176c4.417969 0 8 3.582031 8 8v176h80v-176c0-4.417969 3.582031-8 8-8h176v-80zm0 0"/>
@@ -18,7 +18,7 @@ const TextOptions = ({options, selectOption}) => {
                 <use xlinkHref={"#moreOptions"}></use>
               </svg>
           </button>
-          {options ?
+          {options.status ?
             <select className={styles.select}> 
               <option value="Заголовок">Заголовок</option>
               <option value="Цитата">Цитата</option>

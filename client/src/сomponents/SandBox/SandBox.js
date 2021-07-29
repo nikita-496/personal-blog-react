@@ -1,64 +1,49 @@
 import React from "react";
 import Button from "../../common/Button/Button";
 import Preloader from "../../common/Preoloader/Preloader";
+import useContentBody from "../../hooks/useContentBody";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
 import ArticleBody from "./ArticleBody/ArticleBody";
 import SelectTag from "./SelectTag/SelectTag";
 
+export const DataContext = React.createContext() 
 
-class SandBox extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      editeMode: false,
-      options: false,
-      modalActive: false
-    }
+const SandBox = props => {
+  const editMode = useContentBody(false)
+  const modal = useContentBody(false)
+
+  const onPublickCLick = () => {   
+    props.createArticleThunk() 
+    editMode.handleStatusChange()
+    modal.handleStatusChange()
   }
-  handleState = (statePart) => {
-    this.setState({
-      [statePart]:!this.state[statePart]
-    })
-  }
-  onPublickCLick = () => {   
-    this.props.createArticleThunk() 
-    this.setState({
-      editeMode: false,
-      modalActive: false
-    })
-  }
+  return (
+    <>
+    {props.isFetching ? <Preloader/> : null}
+    <div className={styles.wrapper}>
+    {!editMode.status ?
+       <div className={styles.addPost} >
+        <textarea placeholder="Начать писать публикацию" onClick={editMode.handleStatusChange}/>
+      </div>
+      : <>
 
-  render () {
-    const {options, modalActive, editeMode} = this.state
-    const {updateArticleTitle, updateArticleText, updateArticleCategory, newTitle, newText} = this.props
-    return (
-    
-      <>
-      {this.props.isFetching ? <Preloader/> : null}
-      <div className={styles.wrapper}>
-        {!editeMode ?
-         <div className={styles.addPost} >
-          <textarea placeholder="Начать писать публикацию" onClick={() =>this.handleState("editeMode")}/>
-        </div>
-        : <>
-          <div className={styles.addPost}>
-            <ArticleBody newTitle={newTitle} newText={newText} options={options}  selectOption={() =>this.handleState("options")}
-            updateArticleTitle={updateArticleTitle} updateArticleText={updateArticleText}/>
+      <DataContext.Provider value={
+        {newTitle: props.newTitle, newText: props.newText, 
+          updateArticleTitle: props.updateArticleTitle, updateArticleText: props.updateArticleText}
+        }>
+        <ArticleBody />
+      </DataContext.Provider>
 
-            <Button text="готово к публикации" onClick={() => this.handleState("modalActive")}/>
+      <Button text="готово к публикации" onClick={modal.handleStatusChange}/>
 
-            <div className={modalActive ? styles.active : styles.modal} onClick={() => this.handleState("modalActive")}>
-              <SelectTag updateArticleCategory={updateArticleCategory} onPublickCLick={this.onPublickCLick}/>
-            </div>
-          </div>
-          
-          </>
-        }
-    </div>
-    </>
-   
+       <div className={modal.status ? styles.active : styles.modal} onClick={modal.handleStatusChange}>
+       <SelectTag updateArticleCategory={props.updateArticleCategory} onPublickCLick={onPublickCLick}/>
+      </div>
+      </>
+      }
+  </div>
+  </>
   )
-  }
 }
 
 export default SandBox

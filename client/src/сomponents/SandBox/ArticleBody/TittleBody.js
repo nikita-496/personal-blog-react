@@ -1,13 +1,15 @@
-import React from "react"
+import React, { useContext } from "react"
 import withTextUpdate from "../../../hoc/withTextUpdate"
 import styles from "../../../scss-blocks/SandBox/SandBox.module.scss"
+import { DataContext } from "../SandBox"
 
 const TitleBody = (props) => {
+  const data = useContext(DataContext)
   return (
     <>
     <textarea 
       className={styles.editeTitleTextare} 
-      value={props.newTitle} 
+      value={data.newTitle} 
       onChange={props.handleChange}
       placeholder="Загаловок"
       />
