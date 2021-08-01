@@ -1,22 +1,26 @@
-import React from "react"
-import Post from "./Post/Post"
+import React, { useEffect, useState } from "react"
+import Post from "../../Home/Posts/Post/Post"
 
-export default function Posts (props) {
-
-  let postsElement = props.posts.map(p => <Post  
+export default function Posts ({posts, getPostsThunk}) {
+  const [category, setCategory] = useState("все")
+  
+  useEffect(()=> {
+    getPostsThunk(category)
+  },[category])
+  
+  let postsElement
+  (posts.length !== 0) ? postsElement = posts.map(p => <Post  
     key={p._id}
     titleArticle={p.title} 
     text={p.text} 
-    src={p.img} 
     date={p.publicDate} 
     tagsName={p.category} 
     nameLink={p.link} 
-    selected = {p.selected}
-    />)
-  
+    />) 
+    : postsElement = posts
+
   const handleCategory = (e) => {
-     (e.target.value === "все") ? props.viewAllPosts(e.target.value)
-    : props.viewSelectedPosts(e.target.value)
+      return setCategory(e.target.value)
   }
 
   return(
@@ -28,7 +32,8 @@ export default function Posts (props) {
         <button value={"другое"} onClick={handleCategory}>другое</button>
         <button value={"все"} onClick={handleCategory}>все</button>
       </div>
-     {postsElement}
+      <p style={ {color: "#ffff"}}>Length is {posts.length}</p>
+      {postsElement}
     </div>
   )
 }
