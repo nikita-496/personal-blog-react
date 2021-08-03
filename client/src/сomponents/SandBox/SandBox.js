@@ -13,7 +13,7 @@ const SandBox = props => {
   const modal = useContentBody(false)
 
   const onPublickCLick = () => {   
-    props.createArticleThunk() 
+    props.createArticleThunk()
     editMode.handleStatusChange()
     modal.handleStatusChange()
   }

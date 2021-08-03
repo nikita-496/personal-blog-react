@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "../../common/Button/Button"
 import Card from "../../common/Card/Card"
 import Tags from "../../common/Card/Tags/Tags"
 import Description from "../../common/Description/Description"
@@ -6,9 +7,10 @@ import Logo from "../../common/Logo/Logo"
 import Work1 from "../../img/Works/Work1.jpg"
 import Work2 from "../../img/Works/Work2.jpg"
 import styles from "../../scss-blocks/Works/Works.module.scss"
+import tagStyle from "../../common/scss-blocks/Card/Tags.module.scss"
 
 export default function Works () {
-  //const tags=["дизайн", "создание сайтов", "SMM"]
+
   return(
     <div>
       <p className={styles.title}>Мои работы</p>
@@ -22,7 +24,18 @@ export default function Works () {
           <div className={styles.content}>
             <Description titleArticle="altermono.com" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat."/>
-            <Tags workTags="true"/>
+            <Tags>
+              <div className={tagStyle.wrapper}>
+                <ul className={tagStyle.workTags}>
+                  <li>дизайн</li>
+                  <li>создание сайтов</li>
+                  <li>SMM</li>
+                </ul>
+              <div className={tagStyle.footer}>
+              <Button text="перейти на сайт"/>
+              </div>
+              </div>
+            </Tags>
           </div>
         </div>
       </Card>
@@ -36,7 +49,19 @@ export default function Works () {
           <div className={styles.content}>
             <Description titleArticle="codedoco.com" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat."/>
-            <Tags workTags="true"/>
+            <Tags>
+              <div className={tagStyle.wrapper}>
+                <ul className={tagStyle.workTags}>
+                  <li>дизайн</li>
+                  <li>создание сайтов</li>
+                  <li>SMM</li>
+                </ul>
+              <div className={tagStyle.footer}>
+              <Button text="перейти на сайт"/>
+              </div>
+              </div>
+            </Tags>
+
           </div>
         </div>
       </Card>

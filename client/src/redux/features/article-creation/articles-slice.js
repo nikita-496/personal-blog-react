@@ -1,20 +1,24 @@
 import {articlesAPI} from "../../../api/api" 
+import { createPostsThunk } from "../posts/posts-slice"
 const SET_NEW_ARTICLE_TITLE = "articles/setNewArticleTitle"
 const NEW_ARTICLE_TEXT_UPDATED = "articles/newArticleTextUpdated"
 const NEW_ARTICLE_CATEGORY = "articles/newArticleCategory"
 const ARTICLE_ADDED = "articles/articleAdded"
-const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING "
+const GET_ARTICLE = "articles/getArticle"
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
 
 const initialState = {
     newTitle: "",
     newText: "",
     newCategory: "",
-    article: {
+    article: [
+        {
         title: "",
         paragraph: "",
         publicDate: null,
         category: ""
-    },
+        }   
+    ],
     isFetching: false
 }       
 
@@ -25,11 +29,9 @@ const update = (state, action, propertyFieldCopy, propertyFieldOrigin) => {
     }
 }
 
-const settignDate = () => {
+const settingDate = () => {
     let date = new Date()
-    let datestring  = date.getDate()  + "-" + (date.getMonth()+1) + "-" + date.getFullYear() + " " +
-    date.getHours() + ":" + date.getMinutes();
-    return datestring
+    return date.toLocaleDateString() + ", " + date.getHours() + ":" + date.getMinutes();
 }
 
 const articleCreationReducer = (state = initialState, action) => {
@@ -45,12 +47,12 @@ const articleCreationReducer = (state = initialState, action) => {
         case NEW_ARTICLE_CATEGORY: {
             return update(state, action, "newCategory", "state.newCategory")
         }
-        case ARTICLE_ADDED:
+        case ARTICLE_ADDED: {
             let stateCopy = {...state}
             let newArticle = {
                 title: state.newTitle,
                 paragraph: state.newText,
-                publicDate: settignDate(),
+                publicDate: settingDate(),
                 category: state.newCategory
             }
             stateCopy.article = newArticle
@@ -58,6 +60,11 @@ const articleCreationReducer = (state = initialState, action) => {
             stateCopy.newText = ""
             stateCopy.newCategory = ""
             return stateCopy
+        }
+        case GET_ARTICLE: {
+            let stateCopy =  {...state, article: [...action.payload]}
+            return stateCopy
+        }
         case TOGGLE_IS_FETCHING: {
             return {...state, isFetching: action.payload}
         } 
@@ -69,6 +76,7 @@ export const updateArticleTitle = (payload) => ({type: SET_NEW_ARTICLE_TITLE, pa
 export const updateArticleText = (payload) => ({type: NEW_ARTICLE_TEXT_UPDATED, payload})
 export const updateArticleCategory = (payload) => ({type: NEW_ARTICLE_CATEGORY, payload})
 export const articleAdded = () => ({type: ARTICLE_ADDED})
+export const getArticlePage = (payload) => ({type: GET_ARTICLE, payload})
 export const toggleIsFetching = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
 
 export const createArticleThunk = () => {
@@ -76,9 +84,20 @@ export const createArticleThunk = () => {
         dispatch(articleAdded())
         dispatch(toggleIsFetching(true))
         articlesAPI.createArticles(getState()).then(data => {
+            dispatch(createPostsThunk(data))
             dispatch(toggleIsFetching(false))
             console.log("Статья успешно опубликована!")
         })
+    }
+}
+
+export const getArticleThunk = () => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        articlesAPI.getArticles().then(response => {
+            dispatch(getArticlePage(response.data))
+        })
+        dispatch(toggleIsFetching(false))
     }
 }
 

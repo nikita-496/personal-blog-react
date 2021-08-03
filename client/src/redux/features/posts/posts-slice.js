@@ -1,79 +1,66 @@
+import { postsAPI } from "../../../api/api"
+
 const POSTS_FILTER = "posts/postsFilter"
 const POSTS_VIEW_ALL = "posts/postsViewAll"
+const POSTS_ADDED = "posts/postsAdded"
+const TOGGLE_IS_FETCHING = "posts/toggleIsFetching"
 
-const initialState =  [
-        {
-            "_id": "60f10c430a513e1a5072dd5e",
-            "title": "Как писать код быстро и безболезненно?",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-            "publicDate": "1.07.2021",
-            "category": "другое",
-            "link": "читать",
-            "selected" : true
-        },
-        {
-            "_id": "60f112643611f9195ce4356b",
-            "title": "Как я сходил на FrontEnd Conf 2021",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-            "publicDate": "1.07.2021",
-            "category": "другое",
-            "link": "читать",
-            "selected" : true
-        },
-        {
-            "_id": "60f112903611f9195ce4356c",
-            "title": "Flux-архитекутра",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-            "publicDate": "1.07.2021",
-            "category": "react",
-            "link": "читать",
-            "selected" : true
-        },
-        {
-            "_id": "60f112af3611f9195ce4356d",
-            "title": "Замыкание",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-            "publicDate": "1.07.2021",
-            "category": "javascript",
-            "link": "читать",
-            "selected" : true
-        },
-        {
-            "_id": "60f112d03611f9195ce4356e",
-            "title": "Адаптивная верстка",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.",
-            "publicDate": "1.07.2021",
-            "category": "css",
-            "link": "читать",
-            "selected" : true
-        }
-]
-   
+const initialState =  []
 const postsReducer = (state = initialState, action) =>{
     switch(action.type) {
+        //отображение постов по фильтру
         case POSTS_FILTER : {
-            let stateCopy = state.map(s => {
-                if (s.category === action.payload) {
-                    return Object.assign({}, s, {selected: true})
-                }else {
-                    return Object.assign({}, s, {selected: false}) 
-                }
-            })
+            let stateCopy = [...state]
+            stateCopy = action.payload[0].filter(s => s.category === action.payload[1])
+            console.log(stateCopy)
+            //Елси постов по данной категории не существует
+            if (stateCopy.length === 0) {
+                stateCopy[0] = {title: "Ничего не найдено!"}
+            }
             return stateCopy
         }
+        //первичное отображение постов
         case POSTS_VIEW_ALL : {
-            let stateCopy = state.map(s => {
-                return Object.assign({}, s, {selected: true})
-            })
-            return stateCopy
+           let stateCopy = [...state]
+            stateCopy = action.payload.map(s => {
+            return Object.assign(s)
+        })
+        
+           return stateCopy
         }
-       
+        case POSTS_ADDED : {
+            let stateCopy = [...state]
+            stateCopy = Object.assign({...action.payload}, {link: "читать"})
+           return stateCopy
+        }
+        case TOGGLE_IS_FETCHING: {
+            return {...state, isFetching: action.payload}
+        } 
         default: 
             return state
         }
     }
 
-export const viewSelectedPostsAC = (payload) => ({type: POSTS_FILTER, payload})
-export const viewAllPostsAC = () => ({type: POSTS_VIEW_ALL})
+export const viewSelectedPosts = (payload) => ({type: POSTS_FILTER, payload})
+export const viewAllPosts = (payload) => ({type: POSTS_VIEW_ALL, payload})
+export const postsAdded = (payload) => ({type: POSTS_ADDED, payload})
+export const toggleIsFetching = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
+
+export const createPostsThunk = (value) => {
+    return (dispatch,getState) => {
+        dispatch(postsAdded(value))
+        postsAPI.createPosts(getState()).then(data => {
+            console.log("Пост успешно добавлен!")
+        })  
+    }
+}
+
+export const getPostsThunk = (value) => {
+    return (dispatch) => {
+       postsAPI.getPosts().then(response => {
+         (value === "все") ? dispatch(viewAllPosts(response.data)) : dispatch(viewSelectedPosts([response.data, value]))
+       })
+    }
+}
 
 export default postsReducer

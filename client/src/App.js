@@ -6,13 +6,13 @@ import SideBar from "../src/common/SideBar/SideBar";
 import Home from "../src/сomponents/Home/Home";
 import Profile from "../src/сomponents/Profile/Profile";
 import SearchResult from "../src/сomponents/SearchResult/SearchResult";
-import TextPage from "../src/сomponents/TextPage/TextPage";
 import styles from "./App.module.scss";
 import Auth from "./сomponents/Auth/Auth";
 import Notes from "./сomponents/Notes/Notes";
 import Reset from "./сomponents/Reset/Reset";
 import SandBoxContainer from "./сomponents/SandBox/SandBoxContainer";
 import SignUp from "./сomponents/SignUp/SignUp";
+import TextPageContainer from "./сomponents/TextPage/TextPageContainer";
 import Works from "./сomponents/Works/Works";
 
 function App() {
@@ -24,16 +24,16 @@ function App() {
         <Header className={styles.header}/>
         <main className={styles.content}>
             <div className={styles.container}>
-            <Route path="/Home" render={() => <Home />}/>
-            <Route path="/TextPage" render={() => <TextPage />}/>
-            <Route path="/Notes" render={() => <Notes />}/>
-            <Route path="/SandBox" render={() => <SandBoxContainer />} />
-            <Route path="/Profile" render={() => <Profile />}/>
-            <Route path="/SearchResult" render={() => <SearchResult />}/>
-            <Route path="/Works" render={() => <Works />}/>
-            <Route path="/Auth" render={() => <Auth />}/>
-            <Route path="/SignUp" render={() => <SignUp />}/>
-            <Route path="/Reset" render={() => <Reset />}/>
+            <Route path="/all" render={() => <Home />}/>
+            <Route path="/article" render={() => <TextPageContainer />}/>
+            <Route path="/notes" render={() => <Notes />}/>
+            <Route path="/sandbox" render={() => <SandBoxContainer />} />
+            <Route path="/profile" render={() => <Profile />}/>
+            <Route path="/search" render={() => <SearchResult />}/>
+            <Route path="/works" render={() => <Works />}/>
+            <Route path="/auth" render={() => <Auth />}/>
+            <Route path="/signup" render={() => <SignUp />}/>
+            <Route path="/reset" render={() => <Reset />}/>
             </div>
         </main>
       </div>

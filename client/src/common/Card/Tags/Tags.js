@@ -1,18 +1,17 @@
-import React from "react"
-import share from "../../../img/text-page/share.svg"
-import Button from "../../Button/Button"
-import styles from "../../scss-blocks/Card/Tags.module.scss"
+import React  from "react"
 
-
-export default function Tags (props) {
-  
+export default function Tags ({children}) {
   return (
-    <>
-       {
+    <div>
+       {children}
+   </div>
+  )
+}
+
+/*
+{
       (props.headerTags) ?  <div className={styles.tagsWrapperArticle}>
-      <a href="/" className={styles.action}> вернуться назад</a>
-      <a href="/" className={styles.action}> поделиться <img src={share} alt="share"/>
-      </a>
+     
       </div>
 
       : (props.tagsName)  ?  <div className={styles.tagsWrapperPosts}>
@@ -20,9 +19,9 @@ export default function Tags (props) {
             <time className={styles.date} dateTime="2021-07-01">{props.date}</time>
             <span className={styles.caregoty}>{props.tagsName}</span>
         </div>
-        <div>
-          <a href="/" className={styles.link}>{props.nameLink}</a>
-        </div>
+        <NavLink to ={"/article/" + get(id)}>
+          <span className={styles.link} >{props.nameLink}</span>
+        </NavLink>
         </div>
       : (props.workTags) ? <div className={styles.wrapper}>
             <ul className={styles.workTags}>
@@ -38,6 +37,8 @@ export default function Tags (props) {
         <time className={styles.datePublic} dateTime="2021-07-01">{props.date}</time>
       </div>
       }
-   </>
-  )
-}
+
+
+
+
+*/

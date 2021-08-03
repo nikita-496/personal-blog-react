@@ -2,7 +2,7 @@ import React from "react"
 import Notes from "./Notes/Notes"
 import PostsContainer from "./Posts/PostsContainer"
 
-export default function Home (props) {
+export default function Home () {
   return(
     <div>
       <PostsContainer />

@@ -2,22 +2,19 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 import styles from "../../scss-blocks/Header/NavBar.module.scss"
 
-
-
-
 export default function NavBar () {
   return (
     <span className={styles.s}>
-      <NavLink className={styles.nav} to="/Home">Главная</NavLink>
-      <NavLink className={styles.nav} to="/TextPage">Статьи</NavLink>
-      <NavLink className={styles.nav} to="/Notes">Заметки</NavLink>
-      <NavLink className={styles.nav} to="/SandBox"></NavLink>
-      <NavLink className={styles.nav} to="/SearchResult"></NavLink>
-      <NavLink className={styles.nav} to="/Works"></NavLink>
-      <NavLink className={styles.nav} to="/Auth"></NavLink>
-      <NavLink className={styles.nav} to="/SignUp"></NavLink>
-      <NavLink className={styles.nav} to="/Reset"></NavLink>
-      <NavLink className={styles.nav} to="/Profile">Профиль</NavLink>
+      <NavLink className={styles.nav} to="/all">Главная</NavLink>
+      <NavLink className={styles.nav} to="/article">Статьи</NavLink>
+      <NavLink className={styles.nav} to="/notes">Заметки</NavLink>
+      <NavLink className={styles.nav} to="/sandbox"></NavLink>
+      <NavLink className={styles.nav} to="/search"></NavLink>
+      <NavLink className={styles.nav} to="/works"></NavLink>
+      <NavLink className={styles.nav} to="/auth"></NavLink>
+      <NavLink className={styles.nav} to="/signup"></NavLink>
+      <NavLink className={styles.nav} to="/reset"></NavLink>
+      <NavLink className={styles.nav} to="/profile">Профиль</NavLink>
     </span>
   )
 }
