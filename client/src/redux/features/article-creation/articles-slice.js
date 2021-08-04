@@ -5,6 +5,7 @@ const NEW_ARTICLE_TEXT_UPDATED = "articles/newArticleTextUpdated"
 const NEW_ARTICLE_CATEGORY = "articles/newArticleCategory"
 const ARTICLE_ADDED = "articles/articleAdded"
 const GET_ARTICLE = "articles/getArticle"
+const ARTICLE_FILTER = "article/articleFilter"
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
     newCategory: "",
     article: [
         {
+        _id: "",    
         title: "",
         paragraph: "",
         publicDate: null,
@@ -61,8 +63,19 @@ const articleCreationReducer = (state = initialState, action) => {
             stateCopy.newCategory = ""
             return stateCopy
         }
+        case ARTICLE_FILTER : {
+            let stateCopy = {...state, article: action.payload[0].filter(s => s.category === action.payload[1])}
+            debugger
+            console.log(stateCopy)
+            //Елси постов по данной категории не существует
+            if (stateCopy.article.length === 0) {
+                stateCopy.article = [{title: "Ничего не найдено!"}]
+            }
+            return stateCopy
+        }
         case GET_ARTICLE: {
-            let stateCopy =  {...state, article: [...action.payload]}
+            debugger
+            let stateCopy =  {...state, article: action.payload}
             return stateCopy
         }
         case TOGGLE_IS_FETCHING: {
@@ -77,6 +90,7 @@ export const updateArticleText = (payload) => ({type: NEW_ARTICLE_TEXT_UPDATED, 
 export const updateArticleCategory = (payload) => ({type: NEW_ARTICLE_CATEGORY, payload})
 export const articleAdded = () => ({type: ARTICLE_ADDED})
 export const getArticlePage = (payload) => ({type: GET_ARTICLE, payload})
+export const getFiltredArticle = (payload) => ({type: ARTICLE_FILTER, payload}) 
 export const toggleIsFetching = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
 
 export const createArticleThunk = () => {
@@ -91,10 +105,23 @@ export const createArticleThunk = () => {
     }
 }
 
-export const getArticleThunk = () => {
+export const getArticlesThunk = (value) => {
+    debugger
     return (dispatch) => {
+        debugger
         dispatch(toggleIsFetching(true))
         articlesAPI.getArticles().then(response => {
+            (value === "все") ? dispatch(getArticlePage(response.data)) : dispatch(getFiltredArticle([response.data, value]))
+        })
+        dispatch(toggleIsFetching(false))
+    }
+}
+
+export const getArticleByIdThunk = (aticleId) => {
+    debugger
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true))
+        articlesAPI.getArticle(aticleId).then(response => {
             dispatch(getArticlePage(response.data))
         })
         dispatch(toggleIsFetching(false))

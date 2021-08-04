@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import Card from "../../../../common/Card/Card"
 import Tags from "../../../../common/Card/Tags/Tags"
@@ -6,19 +6,10 @@ import Description from "../../../../common/Description/Description"
 import Logo from "../../../../common/Logo/Logo"
 import styles from "../../../../scss-blocks/Home/Post/Post.module.scss"
 import tagStyle from "../../../../common/scss-blocks/Card/Tags.module.scss"
-import { getContext } from "../Posts"
+import { getId } from "../Posts"
 
 export default function Post (props) {
-  const id = useContext(getContext)
-  
-  const get = (id) => {
-    id.getArticleThunk()
-    if(id.article[0].title === "") return id.getArticleThunk()
-    let items = id.article
-    let link = items.filter(item => props.titleArticle === item.title)
-    return link[0]._id
-  }
-  
+  debugger
   return(
     <div className={styles.wrapper}>
       <Card>
@@ -30,11 +21,11 @@ export default function Post (props) {
             :  <Tags>
             <div className={tagStyle.tagsWrapperPosts}>
               <div className={tagStyle.tags}>
-                 <time className={tagStyle.date} dateTime="2021-07-01">{props.date}</time>
+                 <time className={tagStyle.date}>{props.date}</time>
                   <span className={tagStyle.caregoty}>{props.tagsName}</span>
               </div>
-              <NavLink to ={"/article/" + get(id)}>
-                <span className={tagStyle.link} >{props.nameLink}</span>
+              <NavLink to ={"/article/" + props.id}>
+                <span className={tagStyle.link}>читать</span>
               </NavLink>
             </div>
           </Tags>

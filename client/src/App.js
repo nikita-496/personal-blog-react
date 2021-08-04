@@ -25,7 +25,7 @@ function App() {
         <main className={styles.content}>
             <div className={styles.container}>
             <Route path="/all" render={() => <Home />}/>
-            <Route path="/article" render={() => <TextPageContainer />}/>
+            <Route path="/article/:articleId" render={() => <TextPageContainer />}/>
             <Route path="/notes" render={() => <Notes />}/>
             <Route path="/sandbox" render={() => <SandBoxContainer />} />
             <Route path="/profile" render={() => <Profile />}/>

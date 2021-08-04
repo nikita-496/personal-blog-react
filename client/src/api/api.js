@@ -4,8 +4,11 @@ export const articlesAPI = {
    createArticles (articleData) {
       return axios.post("/articles", articleData.articles.article).then(response => response.data)
    },
-   getArticles (articleId) {
-      return axios.get("/articles")
+   getArticles () {
+      return axios.get(`/articles/`)
+   },
+   getArticle (articleId) {
+      return axios.get(`/articles/${articleId}`)
    }
 }
 

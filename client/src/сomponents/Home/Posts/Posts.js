@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from "react"
 import Post from "../../Home/Posts/Post/Post"
 
-export const getContext = React.createContext() 
-
-export default function Posts ({posts, getPostsThunk, article, getArticleThunk}) {
+export default function Posts ({article, getArticlesThunk}) {
+  debugger
   const [category, setCategory] = useState("все")  
   useEffect(() => {
-    if(posts.length === 0) {
-      getPostsThunk("все")
+    if(article.title === "") {
+      getArticlesThunk()
     }
   })
   
   useEffect(()=> {
-    getPostsThunk(category)
+    getArticlesThunk(category)
   },[category])
 
-  let postsElement
-  (posts.length !== 0) ? postsElement = posts.map(p => 
-      <getContext.Provider value = {{article, getArticleThunk}}>
+  let articleElement
+  (article.length !== 0) ? articleElement = article.map(a => 
         <Post  
-          key={p._id}
-          titleArticle={p.title} 
-          text={p.paragraph} 
-          date={p.publicDate} 
-          tagsName={p.category} 
-          nameLink={p.link} 
+          id={a._id}
+          titleArticle={a.title} 
+          text={a.paragraph} 
+          date={a.publicDate} 
+          tagsName={a.category} 
         />
-      </getContext.Provider>
     ) 
-    : postsElement = null
+    : articleElement = null
   
   const handleCategory = (e) => {
       return setCategory(e.target.value)
@@ -43,7 +39,7 @@ export default function Posts ({posts, getPostsThunk, article, getArticleThunk})
         <button value={"другое"} onClick={handleCategory}>другое</button>
         <button value={"все"} onClick={handleCategory}>все</button>
       </div>
-      {postsElement}
+      {articleElement}
     </div>
   )
 }
