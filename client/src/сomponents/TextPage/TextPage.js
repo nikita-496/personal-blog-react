@@ -6,8 +6,8 @@ import Title from "../../common/Description/Title"
 import Logo from "../../common/Logo/Logo"
 import styles from "../../scss-blocks/TextPage/TextPage.module.scss"
 import tagStyle from "../../common/scss-blocks/Card/Tags.module.scss"
-import Comments from "./Articles/Article/Comments/Comments"
-import Reference from "./Articles/Article/Reference/Reference"
+import Comments from "./Article/Comments/Comments"
+import Reference from "./Article/Reference/Reference"
 import share from "../../img/text-page/share.svg"
 
 export default function TextPage ({article}) {
