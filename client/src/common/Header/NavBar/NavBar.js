@@ -6,11 +6,9 @@ export default function NavBar () {
   return (
     <span className={styles.s}>
       <NavLink className={styles.nav} to="/all">Главная</NavLink>
-      <NavLink className={styles.nav} to="/article">Статьи</NavLink>
       <NavLink className={styles.nav} to="/notes">Заметки</NavLink>
       <NavLink className={styles.nav} to="/sandbox"></NavLink>
       <NavLink className={styles.nav} to="/search"></NavLink>
-      <NavLink className={styles.nav} to="/works"></NavLink>
       <NavLink className={styles.nav} to="/auth"></NavLink>
       <NavLink className={styles.nav} to="/signup"></NavLink>
       <NavLink className={styles.nav} to="/reset"></NavLink>

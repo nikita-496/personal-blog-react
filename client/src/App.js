@@ -8,7 +8,7 @@ import Profile from "../src/сomponents/Profile/Profile";
 import SearchResult from "../src/сomponents/SearchResult/SearchResult";
 import styles from "./App.module.scss";
 import Auth from "./сomponents/Auth/Auth";
-import Notes from "./сomponents/Notes/Notes";
+import NotesContainer from "./сomponents/Notes/NotesContainer";
 import Reset from "./сomponents/Reset/Reset";
 import SandBoxContainer from "./сomponents/SandBox/SandBoxContainer";
 import SignUp from "./сomponents/SignUp/SignUp";
@@ -26,7 +26,7 @@ function App() {
             <div className={styles.container}>
             <Route path="/all" render={() => <Home />}/>
             <Route path="/article/:articleId" render={() => <TextPageContainer />}/>
-            <Route path="/notes" render={() => <Notes />}/>
+            <Route path="/notes" render={() => <NotesContainer />}/>
             <Route path="/sandbox" render={() => <SandBoxContainer />} />
             <Route path="/profile" render={() => <Profile />}/>
             <Route path="/search" render={() => <SearchResult />}/>
@@ -40,7 +40,6 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;
 
