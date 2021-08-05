@@ -1,10 +1,13 @@
-import React from "react"
-import send from "../../../../../img/notes/send.svg"
-import styles from "../../../../../scss-blocks/Home/Notes/Action.module.scss"
-
-export default function Action (props) {
+import React, { useContext } from "react"
+import send from "../../../../img/notes/send.svg"
+import styles from "../../../../scss-blocks/Notes/Action.module.scss"
+import TO_ACTION from "../../Notes"
+export default function Action () {
+  
+  const CREATE_ARTICLE = useContext(TO_ACTION)
+  
   function onAddNotes () {
-    props.handleAddNotes()
+    CREATE_ARTICLE()
   }
   return(
     <div className={styles.formActions}>

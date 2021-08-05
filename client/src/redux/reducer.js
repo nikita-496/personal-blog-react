@@ -1,10 +1,10 @@
-import postsReducer from "./features/posts/posts-slice"
 import { combineReducers} from "redux"
-import articleCreationReducer from "./features/article-creation/articles-slice"
+import articleCreationReducer from "./features/article/articles-slice"
+import notesReducer from "./features/notes/notes-slice"
 
 const rootReducer = combineReducers({
-    posts: postsReducer,
-    articles: articleCreationReducer 
+    articles: articleCreationReducer,
+    notes: notesReducer
 })
 
 export default rootReducer
