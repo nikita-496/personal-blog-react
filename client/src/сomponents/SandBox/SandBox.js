@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../common/Button/Button";
+import Modal from "../../common/Modal/Modal";
 import Preloader from "../../common/Preoloader/Preloader";
 import useContentBody from "../../hooks/useContentBody";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
@@ -26,7 +27,6 @@ const SandBox = props => {
         <textarea placeholder="Начать писать публикацию" onClick={editMode.handleStatusChange}/>
       </div>
       : <>
-
       <DataContext.Provider value={
         {newTitle: props.newTitle, newText: props.newText, 
           updateArticleTitle: props.updateArticleTitle, updateArticleText: props.updateArticleText}
@@ -34,11 +34,14 @@ const SandBox = props => {
         <ArticleBody />
       </DataContext.Provider>
 
-      <Button text="готово к публикации" onClick={modal.handleStatusChange}/>
-
-       <div className={modal.status ? styles.active : styles.modal} onClick={modal.handleStatusChange}>
-       <SelectTag updateArticleCategory={props.updateArticleCategory} onPublickCLick={onPublickCLick}/>
-      </div>
+      <Button onClick={modal.handleStatusChange}>
+       готово к публикации
+      </Button>
+       
+       <Modal editMode={editMode} modal={modal}>
+        <SelectTag updateArticleCategory={props.updateArticleCategory} onPublickCLick={onPublickCLick}/>
+       </Modal>
+      
       </>
       }
   </div>

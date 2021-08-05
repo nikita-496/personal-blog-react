@@ -18,11 +18,12 @@ const SelectTag = ({updateArticleCategory, onPublickCLick}) => {
         <div className={styles.flexBtn}>
         <Category>
           {name => <Button category={name} onClick={(e) => handleCategory(updateArticleCategory, e)}/>}
-        </Category>
-                                  
+        </Category>                       
         </div>
 
-      <Button text="отправить" onClick={send} />
+      <Button onClick={send} >
+        отправить
+      </Button>
     </Card>
   )
     

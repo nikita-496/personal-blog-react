@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
-import { createArticleThunk, toggleIsFetching, updateArticleCategory, updateArticleText, updateArticleTitle } from "../../redux/features/article-creation/articles-slice";
-import { createPostsThunk } from "../../redux/features/posts/posts-slice";
+import { createArticleThunk, toggleIsFetching, updateArticleCategory, updateArticleText, updateArticleTitle } from "../../redux/features/article/articles-slice";
 import SandBox from "./SandBox";
 
 let mapStateToProps = (state) => {
