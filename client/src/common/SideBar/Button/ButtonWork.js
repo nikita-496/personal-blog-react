@@ -5,7 +5,7 @@ import styles from "../../scss-blocks/SideBar/Button.module.scss"
 export default function ButtonWork () {
   return (
       <button className={styles.work}>
-        <NavLink to="Works">Мои работы</NavLink>
+        <NavLink to="works">Мои работы</NavLink>
       </button>
   )
 }

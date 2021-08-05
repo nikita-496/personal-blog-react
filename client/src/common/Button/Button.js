@@ -8,7 +8,7 @@ export default function Button (props) {
         props.category.map(c => {
           return <button className={styles[c]} text={c} onClick={props.onClick}> {(c=== "other" ? "другое" : c)}</button>
         })
-        : <button className={styles.link} onClick={props.onClick} >{props.text}</button>
+        : <button className={props.create ? styles.create : styles.link} onClick={props.onClick}>{props.children}</button>
       }
     </div>
   )

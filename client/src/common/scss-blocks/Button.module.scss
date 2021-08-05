@@ -6,7 +6,11 @@
   color:$white;
   @include bxshad($btnBlue);
 }
-
+.create{
+  @include btn (50%, 0.1em, 0.1em);
+  color:$primary-color;
+  @include bxshad($effect);
+}
 .css{
   margin-right: 2rem;
   @include btn (5px, 0.66em, 1.25em);

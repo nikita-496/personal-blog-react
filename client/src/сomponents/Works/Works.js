@@ -32,7 +32,7 @@ export default function Works () {
                   <li>SMM</li>
                 </ul>
               <div className={tagStyle.footer}>
-              <Button text="перейти на сайт"/>
+              <Button>перейти на сайт</Button>
               </div>
               </div>
             </Tags>
@@ -57,7 +57,7 @@ export default function Works () {
                   <li>SMM</li>
                 </ul>
               <div className={tagStyle.footer}>
-              <Button text="перейти на сайт"/>
+              <Button>перейти на сайт</Button>
               </div>
               </div>
             </Tags>
