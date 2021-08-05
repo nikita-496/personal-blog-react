@@ -1,0 +1,18 @@
+@import "../../common/scss-blocks/_vars/vars.scss";
+@import "../../common/scss-blocks/_mixins/mixins.scss";
+
+.wrapper{
+  margin-top: $marTop;
+  .btn{
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+  }
+  
+  .icon{
+    display: block;
+    width: 4em;
+    height: 4em;
+  }
+}
+
