@@ -52,16 +52,13 @@
       }
     }
   }
-  .modal {
-    @include modalWindow(0);
+  p{
+    text-align: center;
+    margin-bottom: 1.5em;
   }
-  .active {
-    @include modalWindow(1);
-    .flexBtn{
-      margin-bottom: 2em;
-      display: flex;
-      justify-content: space-between;
-    }
+  .flexBtn{
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: space-around;
   }
- 
 }

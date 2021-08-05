@@ -139,19 +139,28 @@
 }
 
 /* ModalWindow */
-@mixin modalWindow ($scale) {
-  display: flex;  
-    align-items: center;
-    justify-content: center;
+@mixin modalWindow ($h, $w, $opacity, $poiter) {
+  height: $h;
+  width:  $w;
+  background-color: rgba(0, 0, 0, .4);
+  position: fixed;
+  top: 0;
+  left: 0;
 
-    height: 100vh;
-    width: 100vw;
+  //центрирование по середине
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background-color: rgba(0, 0, 0, .4);
+  opacity: $opacity;
+  pointer-events: $poiter;
+  transition: .5s;
+}
 
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    transform: scale($scale);
+@mixin modalContent($scale) {
+  padding: 20px;
+  border-radius: 12px;
+  width: 35vw;
+  transform: scale($scale);
+  transition: .4s all;
 }
