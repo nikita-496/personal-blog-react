@@ -1,0 +1,17 @@
+@import "../_mixins/mixins.scss";
+@import "../_vars/vars.scss";
+
+.modal{
+  @include modalWindow(1vh, 100vw, 0, "none");
+}
+.modalActive{
+  @include modalWindow(100vh, 100vw, 1, "all")
+}
+
+.modalContent{
+  @include modalContent (0)
+}
+
+.modalContentActive{
+  @include modalContent (1)
+}
