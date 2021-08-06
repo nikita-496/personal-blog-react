@@ -1,4 +1,6 @@
 import {articlesAPI} from "../../../api/api" 
+import settingDate from "../../../modules/Date"
+import update from "../../../modules/Update"
 import { createPostsThunk } from "../posts/posts-slice"
 const SET_NEW_ARTICLE_TITLE = "articles/setNewArticleTitle"
 const NEW_ARTICLE_TEXT_UPDATED = "articles/newArticleTextUpdated"
@@ -24,17 +26,6 @@ const initialState = {
     isFetching: false
 }       
 
-const update = (state, action, propertyFieldCopy, propertyFieldOrigin) => {
-    return {
-        ...state,
-        [propertyFieldCopy]: [propertyFieldOrigin] = action.payload
-    }
-}
-
-const settingDate = () => {
-    let date = new Date()
-    return date.toLocaleDateString() + ", " + date.getHours() + ":" + date.getMinutes();
-}
 
 const articleCreationReducer = (state = initialState, action) => {
     switch(action.type) {
