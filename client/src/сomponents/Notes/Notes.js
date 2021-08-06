@@ -1,16 +1,16 @@
 import React from "react"
 import Button from "../../common/Button/Button"
 import Modal from "../../common/Modal/Modal"
+import SelectTag from "../../common/SelectTag/SelectTag"
 import useContentBody from "../../hooks/useContentBody"
 import styles from "../../scss-blocks/Notes/Notes.module.scss"
 import ViewNotes from "../Notes/ViewNotes/ViewNotes"
 import EnteringNotes from "./EnteringNotes/EnteringNotes"
 
-const TO_ACTION = React.createContext()
+
 
 const  Notes = (props) => {
   const modal = useContentBody(false)
- 
   return(
     <div className={styles.wrapper}>
       <ViewNotes />
@@ -30,9 +30,11 @@ const  Notes = (props) => {
       </Button>
       </div>
           <Modal modal={modal}>
-          <TO_ACTION.Provider value={props.handleAddNotes}>
-             <EnteringNotes textNotes={props.textNotes} handleTextNotes={props.handleTextNotes}/> 
-          </TO_ACTION.Provider>
+             <EnteringNotes notesText={props.notesText} updateNotesText={props.updateNotesText}/> 
+              <SelectTag data={
+                {create: props.createNotesThunk, category: props.setCategory, modal: modal.handleStatusChange}
+              }/>
+            
           </Modal>  
     </div>
   )

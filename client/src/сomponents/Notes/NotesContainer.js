@@ -1,23 +1,13 @@
 import { connect } from "react-redux"
-import { addNotesTextActionCreator, updateNotesTextActionCreator } from "../../redux/features/notes/notes-slice"
+import { createNotesThunk, setCategory, updateNotesText, updateNotesTitle } from "../../redux/features/notes/notes-slice"
 import Notes from "./Notes"
 
 let mapStateToProps = (state) => {
   return {
-    textNotes: state.notes.textNotes,
+    notesText: state.notes.notesText,
     notes: state.notes.noteItems
   }
 }
-let mapDipsatchToProps = (dispatch) => {
-  return {
-    handleTextNotes: (text) => {
-      dispatch(updateNotesTextActionCreator(text))
-    },
-    handleAddNotes: () => {
-      dispatch(addNotesTextActionCreator())
-    }
-  }
-}
 
-const NotesContainer = connect (mapStateToProps, mapDipsatchToProps)(Notes)
+const NotesContainer = connect (mapStateToProps, {updateNotesTitle, updateNotesText, setCategory, createNotesThunk})(Notes)
 export default NotesContainer

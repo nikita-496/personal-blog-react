@@ -4,23 +4,29 @@
 
 .formActions{
   width: 13%;
-  display: flex;
-  justify-content: space-between;
-  .addPostFile{
-    @include tеmplAction (#989898, .5);
-    background: #989898 url("../../img//notes//add-photo.svg") center no-repeat;
-  
-    input{
-      display: none;
-    }
+  .itemActions{
+    display: flex;
+    justify-content: space-between;
+    .addPostFile{
+      @include tеmplAction (#989898, .5);
+      background: #989898 url("../../img//notes//add-photo.svg") center no-repeat;
+    
+      input{
+        display: none;
+      }
 
+    }
+    img {
+      margin-left: -.62rem;
+      margin-top: -.15rem;
+    }
+    .addPostSend{
+      @include tеmplAction ($btnBlue, .5);
+    }
   }
-  img {
-    margin-left: -.62rem;
-    margin-top: -.15rem;
-  }
-  .addPostSend{
-    @include tеmplAction ($btnBlue, .5);
+  .tag{
+    display: flex;
+    align-self: flex-end;
   }
 
 }

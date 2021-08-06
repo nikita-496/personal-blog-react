@@ -1,16 +1,15 @@
 import React from "react"
-import style from "../../../scss-blocks/Notes/EnteringNotes.module.scss"
+import styles from "../../../scss-blocks/Notes/EnteringNotes.module.scss"
 import Action from "./Action/Action"
-
+ 
   const EnteringNotes = (props) => {
-  function onTextNotes (e) {
-    props.handleTextNotes(e.target.value)
+  const  onNotesText = (e) => {
+    props.updateNotesText(e.target.value)
   }
   return(
-    
-    <div className={style.wrapper} onClick={e => e.stopPropagation()}>
-      <div className={style.addPost} >
-        <textarea placeholder="Написать заметку" value={props.textNotes} onChange={onTextNotes}/>
+    <div className={styles.wrapper} onClick={e => e.stopPropagation()}>
+      <div className={styles.addPost} >
+        <textarea placeholder="Написать заметку" value={props.notesText} onChange={onNotesText}/>
         <Action/>
       </div>
     </div>
