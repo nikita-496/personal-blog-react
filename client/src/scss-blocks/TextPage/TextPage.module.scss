@@ -1,5 +1,24 @@
 @import "../../common/scss-blocks/_vars/vars.scss";
+@import "../../common/scss-blocks/_mixins/mixins.scss";
 
 .content{
   padding: $padContentText;
+}
+
+//TagHeader 
+.tagsHeader{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  .action,.actionShare {
+    @include tags($Roboto);
+    color: #ffff;
+    opacity: .6;
+
+    @include link ();
+    &:hover {
+      opacity: .9;
+      color: $btnBlue;
+    }
+  }
 }
