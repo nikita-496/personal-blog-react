@@ -6,14 +6,16 @@ import TitleBody from "./TittleBody";
 import { useContext } from "react";
 import { DataContext } from "../SandBox";
 
+
+
 const ArticleBody = () => {
-  const data = useContext(DataContext)
+  const DATA = useContext(DataContext)
   return (
     <>
-      <TitleBody updateArticleTitle={data.updateArticleTitle}/>
+      <TitleBody updateArticleTitle={DATA.updateArticleTitle}/>
       <div className={styles.content}>
         <TextOptions />
-        <ContentBody  updateArticleText={data.updateArticleText}/>
+        <ContentBody  updateArticleText={DATA.updateArticleText}/>
         <FormatOptions />
       </div>
     </>

@@ -4,12 +4,12 @@ import styles from "../../../scss-blocks/SandBox/SandBox.module.scss"
 import { DataContext } from "../SandBox"
 
 const ContentBody = (props) => {
-  const data = useContext(DataContext)
+  const DATA = useContext(DataContext)
   return (
     <>
     <textarea 
       className={styles.editeTitleTextare} 
-      value={data.newText} 
+      value={DATA.newText} 
       onChange={props.handleChange}
       />
     </>
