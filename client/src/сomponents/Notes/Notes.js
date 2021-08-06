@@ -10,10 +10,11 @@ import EnteringNotes from "./EnteringNotes/EnteringNotes"
 
 
 const  Notes = (props) => {
+  debugger
   const modal = useContentBody(false)
   return(
     <div className={styles.wrapper}>
-      <ViewNotes />
+      <ViewNotes notes={props.notes} get={props.getNotesThunk}/>
 
       <div className={styles.btn} >
       <Button create={true} onClick={modal.handleStatusChange}>

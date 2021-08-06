@@ -30,7 +30,6 @@ const notesReducer = (state = initialState, action) => {
       return update(state, action, "notesCategory", "state.notesCategory")
     }
     case NOTES_ADDED: {
-      debugger
       let stateCopy = {...state}
       let newNotes = {
         title: state.notesTitle,
@@ -41,16 +40,13 @@ const notesReducer = (state = initialState, action) => {
       stateCopy.noteItems = newNotes
       return stateCopy
     }
-
     case GET_NOTES: {
       let stateCopy = {...state, noteItems: action.payload}
       return stateCopy
     }
-
     case TOGGLE_IS_FETCHING: {
       return {...state, isFetching: action.payload}
   } 
-
     default: 
       return state  
   }
@@ -60,7 +56,7 @@ export const updateNotesTitle = (payload) => ({type: UPDATE_NOTES_TITLE, payload
 export const updateNotesText = (payload) => ({type: UPDATE_NOTES_TEXT, payload})
 export const setCategory= (payload) => ({type: SET_CATEGORY, payload})
 export const addNotes = () => ({type:NOTES_ADDED})
-export const getNotes = (payload) => ({type:NOTES_ADDED, payload})
+export const getNotes = (payload) => ({type:GET_NOTES, payload})
 export const toggleIsFetching = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
 
 export const createNotesThunk = () => {
@@ -70,6 +66,15 @@ export const createNotesThunk = () => {
     notesAPI.createNotes(getState()).then(data => {
       console.log("Заметка успешно опубликована!")
       dispatch(toggleIsFetching(false))
+    })
+  }
+}
+
+export const getNotesThunk = () => {
+  return (dispatch) => {
+    debugger
+    notesAPI.getNotes().then(response => {
+      dispatch(getNotes(response.data))
     })
   }
 }

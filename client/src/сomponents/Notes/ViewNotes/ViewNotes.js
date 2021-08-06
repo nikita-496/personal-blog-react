@@ -1,18 +1,19 @@
-import React from "react"
-import Card from "../../../common/Card/Card"
-import Subtitle from "../../../common/Description/SubTitle"
-import styles from "../../../scss-blocks/Notes/ViewNotes.module.scss"
+import React, { useEffect } from "react"
+import Note from "./Note"
 
-
-export default function ViewNotes () {
+export default function ViewNotes (props) {
+  debugger
+  useEffect (()=> {
+    if(props.notes.length === 0) {
+      props.get()
+    }
+  })
+  let listNotes = props.notes.map(n => {
+   return <Note key={n._id} text={n.text}/>
+  })
   return(
-    <div className={styles.wrapper}>
-      <Card>
-        <div className={styles.content}>
-          <Subtitle className={styles.text} notes="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat."/>
-          <span></span>
-        </div>
-      </Card>
-    </div>
+    <>
+      {listNotes}  
+    </>
   )
 }

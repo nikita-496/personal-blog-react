@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { createNotesThunk, setCategory, updateNotesText, updateNotesTitle } from "../../redux/features/notes/notes-slice"
+import { createNotesThunk, getNotesThunk, setCategory, updateNotesText, updateNotesTitle } from "../../redux/features/notes/notes-slice"
 import Notes from "./Notes"
 
 let mapStateToProps = (state) => {
@@ -9,5 +9,7 @@ let mapStateToProps = (state) => {
   }
 }
 
-const NotesContainer = connect (mapStateToProps, {updateNotesTitle, updateNotesText, setCategory, createNotesThunk})(Notes)
+const NotesContainer = connect (mapStateToProps, {
+  updateNotesTitle, updateNotesText, 
+  setCategory, createNotesThunk, getNotesThunk})(Notes)
 export default NotesContainer
