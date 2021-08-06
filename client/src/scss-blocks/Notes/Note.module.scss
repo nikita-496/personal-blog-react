@@ -1,0 +1,14 @@
+@import "../../common/scss-blocks/_mixins/mixins.scss";
+@import "../../common/scss-blocks/_vars/vars.scss";
+
+.wrapper{
+  .content{
+    padding: $padContentPost;
+  }
+  .text{
+    font-size: 1.4rem;
+  }
+  span{
+    @include tags($Loto);
+  }
+}
