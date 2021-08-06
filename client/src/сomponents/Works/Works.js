@@ -7,7 +7,7 @@ import Logo from "../../common/Logo/Logo"
 import Work1 from "../../img/Works/Work1.jpg"
 import Work2 from "../../img/Works/Work2.jpg"
 import styles from "../../scss-blocks/Works/Works.module.scss"
-import tagStyle from "../../common/scss-blocks/Card/Tags.module.scss"
+import stylesTag from "../../common/scss-blocks/Card/Tags.module.scss"
 
 export default function Works () {
 
@@ -25,13 +25,13 @@ export default function Works () {
             <Description titleArticle="altermono.com" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat."/>
             <Tags>
-              <div className={tagStyle.wrapper}>
-                <ul className={tagStyle.workTags}>
+              <div className={stylesTag.wrapper}>
+                <ul className={stylesTag.workTags}>
                   <li>дизайн</li>
                   <li>создание сайтов</li>
                   <li>SMM</li>
                 </ul>
-              <div className={tagStyle.footer}>
+              <div className={stylesTag.footer}>
               <Button>перейти на сайт</Button>
               </div>
               </div>
@@ -50,13 +50,13 @@ export default function Works () {
             <Description titleArticle="codedoco.com" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum volutpat orci turpis urna. Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat."/>
             <Tags>
-              <div className={tagStyle.wrapper}>
-                <ul className={tagStyle.workTags}>
+              <div className={stylesTag.wrapper}>
+                <ul className={stylesTag.workTags}>
                   <li>дизайн</li>
                   <li>создание сайтов</li>
                   <li>SMM</li>
                 </ul>
-              <div className={tagStyle.footer}>
+              <div className={stylesTag.footer}>
               <Button>перейти на сайт</Button>
               </div>
               </div>

@@ -5,7 +5,6 @@ import { getArticleByIdThunk, getArticlePage, toggleIsFetching } from "../../red
 import TextPage from "./TextPage"
 
 const TextPageContainer = (props) => {
-  debugger
   useEffect(()=>{
       let articleId = props.match.params.articleId
       props.getArticleByIdThunk(articleId)

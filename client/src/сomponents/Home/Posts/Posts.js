@@ -21,7 +21,7 @@ export default function Posts ({article, getArticlesThunk}) {
           titleArticle={a.title} 
           text={a.paragraph} 
           date={a.publicDate} 
-          tagsName={a.category} 
+          category={a.category} 
         />
     ) 
     : articleElement = null

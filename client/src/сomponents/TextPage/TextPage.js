@@ -5,35 +5,36 @@ import SubTitle from "../../common/Description/SubTitle"
 import Title from "../../common/Description/Title"
 import Logo from "../../common/Logo/Logo"
 import styles from "../../scss-blocks/TextPage/TextPage.module.scss"
-import tagStyle from "../../common/scss-blocks/Card/Tags.module.scss"
+import stylesTag from "../../common/scss-blocks/Card/Tags.module.scss"
 import Comments from "./Article/Comments/Comments"
 import Reference from "./Article/Reference/Reference"
 import share from "../../img/text-page/share.svg"
 
-export default function TextPage ({article}) {
+export default function TextPage (props) {
     debugger
    return(
      <article>
       <Card>
        <div className={styles.content}>
-         <Tags>
-            <div className={tagStyle.tagsWrapperArticle}>
-              <a href="/all" className={tagStyle.action}> вернуться назад</a>
-              <a href="/" className={tagStyle.action}> поделиться <img src={share} alt="share"/></a>
-           </div>
+         <Tags header={true}>
+          <div className={styles.tagsHeader}>
+            <a href="/all" className={styles.action}> вернуться назад </a>
+            <a href="/" className={styles.actionShare}> поделиться <img src={share} alt="share"/></a>
+          </div>
          </Tags>
-         <Title titleArticle={article.title}/>
-         <Tags>
-            <div className={tagStyle.tagsWrapperPosts}>
-              <div className={tagStyle.tags}>
-                <time className={tagStyle.date}>{article.publicDate}</time>
-                <span className={tagStyle.caregoty}>{article.category}</span>
-              </div>
-            </div>
-          </Tags>
-         <SubTitle text={article.paragraph}/>
+
+         <Title titleArticle={props.article.title}/>
+         <Tags articleData = {true}>
+          <div className={stylesTag.tags}>
+            <time className={stylesTag.date}>{props.article.publicDate}</time>
+            <span className={stylesTag.category}>{props.article.category}</span>
+          </div>
+        </Tags>
+
+         <SubTitle text={props.article.paragraph}/>
          <Logo/>
        </div>
+       
        <Reference />
       <Comments />
     </Card>
