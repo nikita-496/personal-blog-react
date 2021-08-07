@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
 import Post from "../../Home/Posts/Post/Post"
+import Pagination from "./Pagination/Pagination"
 
-export default function Posts ({article, getArticlesThunk}) {
-  debugger
+export default function Posts ({article, getArticlesThunk, totalCount, pageSize, currentPage}) {
+
   const [category, setCategory] = useState("все")  
   useEffect(() => {
     if(article.title === "") {
@@ -26,6 +27,13 @@ export default function Posts ({article, getArticlesThunk}) {
     ) 
     : articleElement = null
   
+  let pagesCount = Math.ceil(totalCount / pageSize)
+
+  let pages = []
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i)
+  }
+  
   const handleCategory = (e) => {
       return setCategory(e.target.value)
   }
@@ -40,6 +48,7 @@ export default function Posts ({article, getArticlesThunk}) {
         <button value={"все"} onClick={handleCategory}>все</button>
       </div>
       {articleElement}
+      <Pagination pages={pages} currentPage={currentPage}/>
     </div>
   )
 }
