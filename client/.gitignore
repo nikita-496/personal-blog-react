@@ -26,3 +26,10 @@ yarn-error.log*
 /src/example-addons
 /src/redux/features/filters
 /package-lock.json
+src/common/InputArea/
+src/img/notes/edit.svg
+src/img/notes/pen.png
+src/modules/Post.js
+src/patterns/
+src/redux/features/posts/
+
