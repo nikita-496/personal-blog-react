@@ -16,13 +16,16 @@ const initialState = {
     newCategory: "",
     article: [
         {
-        _id: "",    
-        title: "",
-        paragraph: "",
-        publicDate: null,
-        category: ""
+         _id: "",    
+         title: "",
+         paragraph: "",
+         publicDate: null,
+         category: ""
         }   
     ],
+    pageSize: 8,
+    totalCount: 21, 
+    currentPage: 1,
     isFetching: false
 }       
 
@@ -56,8 +59,6 @@ const articleCreationReducer = (state = initialState, action) => {
         }
         case ARTICLE_FILTER : {
             let stateCopy = {...state, article: action.payload[0].filter(s => s.category === action.payload[1])}
-            debugger
-            console.log(stateCopy)
             //Елси постов по данной категории не существует
             if (stateCopy.article.length === 0) {
                 stateCopy.article = [{title: "Ничего не найдено!"}]
@@ -65,7 +66,6 @@ const articleCreationReducer = (state = initialState, action) => {
             return stateCopy
         }
         case GET_ARTICLE: {
-            debugger
             let stateCopy =  {...state, article: action.payload}
             return stateCopy
         }
@@ -97,9 +97,7 @@ export const createArticleThunk = () => {
 }
 
 export const getArticlesThunk = (value) => {
-    debugger
     return (dispatch) => {
-        debugger
         dispatch(toggleIsFetching(true))
         articlesAPI.getArticles().then(response => {
             (value === "все") ? dispatch(getArticlePage(response.data)) : dispatch(getFiltredArticle([response.data, value]))
@@ -109,7 +107,6 @@ export const getArticlesThunk = (value) => {
 }
 
 export const getArticleByIdThunk = (aticleId) => {
-    debugger
     return (dispatch) => {
         dispatch(toggleIsFetching(true))
         articlesAPI.getArticle(aticleId).then(response => {

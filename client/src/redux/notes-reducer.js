@@ -2,7 +2,7 @@ const UPDATE_NOTES_TEXT = "UPDATE-NOTES-TEXT"
 const ADD_NOTES = "ADD-NOTES"
 
 let initialState = {
-    notes : [],
+    noteItems : [],
     textNotes: ""
   }
 
