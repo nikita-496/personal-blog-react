@@ -18,14 +18,14 @@ app.get('/', function(req, res) {
   res.send(JSON.stringify({greeting: `Hello ${name}!`}))
 });
 
-
-  db.connect(link.url, function(err) {
+//подключение к БД
+db.connect(link.url, function(err) {
     if (err) return console.log(err)
     require('./app/routes')(app, db);
     app.listen(PORT, () => {
       console.log("Server has been started on " + PORT);
     })
-  })
+})
 
   const PORT = process.env.PORT || 5000
 

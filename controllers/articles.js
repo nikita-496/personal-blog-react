@@ -1,5 +1,6 @@
 const Articles = require ("../models/articles") 
 
+//Получение всех статей
 exports.all = function (req, res) {
   Articles.all(function (err, docs) {
     if (err){

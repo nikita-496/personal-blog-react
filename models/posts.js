@@ -35,3 +35,9 @@ exports.delete = function (id, callback) {
    callback(err,result)
   })
 }
+
+exports.pagination = function (callback) {
+  db.get().collection("posts").find({},function (err, result){
+    callback(err, result, numOfPosts)
+  })
+}

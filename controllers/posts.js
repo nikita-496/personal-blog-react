@@ -46,6 +46,33 @@ exports.delete = function (req, res) {
         res.send({"error": "An error has occurred"})
       }else {
         res.send("Posts " + req.params.id + " deleted!")
-  }
+    }
   })
 }
+
+exports.pagination = function  (req, res) {
+     Posts.pagination( function(err, result, numOfPosts) {
+    if (err)  {
+      res.status(500).send({
+        message: "Error -> Can NOT complete a paging request!",
+        error: error.message
+      })
+    }else {
+      const {page,limit} = parseInt(req.query) 
+      const offset = page ? page * limit : 0;
+
+      result.skip(offset)
+      result.limit(limit)
+      result.select("-__v")
+
+      res.status(200).json({
+        "message": "Paginating is completed! Query parametrs: page = " + page + ", limit = " + limit,
+        "totalPages": Math.ceil(numOfPosts / limit),
+        "totalItems": numOfPosts,
+        "limit": limit,
+        "currentPageSize": result.length,
+        "posts": result
+      })
+    }
+  })
+} 
