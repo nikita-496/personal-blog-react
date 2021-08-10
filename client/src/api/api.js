@@ -14,10 +14,20 @@ export const articlesAPI = {
 
 export const postsAPI = {
    createPosts (postsData) {
-      
       return axios.post("/posts", postsData.posts).then(response => response.data)
    },
    getPosts () {
+      debugger
       return axios.get("/posts")
+   }
+}
+
+export const notesAPI = {
+   createNotes (notesData) {
+      debugger
+      return axios.post("/notes", notesData.notes.noteItems).then(response => response.data)
+   },
+   getNotes () {
+      return axios.get("/notes")
    }
 }
