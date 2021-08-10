@@ -15,7 +15,6 @@ exports.findById = function(id, callback) {
       callback(err, docs)
     })
 } 
-
 exports.create = function(post, callback) {
   db.get().collection("posts").insertOne(post, (err,result)=>{
     callback(err, result)

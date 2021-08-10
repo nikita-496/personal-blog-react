@@ -14,7 +14,6 @@ exports.findById = function (req, res) {
     if (err) {
       res.send({"error": "An error has occurred"})
     }else{
-      console.log(req.body)
       res.send(docs)
     }
   })
@@ -26,7 +25,6 @@ exports.create = function (req, res) {
     if (err) {
       res.send({"error": "An error has occurred"})
     }else{
-      console.log(req.body)
       res.send(result.ops[0])
     }
   })
@@ -47,7 +45,7 @@ exports.delete = function (req, res) {
      if (err) {
         res.send({"error": "An error has occurred"})
       }else {
-        res.send("Article " + req.params.id + " deleted!")
+        res.send("Posts " + req.params.id + " deleted!")
   }
   })
 }

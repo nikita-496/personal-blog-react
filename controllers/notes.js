@@ -47,7 +47,7 @@ exports.delete = function (req, res) {
      if (err) {
         res.send({"error": "An error has occurred"})
       }else {
-        res.send("Article " + req.params.id + " deleted!")
+        res.send("Note " + req.params.id + " deleted!")
   }
   })
 }

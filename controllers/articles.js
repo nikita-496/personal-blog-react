@@ -10,11 +10,10 @@ exports.all = function (req, res) {
 }
 
 exports.findById = function (req, res) {
-  Articles.findById(req.params.id, function(err, docs) {
+  Articles.findById(req.params.id, (err, docs)=>{
     if (err) {
       res.send({"error": "An error has occurred"})
     }else{
-      console.log(req.body)
       res.send(docs)
     }
   })
@@ -22,18 +21,17 @@ exports.findById = function (req, res) {
 
 exports.create = function (req, res) {
   const article = {title: req.body.title, paragraph: req.body.paragraph, publicDate: req.body.publicDate, category: req.body.category}
-  Articles.create(article, function(err ,result){
+  Articles.create(article, (err ,result)=>{
     if (err) {
       res.send({"error": "An error has occurred"})
     }else{
-      console.log(req.body)
       res.send(result.ops[0])
     }
   })
 }
 
 exports.update = function (req, res) {
-  Articles.update(req.params.id, { title: req.body.title, paragraph: req.body.paragraph, publicDate: req.body.publicDate, category: req.body.category }, function(err ,result){
+  Articles.update(req.params.id, { title: req.body.title, paragraph: req.body.paragraph, publicDate: req.body.publicDate, category: req.body.category }, (err ,result)=>{
     if (err) {
       res.send({"error": "An error has occurred"})
     }else {
@@ -43,7 +41,7 @@ exports.update = function (req, res) {
 }
 
 exports.delete = function (req, res) {
-  Articles.delete(req.params.id, function(err, result){
+  Articles.delete(req.params.id, (err, result)=>{
      if (err) {
         res.send({"error": "An error has occurred"})
       }else {
@@ -51,3 +49,4 @@ exports.delete = function (req, res) {
   }
   })
 }
+

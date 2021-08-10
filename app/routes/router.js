@@ -2,9 +2,10 @@ const articlesController = require("../../controllers/articles")
 const postsController = require("../../controllers/posts")
 const notesController = require("../../controllers/notes")
 
-module.exports = function(app,db){
+module.exports = function(app){
   app.get("/articles/:id", articlesController.findById)
   app.get("/articles", articlesController.all)
+  //app.get("/articles", articlesController.byQueryParametrs)
   app.post("/articles", articlesController.create)
   app.put("/articles/:id", articlesController.update)
   app.delete("/articles/:id", articlesController.delete)

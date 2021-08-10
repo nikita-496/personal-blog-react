@@ -2,7 +2,7 @@ const ObjectID = require("mongodb").ObjectID
 const db = require("../db")
 
 exports.all = function (callback) {
-  db.get().collection("articles").find().toArray(function (err, docs){
+  db.get().collection("articles").find().toArray( (err, docs)=>{
     if (err) throw err
     console.log(docs);
     callback(err, docs)
@@ -26,7 +26,7 @@ exports.update = function(id=req.params.id , newData, callback) {
   db.get().collection("articles").update(
     {"_id": new ObjectID(id)}, 
     newData, 
-    function (err, result) {
+     (err, result)=>{
     callback(err,result)
   })
 }
