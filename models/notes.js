@@ -1,39 +1,10 @@
-const ObjectID = require("mongodb").ObjectID
-const db = require("../db")
+const mongoose = require("mongoose")
 
-exports.all = function (callback) {
-  db.get().collection("notes").find().toArray(function (err, docs){
-    if (err) throw err
-    console.log(docs);
-    callback(err, docs)
-  })
-}
+const NoteSchema = mongoose.Schema({
+  title: String,
+  text: String,
+  publicDate:  { type: Date, default: Date.now },
+  category: String,
+})
 
-exports.findById = function(id, callback) {
-    const details = {"_id": new ObjectID(id)}
-    db.get().collection("notes").findOne(details, (err, docs)=>{
-      callback(err, docs)
-    })
-} 
-
-exports.create = function(article, callback) {
-  db.get().collection("notes").insertOne(article, (err,result)=>{
-    callback(err, result)
-  })
-}
-
-exports.update = function(id=req.params.id , newData, callback) {
-  db.get().collection("notes").update(
-    {"_id": new ObjectID(id)}, 
-    newData, 
-    function (err, result) {
-    callback(err,result)
-  })
-}
-
-exports.delete = function (id, callback) {
-  const details = {"_id": new ObjectID(id)}
-  db.get().collection("notes").deleteOne(details, (err, result) => {
-   callback (err, result)
-  })
-}
+module.exports = mongoose.model("Note", NoteSchema)

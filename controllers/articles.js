@@ -1,8 +1,35 @@
-const Articles = require ("../models/articles") 
+const Article = require ("../models/articles")
+const ObjectID = require("mongodb").ObjectID
+
+ const changeArticle = req => new Article ({
+  title: req.body.title,
+  paragraph: req.body.paragraph,
+  publicDate: req.body.publicDate,
+  category: req.body.category,
+})  
+
+//POST 
+exports.create = (req, res) => {
+  let article = changeArticle(req)
+
+  //Запись в БД
+  article.save().then(data => {
+      //отправление сообщения о записи клиенту
+      res.status(200).json({
+        message: "The article was successfully added to the database by id = " + data.id,
+        articles: data,
+      })
+  }).catch(err => {
+    res.status(500).json({
+      message:"Ошибка!",
+      error: err.message,
+    })
+  })
+}
 
 //Получение всех статей
-exports.all = function (req, res) {
-  Articles.all(function (err, docs) {
+exports.all = (req, res) => {
+  Article.find((err, docs) => {
     if (err){
       res.send({"error": "An error has occurred"})
     }
@@ -10,44 +37,32 @@ exports.all = function (req, res) {
   })
 }
 
-exports.findById = function (req, res) {
-  Articles.findById(req.params.id, (err, docs)=>{
-    if (err) {
+exports.findById = (req, res) => {
+  const details = {"_id": new ObjectID(req.params.id)}
+  Article.findOne(details, (err,docs) => {
+    if (err){
       res.send({"error": "An error has occurred"})
-    }else{
-      res.send(docs)
     }
+    res.send(docs)
   })
 }
 
-exports.create = function (req, res) {
-  const article = {title: req.body.title, paragraph: req.body.paragraph, publicDate: req.body.publicDate, category: req.body.category}
-  Articles.create(article, (err ,result)=>{
-    if (err) {
+exports.update = (req, res) => {
+  details = {"_id": new ObjectID(req.params.id)}
+  Article.update(details, changeArticle, (err, result) => {
+    if (err){
       res.send({"error": "An error has occurred"})
-    }else{
-      res.send(result.ops[0])
     }
+    res.send(article)
   })
 }
 
-exports.update = function (req, res) {
-  Articles.update(req.params.id, { title: req.body.title, paragraph: req.body.paragraph, publicDate: req.body.publicDate, category: req.body.category }, (err ,result)=>{
-    if (err) {
+exports.delete = (req, res) => {
+  details = {"_id": new ObjectID(req.params.id)}
+  Article.deleteOne(details, (err, result) => {
+    if (err){
       res.send({"error": "An error has occurred"})
-    }else {
-      res.send(article)
     }
+    res.send("Article " + req.params.id + " deleted!")
   })
 }
-
-exports.delete = function (req, res) {
-  Articles.delete(req.params.id, (err, result)=>{
-     if (err) {
-        res.send({"error": "An error has occurred"})
-      }else {
-        res.send("Article " + req.params.id + " deleted!")
-  }
-  })
-}
-

@@ -1,16 +1,13 @@
 const express = require("express")
-const bodyParser = require("body-parser")
-const pino = require("express-pino-logger")()
-
-const db = require("./db.js")
-const link = require("./config/link")
-
-
+const mongoose = require("mongoose")
 const app = express()
 
+const pino = require("express-pino-logger")()
+const link = require("./config/link")
+
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 app.use(pino)
-app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', function(req, res) {
   const name = req.query.name || "API"
@@ -19,15 +16,22 @@ app.get('/', function(req, res) {
 });
 
 //подключение к БД
-db.connect(link.url, function(err) {
-    if (err) return console.log(err)
-    require('./app/routes')(app, db);
-    app.listen(PORT, () => {
-      console.log("Server has been started on " + PORT);
-    })
-})
+mongoose.connect(link.url, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(()=> {
+    console.log("Successfully connected to MongoDB")
+  }).catch(err =>{
+    console.log('Could not connect to MongoDB.');
+    process.exit();
+  })
+
+
+  require("./app/routes/index.js")(app)
 
   const PORT = process.env.PORT || 5000
+    
+  app.listen(PORT, () => {
+    console.log("Server has been started on " + PORT);
+  })
 
   
 

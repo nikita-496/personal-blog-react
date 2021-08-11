@@ -1,26 +1,27 @@
-const articlesController = require("../../controllers/articles")
-const postsController = require("../../controllers/posts")
-const notesController = require("../../controllers/notes")
+const articles = require("../../controllers/articles")
+const posts = require("../../controllers/posts")
+const notes = require("../../controllers/notes")
 
 module.exports = function(app){
-  app.get("/articles/:id", articlesController.findById)
-  app.get("/articles", articlesController.all)
-  app.post("/articles", articlesController.create)
-  app.put("/articles/:id", articlesController.update)
-  app.delete("/articles/:id", articlesController.delete)
+  app.get("/articles/:id", articles.findById)
+  app.get("/articles", articles.all)
+  app.post("/articles", articles.create)
+  app.put("/articles/:id", articles.update)
+  app.delete("/articles/:id", articles.delete)
 
-  app.get("/posts/:id", postsController.findById)
-  app.get("/posts", postsController.all)
-  app.get("/posts", postsController.pagination)
-  app.post("/posts", postsController.create)
-  app.put("/posts/:id", postsController.update)
-  app.delete("/posts/:id", postsController.delete)
+  app.get("/posts/:id", posts.findById)
+  app.get("/posts", posts.all)
+  app.post("/posts", posts.create)
+  app.put("/posts/:id", posts.update)
+  app.delete("/posts/:id", posts.delete)
 
-  app.get("/notes/:id", notesController.findById)
-  app.get("/notes", notesController.all)
-  app.post("/notes", notesController.create)
-  app.put("/notes/:id", notesController.update)
-  app.delete("/notes/:id", notesController.delete)
+  app.get("/notes/:id", notes.findById)
+  app.get("/notes", notes.all)
+  app.post("/notes", notes.create)
+  app.put("/notes/:id", notes.update)
+  app.delete("/notes/:id", notes.delete)
+
+  app.get("/select", posts.pagination)
 }
 
 

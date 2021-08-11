@@ -1,78 +1,109 @@
-const Posts = require ("../models/posts") 
+const Post = require("../models/posts")
+const ObjectID = require("mongodb").ObjectID
 
-exports.all = function (req, res) {
-  Posts.all(function (err, docs) {
+const changePost = (req) => new Post ({
+  title: req.body.title,
+  text: req.body.text,
+  publicDate: req.body.publicDate,
+  category: req.body.category,
+  link: req.body.link,
+})  
+
+//POST 
+exports.create = (req, res) => {
+  
+  const post = changePost(req)
+
+  //Запись в БД
+  post.save().then(data => {
+    res.status(200).json({
+      message: "Upload Successfully a Customer to MongoDB with id = " + data.id,
+      post: data,
+    })
+  }).catch(err => {
+    res.status(500).json({
+      message: "Fail!",
+      error: err.message
+    })
+  })
+}
+  
+//Получение всех статей
+exports.all = (req, res) => {
+  Post.find((err, docs) => {
     if (err){
-      res.send({"error": "An error has occurred"})
+      console.log(err);
+			return res.sendStatus(500);
     }
     res.send(docs)
   })
 }
 
-exports.findById = function (req, res) {
-  Posts.findById(req.params.id, function(err, docs) {
-    if (err) {
-      res.send({"error": "An error has occurred"})
-    }else{
-      res.send(docs)
+exports.findById = (req, res) => {
+  const details = {"_id": new ObjectID(req.params.id)}
+  Post.findOne(details, (err,docs) => {
+    if (err){
+      res.status(500).json({
+        message: "Fail!",
+        error: err.message
+      });
     }
+    res.send(docs)
   })
 }
 
-exports.create = function (req, res) {
-  const post = {title: req.body.title, text: req.body.text, publicDate: req.body.publicDate, category: req.body.category, link: req.body.link}
-  Posts.create(post, function(err ,result){
-    if (err) {
-      res.send({"error": "An error has occurred"})
-    }else{
-      res.send(result.ops[0])
+exports.update = (req, res) => {
+  details = {"_id": new ObjectID(req.params.id)}
+  Post.update(details, changePost, (err, result) => {
+    if (err){
+      res.status(500).json({
+        message: "Fail!",
+        error: err.message
+      });
     }
+    res.send(post)
   })
 }
 
-exports.update = function (req, res) {
-  Posts.update(req.params.id, { title: req.body.title, text: req.body.text, publicDate: req.body.publicDate, category: req.body.category, link: req.body.link }, function(err ,result){
-    if (err) {
-      res.send({"error": "An error has occurred"})
-    }else {
-      res.send(post)
+exports.delete = (req, res) => {
+  details = {"_id": new ObjectID(req.params.id)}
+  Post.deleteOne(details, (err, result) => {
+    if (err){
+      res.status(500).json({
+        message: "Fail!",
+        error: err.message
+      });
     }
+    res.send("Post " + req.params.id + " deleted!")
   })
 }
 
-exports.delete = function (req, res) {
-  Posts.delete(req.params.id, function(err, result){
-     if (err) {
-        res.send({"error": "An error has occurred"})
-      }else {
-        res.send("Posts " + req.params.id + " deleted!")
-    }
-  })
+exports.pagination = async (req, res) => {
+
+  try {
+    const page = parseInt(req.query.page);
+    const limit = parseInt(req.query.limit); 
+    const offset = page ? page * limit : 0;
+  
+    let results = await Post.find({})  
+                      .skip(offset) 
+                      .limit(limit)
+                      .select("-__v");
+        
+    let numOfCustomer = await Post.countDocuments({});
+  
+    res.status(200).json({
+      "message": "Paginating is completed! Query parameters: page = " + page + ", limit = " + limit,
+      "totalPages": Math.ceil(numOfCustomer / limit),
+      "totalItems": numOfCustomer,
+      "limit": limit,
+      "currentPageSize": results.length,
+      "posts": results
+    });      
+  } catch (error) {
+    res.status(500).send({
+      message: "Error -> Can NOT complete a paging request!",
+      error: error.message,
+    });    
+  }
 }
-
-exports.pagination = function  (req, res) {
-     Posts.pagination( function(err, result, numOfPosts) {
-    if (err)  {
-      res.status(500).send({
-        message: "Error -> Can NOT complete a paging request!",
-        error: error.message
-      })
-    }else {
-      const {page,limit} = parseInt(req.query) 
-      const offset = page ? page * limit : 0;
-
-      result.skip(offset)
-      result.limit(limit)
-      result.select("-__v")
-
-      res.status(200).json({
-        "message": "Paginating is completed! Query parametrs: page = " + page + ", limit = " + limit,
-        "totalPages": Math.ceil(numOfPosts / limit),
-        "totalItems": numOfPosts,
-        "limit": limit,
-        "currentPageSize": result.length,
-        "posts": result
-      })
-    }
-  })
-} 
