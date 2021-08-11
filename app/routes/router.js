@@ -21,7 +21,7 @@ module.exports = function(app){
   app.put("/notes/:id", notes.update)
   app.delete("/notes/:id", notes.delete)
 
-  app.get("/select", posts.pagination)
+  app.get("/select", articles.pagination)
 }
 
 

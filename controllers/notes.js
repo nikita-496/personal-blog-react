@@ -27,7 +27,7 @@ exports.create = (req, res) => {
   })
 }
 
-//Получение всех статей
+//Получение всех заметок
 exports.all = (req, res) => {
   Note.find((err, docs) => {
     if (err){

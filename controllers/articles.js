@@ -66,3 +66,33 @@ exports.delete = (req, res) => {
     res.send("Article " + req.params.id + " deleted!")
   })
 }
+
+exports.pagination = async (req, res) => {
+
+  try {
+    const page = parseInt(req.query.page);
+    const limit = parseInt(req.query.limit); 
+    const offset = page ? page * limit : 0;
+  
+    let results = await Article.find({})  
+                      .skip(offset) 
+                      .limit(limit)
+                      .select("-__v");
+        
+    let numOfCustomer = await Article.countDocuments({});
+  
+    res.status(200).json({
+      "message": "Paginating is completed! Query parameters: page = " + page + ", limit = " + limit,
+      "totalPages": Math.ceil(numOfCustomer / limit),
+      "totalItems": numOfCustomer,
+      "limit": limit,
+      "currentPageSize": results.length,
+      "posts": results
+    });      
+  } catch (error) {
+    res.status(500).send({
+      message: "Error -> Can NOT complete a paging request!",
+      error: error.message,
+    });    
+  }
+}

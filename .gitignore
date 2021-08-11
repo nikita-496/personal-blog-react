@@ -4,3 +4,5 @@ config/request.rest
 middleware
 package-lock.json
 db.js
+models/posts.js
+conrollers/posts.js
