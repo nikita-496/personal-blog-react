@@ -5,6 +5,7 @@ import Preloader from "../../../common/Preoloader/Preloader"
 import useFetching from "../../../hooks/useFetching"
 import { ArticleService } from "../../../api/api"
 import { getPages } from "../../../utility/pages"
+import getButtons from "../../../utility/buttons"
 
 export default function Posts ({article, getArticlesThunk}) {
   const [category, setCategory] = useState("все")  
@@ -47,13 +48,7 @@ export default function Posts ({article, getArticlesThunk}) {
       {postError && <h1>Произогла ошибка ${postError}</h1>}
       {isPostLoading ? <Preloader></Preloader>
       :  <>
-      <div>
-        <button value={"css"} onClick={handleCategory}>css</button>
-        <button value={"javascript"} onClick={handleCategory}>javascript</button>
-        <button value={"react"} onClick={handleCategory}>react</button>
-        <button value={"другое"} onClick={handleCategory}>другое</button>
-        <button value={"все"} onClick={handleCategory}>все</button>
-      </div>
+      {getButtons(handleCategory)}
       {articleElement}
       <Pagination pages={pages} currentPage={page} handlePage ={changePage}/>
       </>
