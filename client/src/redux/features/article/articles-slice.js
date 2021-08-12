@@ -23,7 +23,6 @@ const initialState = {
     ]
 }       
 
-
 const articleCreationReducer = (state = initialState, action) => {
     switch(action.type) {
         
@@ -79,19 +78,14 @@ export const createArticleThunk = () => {
         dispatch(articleAdded())
         ArticleService.createArticles(getState()).then(data => {
             console.log("Статья успешно опубликована!")
-        /*articlesAPI.createArticles(getState()).then(data => {
-            console.log("Статья успешно опубликована!")*/
         })
     }
 }
 
 export const getArticlesThunk = (value, page, limit) => {
     return (dispatch) => {
-        /*articlesAPI.getArticlesPost().then(response => {
-            (value === "все") ? dispatch(getArticlePage(response.data.posts)) : dispatch(getFiltredArticle([response.data, value]))
-        })*/
-        ArticleService.getArticlesPost(value, page, limit).then(response => {
-            (value === "все") ? dispatch(getArticlePage(response.data.posts)) : dispatch(getFiltredArticle([response.data, value]))
+        ArticleService.getArticlesPost(page, limit).then(data => {
+            (value === "все") ? dispatch(getArticlePage(data.posts)) : dispatch(getFiltredArticle([data.posts, value]))
         })
     }
 }
