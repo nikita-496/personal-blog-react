@@ -72,10 +72,14 @@ exports.pagination = async (req, res) => {
   try {
     const page = parseInt(req.query.page);
     const limit = parseInt(req.query.limit); 
-    const offset = page ? page * limit : 0;
-  
+    
+    //Т.к. в ответе на запрос получаем массив (среди прочего), в котором
+    //индексация начинается с 0 позиции, а страницы с 1 
+    //то при отображении порции данных из массива, следует учитывать этот факт 
+    const startIndex = (page - 1) * limit
+
     let results = await Article.find({})  
-                      .skip(offset) 
+                      .skip(startIndex) 
                       .limit(limit)
                       .select("-__v");
         
