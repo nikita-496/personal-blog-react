@@ -1,4 +1,4 @@
-import React  from "react"
+import React from "react"
 import { NavLink } from "react-router-dom"
 import Card from "../../../../common/Card/Card"
 import Tags from "../../../../common/Card/Tags/Tags"
@@ -8,7 +8,6 @@ import styles from "../../../../scss-blocks/Home/Post/Post.module.scss"
 import stylesTag from "../../../../common/scss-blocks/Card/Tags.module.scss"
 
 export default function Post (props) {
-  
   return(
     <div className={styles.wrapper}>
       <Card>

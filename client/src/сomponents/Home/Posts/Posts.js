@@ -1,45 +1,52 @@
 import React, { useEffect, useState } from "react"
 import Post from "../../Home/Posts/Post/Post"
 import Pagination from "./Pagination/Pagination"
+import Preloader from "../../../common/Preoloader/Preloader"
+import useFetching from "../../../hooks/useFetching"
+import { ArticleService } from "../../../api/api"
+import { getPages } from "../../../utility/pages"
 
-export default function Posts ({article, getArticlesThunk, totalCount, pageSize, currentPage}) {
-
+export default function Posts ({article, getArticlesThunk}) {
   const [category, setCategory] = useState("все")  
-  useEffect(() => {
-    if(article.title === "") {
-      getArticlesThunk()
-    }
+  const [totalPages, setTotalPages] = useState(0)
+  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(8)
+
+  //чтобы страницы обновлялись без отставания, установим зависимость
+  useEffect(() => {fetchPosts()},[page])
+
+  const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
+    await getArticlesThunk(category, page, limit)
+    const response = await ArticleService.getArticlesPost(page, limit)
+    setTotalPages(response.totalPages)
   })
-  
-  useEffect(()=> {
-    getArticlesThunk(category)
-  },[category])
+
+  let pages = getPages(totalPages)
+
+  const changePage = (page) => {
+    setPage(page)
+  }
+  const handleCategory = (e) => {
+  return setCategory(e.target.value)
+  }
 
   let articleElement
   (article.length !== 0) ? articleElement = article.map(a => 
-        <Post  
-          id={a._id}
-          titleArticle={a.title} 
-          text={a.paragraph} 
-          date={a.publicDate} 
-          category={a.category} 
-        />
+    <Post  
+      id={a._id}
+      titleArticle={a.title} 
+      text={a.paragraph} 
+      date={a.publicDate} 
+      category={a.category} 
+    />
     ) 
     : articleElement = null
   
-  let pagesCount = Math.ceil(totalCount / pageSize)
-
-  let pages = []
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i)
-  }
-  
-  const handleCategory = (e) => {
-      return setCategory(e.target.value)
-  }
-
   return(
     <div>
+      {postError && <h1>Произогла ошибка ${postError}</h1>}
+      {isPostLoading ? <Preloader></Preloader>
+      :  <>
       <div>
         <button value={"css"} onClick={handleCategory}>css</button>
         <button value={"javascript"} onClick={handleCategory}>javascript</button>
@@ -48,7 +55,9 @@ export default function Posts ({article, getArticlesThunk, totalCount, pageSize,
         <button value={"все"} onClick={handleCategory}>все</button>
       </div>
       {articleElement}
-      <Pagination pages={pages} currentPage={currentPage}/>
+      <Pagination pages={pages} currentPage={page} handlePage ={changePage}/>
+      </>
+      }
     </div>
   )
 }

@@ -5,23 +5,24 @@ const Pagination = (props) => {
   return (
     <ul className={styles.pageNav}>
       <li className={styles.pageItem}>
-        <a href={"/#"} className={styles.pageLink}>
+        <span className={styles.pageLink} onClick={() => props.handlePage(props.currentPage++)}>
           {"<"}
-        </a>
+        </span>
       </li>
         
       { props.pages.map(p => 
       <li className={styles.pageItem}>
-        <a href={"/#"} className={(props.currentPage === p) ? styles.activePage : styles.pageLink}>
+        <span className={(props.currentPage === p) ? styles.activePage : styles.pageLink} 
+        onClick={() => props.handlePage(p)}>
           {p}
-        </a>
+        </span>
       </li>
       )}
 
        <li className={styles.pageItem}>
-        <a href={"/#"} className={styles.pageLink}>
+        <span className={styles.pageLink} onClick={() => props.handlePage(props.currentPage--)}>
           {">"}
-        </a>
+        </span>
       </li>
     </ul>
     
