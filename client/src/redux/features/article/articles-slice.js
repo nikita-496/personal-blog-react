@@ -1,14 +1,12 @@
-import {articlesAPI} from "../../../api/api" 
+import {ArticleService} from "../../../api/api" 
 import settingDate from "../../../modules/Date"
 import update from "../../../modules/Update"
-import { createPostsThunk } from "../posts/posts-slice"
 const SET_NEW_ARTICLE_TITLE = "articles/setNewArticleTitle"
 const NEW_ARTICLE_TEXT_UPDATED = "articles/newArticleTextUpdated"
 const NEW_ARTICLE_CATEGORY = "articles/newArticleCategory"
 const ARTICLE_ADDED = "articles/articleAdded"
 const GET_ARTICLE = "articles/getArticle"
 const ARTICLE_FILTER = "article/articleFilter"
-const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
 
 const initialState = {
     newTitle: "",
@@ -22,11 +20,7 @@ const initialState = {
          publicDate: null,
          category: ""
         }   
-    ],
-    pageSize: 8,
-    totalCount: 21, 
-    currentPage: 1,
-    isFetching: false
+    ]
 }       
 
 
@@ -69,9 +63,6 @@ const articleCreationReducer = (state = initialState, action) => {
             let stateCopy =  {...state, article: action.payload}
             return stateCopy
         }
-        case TOGGLE_IS_FETCHING: {
-            return {...state, isFetching: action.payload}
-        } 
             default: 
             return state
     }
@@ -82,37 +73,34 @@ export const updateArticleCategory = (payload) => ({type: NEW_ARTICLE_CATEGORY, 
 export const articleAdded = () => ({type: ARTICLE_ADDED})
 export const getArticlePage = (payload) => ({type: GET_ARTICLE, payload})
 export const getFiltredArticle = (payload) => ({type: ARTICLE_FILTER, payload}) 
-export const toggleIsFetching = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
 
 export const createArticleThunk = () => {
     return (dispatch, getState) => {
         dispatch(articleAdded())
-        dispatch(toggleIsFetching(true))
-        articlesAPI.createArticles(getState()).then(data => {
-            dispatch(createPostsThunk(data))
-            dispatch(toggleIsFetching(false))
+        ArticleService.createArticles(getState()).then(data => {
             console.log("Статья успешно опубликована!")
+        /*articlesAPI.createArticles(getState()).then(data => {
+            console.log("Статья успешно опубликована!")*/
         })
     }
 }
 
-export const getArticlesThunk = (value) => {
+export const getArticlesThunk = (value, page, limit) => {
     return (dispatch) => {
-        dispatch(toggleIsFetching(true))
-        articlesAPI.getArticles().then(response => {
-            (value === "все") ? dispatch(getArticlePage(response.data)) : dispatch(getFiltredArticle([response.data, value]))
+        /*articlesAPI.getArticlesPost().then(response => {
+            (value === "все") ? dispatch(getArticlePage(response.data.posts)) : dispatch(getFiltredArticle([response.data, value]))
+        })*/
+        ArticleService.getArticlesPost(value, page, limit).then(response => {
+            (value === "все") ? dispatch(getArticlePage(response.data.posts)) : dispatch(getFiltredArticle([response.data, value]))
         })
-        dispatch(toggleIsFetching(false))
     }
 }
 
 export const getArticleByIdThunk = (aticleId) => {
     return (dispatch) => {
-        dispatch(toggleIsFetching(true))
-        articlesAPI.getArticle(aticleId).then(response => {
+        ArticleService.getArticle(aticleId).then(response => {
             dispatch(getArticlePage(response.data))
         })
-        dispatch(toggleIsFetching(false))
     }
 }
 
