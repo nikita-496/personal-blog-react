@@ -6,7 +6,7 @@ export default function Button (props) {
     <div className={styles.btnWrapper}>
       {props.category ? 
         props.category.map(c => {
-          return <button key={Date.now()} className={styles[c]} text={c} onClick={props.onClick}> {(c=== "other" ? "другое" : c)}</button>
+          return <button key={c} className={styles[c]} text={c} onClick={props.onClick}> {(c=== "other" ? "другое" : c)}</button>
         })
         : <button className={props.create ? styles.create : styles.link} onClick={props.onClick}>{props.children}</button>
       }
