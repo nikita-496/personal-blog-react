@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Post from "../../Home/Posts/Post/Post"
-import Pagination from "./Pagination/Pagination"
+import Pagination from "../../../common/Pagination/Pagination"
 import Preloader from "../../../common/Preoloader/Preloader"
 import useFetching from "../../../hooks/useFetching"
 import { ArticleService } from "../../../api/api"
@@ -14,7 +14,7 @@ export default function Posts ({article, getArticlesThunk}) {
   const [limit, setLimit] = useState(8)
 
   //чтобы страницы обновлялись без отставания, установим зависимость
-  useEffect(() => {fetchPosts()},[page])
+  useEffect(() => {fetchPosts()},[page,category])
 
   const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
     await getArticlesThunk(category, page, limit)
@@ -34,7 +34,7 @@ export default function Posts ({article, getArticlesThunk}) {
   let articleElement
   (article.length !== 0) ? articleElement = article.map(a => 
     <Post  
-      id={a._id}
+      key={a._id}
       titleArticle={a.title} 
       text={a.paragraph} 
       date={a.publicDate} 

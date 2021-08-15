@@ -11,7 +11,7 @@ const Pagination = (props) => {
       </li>
         
       { props.pages.map(p => 
-      <li className={styles.pageItem}>
+      <li key={p} className={styles.pageItem}>
         <span className={(props.currentPage === p) ? styles.activePage : styles.pageLink} 
         onClick={() => props.handlePage(p)}>
           {p}
