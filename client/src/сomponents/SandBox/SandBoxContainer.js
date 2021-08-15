@@ -1,17 +1,16 @@
 import { connect } from "react-redux";
-import { createArticleThunk, toggleIsFetching, updateArticleCategory, updateArticleText, updateArticleTitle } from "../../redux/features/article/articles-slice";
+import { createArticleThunk, updateArticleCategory, updateArticleText, updateArticleTitle } from "../../redux/features/article/articles-slice";
 import SandBox from "./SandBox";
 
 let mapStateToProps = (state) => {
   return {
     newTitle: state.articles.newTitle,
     newText : state.articles.newText,
-    isFetching: state.articles.isFetching,
   }
 }
 
 const SandBoxContainer = connect(mapStateToProps, {
-  updateArticleTitle, updateArticleText, updateArticleCategory, createArticleThunk, toggleIsFetching
+  updateArticleTitle, updateArticleText, updateArticleCategory, createArticleThunk, 
 })(SandBox)
 
 export default SandBoxContainer
