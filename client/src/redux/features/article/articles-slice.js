@@ -75,7 +75,7 @@ export const getFiltredArticle = (payload) => ({type: ARTICLE_FILTER, payload})
 export const createArticleThunk = () => {
     return (dispatch, getState) => {
         dispatch(articleAdded())
-        articlesAPI.createArticles(getState()).then(data => {
+        ArticleService.createArticles(getState()).then(data => {
             console.log("Статья успешно опубликована!")
         })
     }
@@ -83,7 +83,7 @@ export const createArticleThunk = () => {
 
 export const getArticlesThunk = (value, page, limit) => {
     return (dispatch) => {
-        articlesAPI.getArticlesPost(page, limit).then(data => {
+        ArticleService.getArticlesPost(page, limit).then(data => {
             (value === "все") ? dispatch(getArticlePage(data.posts)) : dispatch(getFiltredArticle([data.posts, value]))
         })
     }
@@ -91,7 +91,7 @@ export const getArticlesThunk = (value, page, limit) => {
 
 export const getArticleByIdThunk = (aticleId) => {
     return (dispatch) => {
-        articlesAPI.getArticle(aticleId).then(response => {
+        ArticleService.getArticle(aticleId).then(response => {
             dispatch(getArticlePage(response.data))
         })
     }

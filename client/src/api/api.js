@@ -1,5 +1,5 @@
 import * as axios from "axios"
-/*export class ArticleService {
+export class ArticleService {
    static async createArticles (articleData) {
       const response = await axios.post("/articles", articleData.articles.article)
       return response.data 
@@ -32,14 +32,14 @@ export class NotesService {
       const response = await axios.get("/notes")
       return response
    }
-}*/
+}
 
   /*export const createArticles = async (articleData) => {
    return await axios.post("/articles", articleData.articles.article).then(response => response.data)
    //return response
 }*/
 
-export const articlesAPI = {
+/*export const articlesAPI = {
    createArticles (articleData) {
       return axios.post("/articles", articleData.articles.article).then(response => response.data)
    },
@@ -66,4 +66,4 @@ export const notesAPI = {
       debugger
       return axios.get("/notes")
    }
-}
+}*/

@@ -63,7 +63,7 @@ export const createNotesThunk = () => {
   return (dispatch, getState) => {
     dispatch(addNotes())
     dispatch(toggleIsFetching(true))
-    notesAPI.createNotes(getState()).then(data => {
+    NotesService.createNotes(getState()).then(data => {
       console.log("Заметка успешно опубликована!")
       dispatch(toggleIsFetching(false))
     })
@@ -73,7 +73,7 @@ export const createNotesThunk = () => {
 export const getNotesThunk = () => {
   debugger
   return (dispatch) => {
-    notesAPI.getNotes().then(response => {
+    NotesService.getNotes().then(response => {
       dispatch(getNotes(response.data))
     })
   }
