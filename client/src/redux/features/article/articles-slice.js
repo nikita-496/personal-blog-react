@@ -1,6 +1,7 @@
-import {ArticleService} from "../../../api/api" 
-import settingDate from "../../../modules/Date"
-import update from "../../../modules/Update"
+import {articlesAPI, ArticleService} from "../../../api/api" 
+import settingDate from "../../../utility/date"
+import update from "../../../utility/update"
+
 const SET_NEW_ARTICLE_TITLE = "articles/setNewArticleTitle"
 const NEW_ARTICLE_TEXT_UPDATED = "articles/newArticleTextUpdated"
 const NEW_ARTICLE_CATEGORY = "articles/newArticleCategory"
@@ -25,10 +26,8 @@ const initialState = {
 
 const articleCreationReducer = (state = initialState, action) => {
     switch(action.type) {
-        
         case SET_NEW_ARTICLE_TITLE : {
-            return update(state, action, "newTitle", "state.newTitle")
-            
+            return update(state, action, "newTitle", "state.newTitle") 
         }
         case NEW_ARTICLE_TEXT_UPDATED: {
             return update(state, action, "newText", "state.newText")
@@ -76,7 +75,7 @@ export const getFiltredArticle = (payload) => ({type: ARTICLE_FILTER, payload})
 export const createArticleThunk = () => {
     return (dispatch, getState) => {
         dispatch(articleAdded())
-        ArticleService.createArticles(getState()).then(data => {
+        articlesAPI.createArticles(getState()).then(data => {
             console.log("Статья успешно опубликована!")
         })
     }
@@ -84,7 +83,7 @@ export const createArticleThunk = () => {
 
 export const getArticlesThunk = (value, page, limit) => {
     return (dispatch) => {
-        ArticleService.getArticlesPost(page, limit).then(data => {
+        articlesAPI.getArticlesPost(page, limit).then(data => {
             (value === "все") ? dispatch(getArticlePage(data.posts)) : dispatch(getFiltredArticle([data.posts, value]))
         })
     }
@@ -92,7 +91,7 @@ export const getArticlesThunk = (value, page, limit) => {
 
 export const getArticleByIdThunk = (aticleId) => {
     return (dispatch) => {
-        ArticleService.getArticle(aticleId).then(response => {
+        articlesAPI.getArticle(aticleId).then(response => {
             dispatch(getArticlePage(response.data))
         })
     }

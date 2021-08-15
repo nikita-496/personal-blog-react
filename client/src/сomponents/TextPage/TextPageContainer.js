@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
-import { getArticleByIdThunk, getArticlePage, toggleIsFetching } from "../../redux/features/article/articles-slice"
+import { getArticleByIdThunk, getArticlePage } from "../../redux/features/article/articles-slice"
 import TextPage from "./TextPage"
 
 const TextPageContainer = (props) => {
@@ -22,7 +22,7 @@ let mapStateToProps = state => {
 
 let WithUrlData = withRouter(TextPageContainer)
 export default  connect(mapStateToProps,{
-  getArticlePage , toggleIsFetching, getArticleByIdThunk
+  getArticlePage, getArticleByIdThunk
 })(WithUrlData)
 
 

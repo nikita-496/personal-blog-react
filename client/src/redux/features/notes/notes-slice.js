@@ -1,6 +1,6 @@
-import { NotesService } from "../../../api/api"
-import settingDate from "../../../modules/Date"
-import update from "../../../modules/Update"
+import { notesAPI, NotesService } from "../../../api/api"
+import settingDate from "../../../utility/date"
+import update from "../../../utility/update"
 
 const UPDATE_NOTES_TITLE = "notes/notesUpdateNotesTitle"
 const UPDATE_NOTES_TEXT = "notes/notesUpdateNotesText"
@@ -63,7 +63,7 @@ export const createNotesThunk = () => {
   return (dispatch, getState) => {
     dispatch(addNotes())
     dispatch(toggleIsFetching(true))
-    NotesService.createNotes(getState()).then(data => {
+    notesAPI.createNotes(getState()).then(data => {
       console.log("Заметка успешно опубликована!")
       dispatch(toggleIsFetching(false))
     })
@@ -71,9 +71,9 @@ export const createNotesThunk = () => {
 }
 
 export const getNotesThunk = () => {
+  debugger
   return (dispatch) => {
-    debugger
-    NotesService.getNotes().then(response => {
+    notesAPI.getNotes().then(response => {
       dispatch(getNotes(response.data))
     })
   }
