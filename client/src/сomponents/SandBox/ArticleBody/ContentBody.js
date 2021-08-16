@@ -1,23 +1,14 @@
-import React, { useContext } from "react"
-import withTextUpdate from "../../../hoc/withTextUpdate"
+import React from "react"
+import CustomTextArea from "../../../common/TextArea/CustomTextArea"
 import styles from "../../../scss-blocks/SandBox/SandBox.module.scss"
-import { DataContext } from "../SandBox"
 
-const ContentBody = (props) => {
-  const DATA = useContext(DataContext)
+const ContentBody = ({text, update}) => {
   return (
-    <>
-    <textarea 
-      className={styles.editeTitleTextare} 
-      value={DATA.newText} 
-      onChange={props.handleChange}
-      />
-    </>
+    <div>
+    <CustomTextArea styles={"w"}
+    value={text} callback={update} />
+  </div>
   )
 }
 
-const ContentBodyWithTextUpdate = withTextUpdate(
-  ContentBody,
-  (props) => props.updateArticleText
-  )
- export default ContentBodyWithTextUpdate
+ export default ContentBody

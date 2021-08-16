@@ -1,7 +1,7 @@
 import React from "react" 
 import useTextArea from "../../hooks/useTextArea"
 
-const CustomTextArea = (props) => {
+const CustomTextArea = props => {
 
   const [text, handle] = useTextArea(props.value, props.callback)
 
