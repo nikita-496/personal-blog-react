@@ -1,6 +1,7 @@
-import { notesAPI, NotesService } from "../../../api/api"
+import {NotesService } from "../../../api/api"
 import settingDate from "../../../utility/date"
 import update from "../../../utility/update"
+
 
 const UPDATE_NOTES_TITLE = "notes/notesUpdateNotesTitle"
 const UPDATE_NOTES_TEXT = "notes/notesUpdateNotesText"
@@ -14,7 +15,6 @@ let initialState = {
   notesText: "",
   notesCategory: "",
   noteItems : [],
-  isFetching: false
 }
 
 const notesReducer = (state = initialState, action) => {
@@ -44,9 +44,6 @@ const notesReducer = (state = initialState, action) => {
       let stateCopy = {...state, noteItems: action.payload}
       return stateCopy
     }
-    case TOGGLE_IS_FETCHING: {
-      return {...state, isFetching: action.payload}
-  } 
     default: 
       return state  
   }
@@ -57,21 +54,15 @@ export const updateNotesText = (payload) => ({type: UPDATE_NOTES_TEXT, payload})
 export const setCategory= (payload) => ({type: SET_CATEGORY, payload})
 export const addNotes = () => ({type:NOTES_ADDED})
 export const getNotes = (payload) => ({type:GET_NOTES, payload})
-export const toggleIsFetching = (payload) => ({type: TOGGLE_IS_FETCHING, payload}) 
 
 export const createNotesThunk = () => {
   return (dispatch, getState) => {
     dispatch(addNotes())
-    dispatch(toggleIsFetching(true))
-    NotesService.createNotes(getState()).then(data => {
-      console.log("Заметка успешно опубликована!")
-      dispatch(toggleIsFetching(false))
-    })
+    NotesService.createNotes(getState())
+    }
   }
-}
 
 export const getNotesThunk = () => {
-  debugger
   return (dispatch) => {
     NotesService.getNotes().then(response => {
       dispatch(getNotes(response.data))

@@ -14,7 +14,7 @@ export default function Posts ({article, getArticlesThunk}) {
   const [limit, setLimit] = useState(8)
 
   //чтобы страницы обновлялись без отставания, установим зависимость
-  useEffect(() => {fetchPosts()},[page,category])
+  useEffect(() => fetchPosts(),[page,category])
 
   const [fetchPosts, isPostLoading, postError] = useFetching(async () => {
     await getArticlesThunk(category, page, limit)
@@ -31,21 +31,18 @@ export default function Posts ({article, getArticlesThunk}) {
   return setCategory(e.target.value)
   }
 
-  let articleElement
-  (article.length !== 0) ? articleElement = article.map(a => 
+  let articleElement = article.map(a => 
     <Post  
       key={a._id}
       titleArticle={a.title} 
       text={a.paragraph} 
       date={a.publicDate} 
       category={a.category} 
-    />
-    ) 
-    : articleElement = null
+    />)
   
   return(
     <div>
-      {postError && <h1>Произогла ошибка ${postError}</h1>}
+      {postError && <h1>Произошла ошибка ${postError}</h1>}
       {isPostLoading ? <Preloader></Preloader>
       :  <>
       {getButtons(handleCategory)}

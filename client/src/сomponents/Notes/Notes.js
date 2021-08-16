@@ -7,10 +7,7 @@ import styles from "../../scss-blocks/Notes/Notes.module.scss"
 import ViewNotes from "../Notes/ViewNotes/ViewNotes"
 import EnteringNotes from "./EnteringNotes/EnteringNotes"
 
-
-
 const  Notes = (props) => {
-  debugger
   const modal = useContentBody(false)
   return(
     <div className={styles.wrapper}>

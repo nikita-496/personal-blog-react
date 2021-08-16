@@ -1,16 +1,16 @@
 const Note = require ("../models/notes")
 const ObjectID = require("mongodb").ObjectID
 
- changeNote => new Note ({
+ changeNote = req => new Note ({
   title: req.body.title,
-  paragraph: req.body.paragraph,
+  text: req.body.text,
   publicDate: req.body.publicDate,
   category: req.body.category,
 })  
 
 //POST 
 exports.create = (req, res) => {
-  const note = changeNote
+  const note = changeNote(req)
 
   //Запись в БД
   note.save().then(data => {

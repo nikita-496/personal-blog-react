@@ -1,18 +1,25 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
+import Preloader from "../../../common/Preoloader/Preloader"
+import useFetching from "../../../hooks/useFetching"
 import Note from "./Note"
 
-export default function ViewNotes (props) {
-  useEffect (()=> {
-    if(props.notes.length === 0) {
-      props.get()
-    }
+export default function ViewNotes ({notes, get}) {
+  debugger
+  const [totaListNote, setTotaListNote] = useState(0)
+
+  useEffect(()=> fetchNotes(), [])
+
+  const [fetchNotes, isNotesLoading, notesError] = useFetching( async () => {
+    await get()
+    //setListNote(notes)
   })
-  let listNotes = props.notes.map(n => {
+  let listNote = notes.map(n => {
    return <Note key={n._id} text={n.text}/>
   })
   return(
     <>
-      {listNotes}  
+      {notesError && <h1>Произошла ошибка ${notesError}</h1>}
+      {isNotesLoading ? <Preloader></Preloader> :listNote}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import {articlesAPI, ArticleService} from "../../../api/api" 
+import {ArticleService} from "../../../api/api" 
 import settingDate from "../../../utility/date"
 import update from "../../../utility/update"
 
@@ -75,9 +75,7 @@ export const getFiltredArticle = (payload) => ({type: ARTICLE_FILTER, payload})
 export const createArticleThunk = () => {
     return (dispatch, getState) => {
         dispatch(articleAdded())
-        ArticleService.createArticles(getState()).then(data => {
-            console.log("Статья успешно опубликована!")
-        })
+        ArticleService.createArticles(getState())
     }
 }
 
