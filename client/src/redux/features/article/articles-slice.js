@@ -2,6 +2,7 @@ import settingDate from "../../../utility/date"
 import update from "../../../utility/update"
 import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, GET_ARTICLE,} from "./case"
 
+
 const initialState = {
     newTitle: "",
     newText: "",
@@ -44,9 +45,10 @@ const articleCreationReducer = (state = initialState, action) => {
         }
         case ARTICLE_FILTER : {
             debugger
-            let stateCopy = {...state, article: (action.payload[1] === "isSearch") 
-                ? action.payload[0].filter(s => s.title === action.payload[1])
-                : action.payload[0].filter(s => s.category === action.payload[1])
+            let stateCopy = {...state, article: (action.payload[1] === "css" || action.payload[1] ==="javasript" 
+            || action.payload[1] ==="react" || action.payload[1] === "другое") 
+                ? action.payload[0].filter(s => s.category === action.payload[1])
+                : action.payload[0].filter(s => s.title === action.payload[1])
             }
             
             //Елси постов по данной категории не существует

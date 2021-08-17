@@ -1,18 +1,19 @@
-import React, { useEffect} from "react"
+import React, { useEffect } from "react"
 import Pagination from "../../../common/Pagination/Pagination"
 import useFetching from "../../../hooks/useFetching"
 import { ArticleService } from "../../../api/api"
-import getButtons from "../../../utility/buttons"
 import DataExtraction from "../../../common/Data/DataExtraction"
 import usePage from "../../../hooks/usePage"
 import useSelectedCategoty from "../../../hooks/useSelectedCategory"
 import DataList from "../../../common/Data/DataList"
+import FiltrationElements from "../../../common/FiltrationElemens/FiltrationElements"
 
-export default function Posts ({article, getArticlesThunk}) {
+export default function Posts ({article, getArticles}) {
+  
   const [category, handleCategory] = useSelectedCategoty("все")
   const [page, limit, changePage, setTotalPages, pages] = usePage(1,8)
   const [fetchPosts, isLoading, error] = useFetching(async () => {
-    await getArticlesThunk(category, page, limit)
+    await getArticles(category, page, limit)
     const response = await ArticleService.getArticlesPost(page, limit)
     setTotalPages(response.totalPages)
   })
@@ -22,7 +23,7 @@ export default function Posts ({article, getArticlesThunk}) {
   return(
       <DataList meta={{post: true, isLoading, error}}>
         <>
-        {getButtons(handleCategory)}
+        <FiltrationElements handle={handleCategory} getArticles={getArticles}/> 
         <DataExtraction data={article} post={true}/>
         <Pagination pages={pages} currentPage={page} handlePage ={changePage}/>
         </>

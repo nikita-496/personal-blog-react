@@ -10,6 +10,7 @@ export const createArticle= () => {
 
 export const getArticles = (value, page, limit) => {
   return (dispatch) => {
+      debugger
       ArticleService.getArticlesPost(page, limit).then(data => {
           (value === "все") ? dispatch(get(data.posts)) 
           : dispatch(filter([data.posts, value])) 

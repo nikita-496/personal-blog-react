@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
-import { createArticleThunk, updateArticleCategory, updateArticleText, updateArticleTitle } from "../../redux/features/article/articles-slice";
+import {  updateCategory, updateText, updateTitle } from "../../redux/features/article/actions";
+import { createArticle } from "../../redux/features/article/thunk";
 import SandBox from "./SandBox";
 
 let mapStateToProps = (state) => {
@@ -10,7 +11,7 @@ let mapStateToProps = (state) => {
 }
 
 const SandBoxContainer = connect(mapStateToProps, {
-  updateArticleTitle, updateArticleText, updateArticleCategory, createArticleThunk, 
+  updateTitle, updateText, updateCategory, createArticle, 
 })(SandBox)
 
 export default SandBoxContainer

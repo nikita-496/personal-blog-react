@@ -1,10 +1,15 @@
-import React from "react"
+import { useState } from "react"
+import useControlled from "../../../hooks/useControlled"
 import styles from "../../scss-blocks/Header/Search.module.scss"
 
-export default function Search () {
+export default function Search ({flag, placeholder, getArticles}) {
+  const [searchQuery, setSearchQuery] = useControlled("",  getArticles)
   return (
     <>
-     <input className={styles.search}placeholder="Поиск по блогу"/>
+     <input className={ flag ? styles.postsSearch :  styles.globalSearch} 
+     placeholder={placeholder ? placeholder : "Поиск по блогу"}
+     value={searchQuery}
+     onChange={setSearchQuery}/>
     </>
   )
 }

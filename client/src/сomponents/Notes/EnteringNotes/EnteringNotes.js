@@ -1,19 +1,19 @@
 import React from "react"
+import CustomTextArea from "../../../common/TextArea/CustomTextArea"
 import styles from "../../../scss-blocks/Notes/EnteringNotes.module.scss"
 import Action from "./Action/Action"
+
  
-  const EnteringNotes = (props) => {
-  const  onNotesText = (e) => {
-    props.updateNotesText(e.target.value)
-  }
+  const EnteringNotes = ({notesText, updateNotesText}) => {
   return(
     <div className={styles.wrapper} onClick={e => e.stopPropagation()}>
       <div className={styles.addPost} >
-        <textarea placeholder="Написать заметку" value={props.notesText} onChange={onNotesText}/>
+        <CustomTextArea  placeholder="Написать заметку"
+          value={notesText} callback={updateNotesText}
+        />
         <Action/>
       </div>
     </div>
   )
 }
-
 export default EnteringNotes

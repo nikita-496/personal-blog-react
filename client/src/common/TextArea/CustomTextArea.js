@@ -1,10 +1,8 @@
 import React from "react" 
-import useTextArea from "../../hooks/useTextArea"
+import useControlled from "../../hooks/useControlled"
 
 const CustomTextArea = props => {
-
-  const [text, handle] = useTextArea(props.value, props.callback)
-
+  const [text, handle] = useControlled(props.value, props.callback)
   return (
     <div>
       <textarea

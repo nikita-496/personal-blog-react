@@ -3,9 +3,7 @@ import { useState } from "react"
 const useSelectedCategoty = (defaultCategory) => {
   const [category, setCategory] = useState(defaultCategory)  
 
-  const handleCategory = (e) => {
-    return setCategory(e.target.value)
-  }
+  const handleCategory = (e) =>  setCategory(e.target.value)
 
   return [category, handleCategory]
 }

@@ -6,4 +6,4 @@ export const updateCategory = (payload) => ({type: ARTICLE_CATEGORY_UPDATE, payl
 export const add = () => ({type: ARTICLE_ADD})
 export const get = (payload) => ({type: GET_ARTICLE, payload})
 export const filter = (payload) => ({type: ARTICLE_FILTER, payload}) 
-//export const filterBySearch = (payload) => ({type: ARTICLE_FILTER_BY_SEARCH, payload}) 
+

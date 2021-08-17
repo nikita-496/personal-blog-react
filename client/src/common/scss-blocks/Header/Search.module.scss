@@ -1,9 +1,8 @@
 @import "../_vars/vars.scss";
 @import "../_mixins/mixins.scss";
 
-.search {
+.globalSearch, .postsSearch {
   width: 20%;
-  height: 100vw;
   padding: 14px 12px 20px ;
   @include fieldEnter($primary-color,1.2rem);
 
@@ -11,4 +10,12 @@
     color:$second-gray;
     opacity: .6;
   }
+}
+
+.globalSearch{
+  height: 100vw;
+}
+.postsSearch{
+  margin-left: 2em;
+  height: 1px;
 }

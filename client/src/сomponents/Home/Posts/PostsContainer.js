@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { getArticlesThunk } from "../../../redux/features/article/articles-slice"
+import { getArticles } from "../../../redux/features/article/thunk"
 import Posts from "./Posts"
 
 let mapStateToProps = (state) => {
@@ -8,7 +8,7 @@ let mapStateToProps = (state) => {
   }
 }
 const PostsContainer = connect(mapStateToProps, {
-  getArticlesThunk
+  getArticles
 })(Posts)
 
 export default PostsContainer

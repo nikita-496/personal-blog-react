@@ -4,7 +4,7 @@ import Note from "../../сomponents/Notes/ViewNotes/Note"
 
 
 const DataExtraction = ({data, post}) => {
-  debugger
+  
   let listData = data.map(d => {
     return (post) ?
     <Post  
