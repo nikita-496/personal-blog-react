@@ -12,6 +12,7 @@ export default function NavBar () {
       <NavLink className={styles.nav} to="/auth"></NavLink>
       <NavLink className={styles.nav} to="/signup"></NavLink>
       <NavLink className={styles.nav} to="/reset"></NavLink>
+      <NavLink className={styles.nav} to="/error"></NavLink>
       <NavLink className={styles.nav} to="/profile">Профиль</NavLink>
     </span>
   )

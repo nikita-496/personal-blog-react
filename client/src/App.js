@@ -1,12 +1,13 @@
 import React from "react";
 import { Route } from 'react-router';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Redirect, Switch } from "react-router-dom";
 import Header from "../src/common/Header/Header";
 import SideBar from "../src/common/SideBar/SideBar";
 import Home from "../src/сomponents/Home/Home";
 import Profile from "../src/сomponents/Profile/Profile";
 import SearchResult from "../src/сomponents/SearchResult/SearchResult";
 import styles from "./App.module.scss";
+import ErrorPage from "./common/ErrorPage/ErrorPage";
 import Auth from "./сomponents/Auth/Auth";
 import NotesContainer from "./сomponents/Notes/NotesContainer";
 import Reset from "./сomponents/Reset/Reset";
@@ -24,16 +25,20 @@ function App() {
         <Header className={styles.header}/>
         <main className={styles.content}>
             <div className={styles.container}>
-            <Route path="/all" render={() => <Home />}/>
-            <Route path="/article/:articleId" render={() => <TextPageContainer />}/>
-            <Route path="/note" render={() => <NotesContainer />}/>
-            <Route path="/sandbox" render={() => <SandBoxContainer />} />
-            <Route path="/profile" render={() => <Profile />}/>
-            <Route path="/search" render={() => <SearchResult />}/>
-            <Route path="/works" render={() => <Works />}/>
-            <Route path="/auth" render={() => <Auth />}/>
-            <Route path="/signup" render={() => <SignUp />}/>
-            <Route path="/reset" render={() => <Reset />}/>
+            <Switch>
+              <Route path="/all" render={() => <Home />}/>
+              <Route path="/article/:articleId" render={() => <TextPageContainer />}/>
+              <Route path="/note" render={() => <NotesContainer />}/>
+              <Route path="/sandbox" render={() => <SandBoxContainer />} />
+              <Route path="/profile" render={() => <Profile />}/>
+              <Route path="/search" render={() => <SearchResult />}/>
+              <Route path="/works" render={() => <Works />}/>
+              <Route path="/auth" render={() => <Auth />}/>
+              <Route path="/signup" render={() => <SignUp />}/>
+              <Route path="/reset" render={() => <Reset />}/>
+              <Route path="/error" render={() => <ErrorPage />}/>
+              <Redirect to="/error"/>
+            </Switch>
             </div>
         </main>
       </div>
