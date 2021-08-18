@@ -3,7 +3,7 @@ import Button from "../../common/Button/Button";
 import Modal from "../../common/Modal/Modal";
 import Preloader from "../../common/Preoloader/Preloader";
 import SelectTag from "../../common/SelectTag/SelectTag";
-import useContentBody from "../../hooks/useContentBody";
+import useContentBody from "../../hooks/useStatusView";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
 import ArticleBody from "./ArticleBody/ArticleBody";
 

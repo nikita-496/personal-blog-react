@@ -2,10 +2,10 @@ import React from "react"
 import CustomTextArea from "../../../common/CustomTags/CustomTextArea"
 
 const ContentBody = ({text, update, stylingСontent}) => {
-  debugger
   return (
     <div>
-    <CustomTextArea placeholder={"Введите текст"} stylingСontent={stylingСontent} value={text} callback={update} />
+    <CustomTextArea placeholder={"Введите текст или выбирите опции"} 
+    stylingСontent={stylingСontent} value={text} callback={update} />
   </div>
   )
 }

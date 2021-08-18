@@ -2,13 +2,13 @@ import React from "react"
 import Button from "../../common/Button/Button"
 import Modal from "../../common/Modal/Modal"
 import SelectTag from "../../common/SelectTag/SelectTag"
-import useContentBody from "../../hooks/useContentBody"
+import useStatusView from "../../hooks/useStatusView"
 import styles from "../../scss-blocks/Notes/Notes.module.scss"
 import ViewNotes from "../Notes/ViewNotes/ViewNotes"
 import EnteringNotes from "./EnteringNotes/EnteringNotes"
 
 const  Notes = (props) => {
-  const modal = useContentBody(false)
+  const modal = useStatusView(false)
   return(
     <div className={styles.wrapper}>
       <ViewNotes notes={props.notes} get={props.getNotesThunk}/>
