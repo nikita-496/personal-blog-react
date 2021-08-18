@@ -9,6 +9,7 @@ const DataExtraction = ({data, post}) => {
     return (post) ?
     <Post  
       key={d._id}
+      id={d._id}
       titleArticle={d.title} 
       text={d.paragraph} 
       date={d.publicDate} 
