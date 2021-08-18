@@ -1,5 +1,5 @@
 import React from "react"
-import CustomTextArea from "../../../common/TextArea/CustomTextArea"
+import CustomTextArea from "../../../common/CustomTags/CustomTextArea"
 import styles from "../../../scss-blocks/Notes/EnteringNotes.module.scss"
 import Action from "./Action/Action"
 

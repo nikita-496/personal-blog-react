@@ -1,12 +1,11 @@
 import React from "react"
-import CustomTextArea from "../../../common/TextArea/CustomTextArea"
-import styles from "../../../scss-blocks/SandBox/SandBox.module.scss"
+import CustomTextArea from "../../../common/CustomTags/CustomTextArea"
 
-const ContentBody = ({text, update}) => {
+const ContentBody = ({text, update, stylingСontent}) => {
+  debugger
   return (
     <div>
-    <CustomTextArea styles={"w"}
-    value={text} callback={update} />
+    <CustomTextArea placeholder={"Введите текст"} stylingСontent={stylingСontent} value={text} callback={update} />
   </div>
   )
 }

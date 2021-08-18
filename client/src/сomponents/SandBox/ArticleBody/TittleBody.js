@@ -1,12 +1,11 @@
 import React  from "react"
-import CustomTextArea from "../../../common/TextArea/CustomTextArea"
-import styles from "../../../scss-blocks/SandBox/SandBox.module.scss"
+import CustomTextArea from "../../../common/CustomTags/CustomTextArea"
 
-const TitleBody = ({title, update}) => {
+const TitleBody = ({title, update, stylingTitle}) => {
   return (
     <div>
-      <CustomTextArea placeholder={"Заголовок"} styles={"1"}
-      value={title} callback={update} />
+      <CustomTextArea placeholder={"Заголовок"} stylingTitle={stylingTitle}
+      value={title} callback={update}/>
     </div>
   )
 }

@@ -25,30 +25,33 @@
     }
   }
 
-  .editeTitleTextare{
+  .editeTitleTextarea{
     display: block;
+    margin-bottom: 1.5rem;
     width: 87%;
+    @include boundaries();
     &::placeholder{
       color:$second-gray;
       opacity: .5;
       font-weight: 600;
-      font-size: 1.3em;
+      font-size: 1.4em;
     }
   }
   .content{
     display: flex;
     justify-content: space-between;
-    justify-self: start;
-    height: 30em;
-    .editeContentTextare{
+    height: 100vh;
+    .editeContentTextarea{
+      //background-color: crimson;
       display: block;
-      width: 87%;
-  
+      width: 45em;
+      height: 20px;
+
       &::placeholder{
         color:$second-gray;
         opacity: .5;
-        font-weight: 600;
-        font-size: 1.3em;
+        font-family: inherit;
+        font-size: 1.1em;
       }
     }
   }

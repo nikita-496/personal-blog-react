@@ -164,3 +164,11 @@
   transform: scale($scale);
   transition: .4s all;
 }
+
+@mixin boundaries() {
+  &:hover {
+    border-bottom: 1px solid $effect;  
+    border-top: 1px solid $effect;
+  }
+}
+

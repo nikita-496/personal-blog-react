@@ -10,10 +10,10 @@ const ArticleBody = () => {
   const data = useContext(DataContext)
   return (
     <>
-      <TitleBody title={data.newTitle} update={data.updateArticleTitle}/>
+      <TitleBody stylingTitle={styles.editeTitleTextarea} title={data.newTitle} update={data.updateArticleTitle}/>
       <div className={styles.content}>
         <TextOptions />
-        <ContentBody text={data.newText} update={data.updateArticleText}/>
+        <ContentBody stylingСontent={styles.editeContentTextarea} text={data.newText} update={data.updateArticleText}/>
         <FormatOptions />
       </div>
     </>
