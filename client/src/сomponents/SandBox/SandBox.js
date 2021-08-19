@@ -25,7 +25,7 @@ const SandBox = props => {
       : <>
       <DataContext.Provider value={
         {newTitle: props.newTitle, newText: props.newText, 
-          updateArticleTitle: props.updateArticleTitle, updateArticleText: props.updateArticleText}
+          updateTitle: props.updateTitle, updateText: props.updateText}
         }>
         <ArticleBody />
       </DataContext.Provider>
@@ -36,9 +36,9 @@ const SandBox = props => {
       
       <Modal editMode={editMode} modal={modal}>
         <SelectTag data={
-          {create: props.createArticleThunk,
+          {create: props.createArticle,
             editMode: editMode.handleStatusChange, modal: modal.handleStatusChange,
-            category: props.updateArticleCategory}
+            category: props.updateCategory}
         }/>
       </Modal>
       </>
