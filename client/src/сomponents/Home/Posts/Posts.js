@@ -9,7 +9,6 @@ import DataList from "../../../common/Data/DataList"
 import FiltrationElements from "../../../common/FiltrationElemens/FiltrationElements"
 
 export default function Posts ({article, getArticles}) {
-  
   const [category, handleCategory] = useSelectedCategoty("все")
   const [page, limit, changePage, setTotalPages, pages] = usePage(1,8)
   const [fetchPosts, isLoading, error] = useFetching(async () => {

@@ -1,17 +1,18 @@
 import settingDate from "../../../utility/date"
 import update from "../../../utility/update"
-import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, GET_ARTICLE,} from "./case"
-
+import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_DESCRIPTION_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, GET_ARTICLE,} from "./case"
 
 const initialState = {
     newTitle: "",
+    newDescription: "",
     newText: "",
     newCategory: "",
     article: [
         {
          _id: "",    
          title: "",
-         paragraph: "",
+         description: "",
+         text: "",
          publicDate: null,
          category: ""
         }   
@@ -23,6 +24,10 @@ const articleCreationReducer = (state = initialState, action) => {
         case ARTICLE_TITLE_UPDATE : {
             return update(state, action, "newTitle", "state.newTitle") 
         }
+        case ARTICLE_DESCRIPTION_UPDATE: {
+            debugger
+            return update(state, action, "newDescription", "state.newDescription")
+        }
         case ARTICLE_TEXT_UPDATE: {
             return update(state, action, "newText", "state.newText")
         }
@@ -30,25 +35,29 @@ const articleCreationReducer = (state = initialState, action) => {
             return update(state, action, "newCategory", "state.newCategory")
         }
         case ARTICLE_ADD: {
+            debugger
             let stateCopy = {...state}
             let newArticle = {
                 title: state.newTitle,
-                paragraph: state.newText,
+                description: state.newDescription,
+                text: state.newText,
                 publicDate: settingDate(),
                 category: state.newCategory
             }
             stateCopy.article = newArticle
             stateCopy.newTitle = ""
+            stateCopy.newDescription = ""
             stateCopy.newText = ""
             stateCopy.newCategory = ""
             return stateCopy
         }
         case ARTICLE_FILTER : {
-            debugger
             let stateCopy = {...state, article: (action.payload[1] === "css" || action.payload[1] ==="javasript" 
             || action.payload[1] ==="react" || action.payload[1] === "другое") 
                 ? action.payload[0].filter(s => s.category === action.payload[1])
-                : action.payload[0].filter(s => s.title === action.payload[1])
+                //подумать как улучшить данную логику. Возможно стоит на этапе создания статьей отсеивать статьи без заголовков
+                : action.payload[0].filter(s => (s.title !== undefined) 
+                    ? s.title.toLowerCase() === action.payload[1].toLowerCase() : s.title=== action.payload[1])
             }
             
             //Елси постов по данной категории не существует

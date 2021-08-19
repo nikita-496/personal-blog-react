@@ -31,7 +31,8 @@ export default function TextPage (props) {
           </div>
         </Tags>
 
-         <SubTitle text={props.article.paragraph}/>
+         <SubTitle text={props.article.description}/>
+         <SubTitle text={props.article.text}/>
          <Logo/>
        </div>
        

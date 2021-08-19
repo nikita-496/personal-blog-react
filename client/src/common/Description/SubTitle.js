@@ -5,8 +5,9 @@ export default function SubTitle (props) {
   return (
     <div>
       {
-         (props.text) ?  
-         <p className={styles.subTitleArticle}>{props.text}</p>
+         (props.description) ?  
+         <p className={styles.subTitleArticle}>{props.description}</p>
+         :  (props.text) ?  <p className={styles.subTitleArticle}>{props.text}</p>
          :  (props.about) ? <p className={styles.about}>{props.notes}</p>
          : <p className={styles.subTitleNotes}>{props.notes}</p>
       }

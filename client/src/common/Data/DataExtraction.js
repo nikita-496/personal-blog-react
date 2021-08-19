@@ -4,14 +4,14 @@ import Note from "../../сomponents/Notes/ViewNotes/Note"
 
 
 const DataExtraction = ({data, post}) => {
-  
+  debugger
   let listData = data.map(d => {
     return (post) ?
     <Post  
       key={d._id}
       id={d._id}
       titleArticle={d.title} 
-      text={d.paragraph} 
+      description={d.description} 
       date={d.publicDate} 
       category={d.category} 
     />

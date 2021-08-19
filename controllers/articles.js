@@ -3,7 +3,8 @@ const ObjectID = require("mongodb").ObjectID
 
  const changeArticle = req => new Article ({
   title: req.body.title,
-  paragraph: req.body.paragraph,
+  text: req.body.text,
+  description: req.body.description,
   publicDate: req.body.publicDate,
   category: req.body.category,
 })  

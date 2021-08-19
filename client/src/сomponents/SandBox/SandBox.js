@@ -24,8 +24,8 @@ const SandBox = props => {
       </div>
       : <>
       <DataContext.Provider value={
-        {newTitle: props.newTitle, newText: props.newText, 
-          updateTitle: props.updateTitle, updateText: props.updateText}
+        {newTitle: props.newTitle, newText: props.newText, newDescription: props.newDescription,
+          updateTitle: props.updateTitle, updateDescription: props.updateDescription, updateText: props.updateText}
         }>
         <ArticleBody />
       </DataContext.Provider>

@@ -13,7 +13,7 @@ export default function Post (props) {
       <Card>
           <div className={styles.content}>
             <Logo src={props.src}/>
-            <Description text={props.text} titleArticle={props.titleArticle}/>
+            <Description description={props.description} titleArticle={props.titleArticle}/>
             {
             (props.titleArticle === "Ничего не найдено!") ? <></>
             :  <Tags link={"читать"} >

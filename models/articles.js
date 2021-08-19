@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
-
 const ArticleSchema = mongoose.Schema({
   title: String,
-  paragraph: String,
+  description: String,
+  text: String,
   publicDate: String,
   category: String,
 })

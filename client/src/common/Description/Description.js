@@ -7,7 +7,7 @@ export default function Description (props) {
   return (
     <div>
       <Title title={props.title} titleArticle={props.titleArticle}/>
-      <SubTitle text={props.text}/>
+      <SubTitle description={props.description}/>
     </div>
   )
 }
