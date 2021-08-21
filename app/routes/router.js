@@ -1,5 +1,6 @@
 const articles = require("../../controllers/articles")
 //const posts = require("../../controllers/posts")
+const comments = require("../../controllers/comments")
 const notes = require("../../controllers/notes")
 
 module.exports = function(app){
@@ -14,6 +15,11 @@ module.exports = function(app){
   app.post("/posts", posts.create)
   app.put("/posts/:id", posts.update)
   app.delete("/posts/:id", posts.delete)*/
+
+  app.get("/comments/:id", comments.findById)
+  app.get("/comments", comments.all)
+  app.post("/comments", comments.create)
+  app.delete("/comments/:id", comments.delete)
 
   app.get("/notes/:id", notes.findById)
   app.get("/notes", notes.all)
