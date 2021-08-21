@@ -8,7 +8,7 @@ const UPDATE_NOTES_TEXT = "notes/notesUpdateNotesText"
 const SET_CATEGORY = "notes/setCategory"
 const NOTES_ADDED = "notes/notesAdded"
 const GET_NOTES = "notes/notesGetNotes"
-const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING"
+
 
 let initialState = {
   notesTitle: "",

@@ -7,7 +7,6 @@ const initialState = {
     newDescription: "",
     newText: "",
     newCategory: "",
-    newCommentText: "",
     article: [
         {
          _id: "",    
@@ -16,7 +15,6 @@ const initialState = {
          text: "",
          publicDate: null,
          category: "",
-         commentText: ""
         }   
     ]
 }       
