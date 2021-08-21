@@ -4,7 +4,7 @@ import src from "../../../../../img/text-page/avatarAuthor.png"
 import styles from "../../../../../scss-blocks/TextPage/Comments/Comments.module.scss"
 import SubComment from "./SubComment/SubComment"
 
-export default function Comment () {
+export default function CommentView ({commentText}) {
   return (
     <ul className={styles.comments}>
         <li>
@@ -16,11 +16,12 @@ export default function Comment () {
               </div>
           </div>
 
-          <div className={styles.text}>Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.
+          <div className={styles.text}>
+            {commentText}
           </div>
           
-          <Button text="Ответить"/>
-          <SubComment />
+          {/*<Button text="Ответить"/>*/}
+          {/*<SubComment />*/}
         </li>
       </ul>
   )

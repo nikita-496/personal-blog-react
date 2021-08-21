@@ -21,7 +21,7 @@ export default function SubComment () {
           <div className={styles.text}>Et vestibulum, posuere tortor lacinia sit. Sagittis porttitor orci auctor in at tincidunt arcu egestas. Fusce arcu sodales lacinia eu auctor nunc nam id. Diam sit sed volutpat massa. Egestas ornare vel volutpat.
           </div>
           
-          <Button text="Ответить"/>
+          {/*<Button text="Ответить"/>*/}
         </li>
       </ul>
   )

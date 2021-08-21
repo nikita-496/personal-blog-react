@@ -6,6 +6,7 @@ const ArticleSchema = mongoose.Schema({
   text: String,
   publicDate: String,
   category: String,
+  commentText: String
 })
 
 module.exports = mongoose.model("Article", ArticleSchema)

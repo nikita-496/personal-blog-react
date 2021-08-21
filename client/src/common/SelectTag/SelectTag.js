@@ -19,7 +19,7 @@ const SelectTag = ({data}) => {
   }
 
   const handleCategory = (e) => {
-    category(e.target.innerText)
+  category(e.target.innerText)
   }
  
   return (

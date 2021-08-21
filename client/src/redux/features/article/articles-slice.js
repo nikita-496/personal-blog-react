@@ -1,12 +1,13 @@
 import settingDate from "../../../utility/date"
 import update from "../../../utility/update"
-import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_DESCRIPTION_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, GET_ARTICLE,} from "./case"
+import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_COMMENTS_UPDATE, ARTICLE_DESCRIPTION_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, GET_ARTICLE,} from "./case"
 
 const initialState = {
     newTitle: "",
     newDescription: "",
     newText: "",
     newCategory: "",
+    newCommentText: "",
     article: [
         {
          _id: "",    
@@ -14,7 +15,8 @@ const initialState = {
          description: "",
          text: "",
          publicDate: null,
-         category: ""
+         category: "",
+         commentText: ""
         }   
     ]
 }       
@@ -25,7 +27,6 @@ const articleCreationReducer = (state = initialState, action) => {
             return update(state, action, "newTitle", "state.newTitle") 
         }
         case ARTICLE_DESCRIPTION_UPDATE: {
-            debugger
             return update(state, action, "newDescription", "state.newDescription")
         }
         case ARTICLE_TEXT_UPDATE: {
@@ -33,6 +34,9 @@ const articleCreationReducer = (state = initialState, action) => {
         }
         case ARTICLE_CATEGORY_UPDATE: {
             return update(state, action, "newCategory", "state.newCategory")
+        }
+        case ARTICLE_COMMENTS_UPDATE: {
+            return update(state, action, "newCommentText", "state.newCommentText")
         }
         case ARTICLE_ADD: {
             debugger
@@ -42,13 +46,15 @@ const articleCreationReducer = (state = initialState, action) => {
                 description: state.newDescription,
                 text: state.newText,
                 publicDate: settingDate(),
-                category: state.newCategory
+                category: state.newCategory,
+                commentText: state.newCommentText
             }
             stateCopy.article = newArticle
             stateCopy.newTitle = ""
             stateCopy.newDescription = ""
             stateCopy.newText = ""
             stateCopy.newCategory = ""
+            stateCopy.newCommentText = ""
             return stateCopy
         }
         case ARTICLE_FILTER : {

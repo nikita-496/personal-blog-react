@@ -1,26 +1,18 @@
 import React from "react"
 import Button from "../Button/Button"
+import CustomTextArea from "../CustomTags/CustomTextArea"
 import styles from "../scss-blocks/Field.module.scss"
 
-export default function Filed (props) {
+export default function CommentFiled ({newComment, updateComments,createComment, id}) {
   return ( 
-  <form className={styles.form} action="/" method="post">
-    { (props.btn) ? <>
-    <div className={styles.formGroup}> 
-      <textarea className={styles.formControl} name="comment-text" placeholder={props.placeholder}/>
-      <span className={styles.formLine}></span>
+    <form className={styles.form}>
+      <div className={styles.formGroup}> 
+      <CustomTextArea formControl={styles.formControl} placeholder={"Текст комментария"}
+      value={newComment} callback={updateComments} createComment={createComment} id={id}>
+        <span className={styles.formLine}></span>
+      </CustomTextArea>
+      
     </div>
-    <Button text={props.text}/>
-    </>
-
-    : <>
-    <div className={styles.formGroup}> 
-      <textarea className={styles.formControl} name="comment-text" placeholder={props.placeholder}/>
-      <span className={styles.formLine}></span>
-    </div>
-  
-    </>
-  }
-  </form>
+    </form>
   )
 }

@@ -11,7 +11,6 @@ import Reference from "./Article/Reference/Reference"
 import share from "../../img/text-page/share.svg"
 
 export default function TextPage (props) {
-    debugger
    return(
      <article>
       <Card>
@@ -37,7 +36,8 @@ export default function TextPage (props) {
        </div>
        
        <Reference />
-      <Comments />
+      <Comments commentText={props.article.commentText} newComment={props.newComment} updateComments={props.updateComments} 
+      createComment={props.getArticleById} id={props.article._id}/>
     </Card>
      </article>
    )
