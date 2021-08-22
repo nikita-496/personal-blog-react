@@ -17,19 +17,10 @@ export const getArticles = (value, page, limit) => {
   }
 }
 
-export const getArticleById = (...args) => {
-  if (args.length === 1) {
-    return (dispatch) => {
-      ArticleService.getArticle(args[0]).then(response => {
-       dispatch(get(response.data))
-      })
-    }
-  }else {
-    return (dispatch) => {
-      ArticleService.updateArticle(args[0],args[1]).then(response => {
-       dispatch(get(response.data))
-      })
-    }
+export const getArticleById = (id) => {
+  return (dispatch) => {
+    ArticleService.getArticle(id).then(response => {
+     dispatch(get(response.data))
+    })
   }
 }
-

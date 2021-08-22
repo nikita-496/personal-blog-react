@@ -10,7 +10,7 @@ export default function CommentFiled ({commentText, updateComments, create, with
       <CustomTextArea formControl={styles.formControl} placeholder={"Текст комментария"}
         value={commentText} callback={updateComments} 
         create={create} comments={props.comments} 
-        id={id} 
+        change={props.change} id={id} 
       >
         <span className={styles.formLine}></span>
       </CustomTextArea>

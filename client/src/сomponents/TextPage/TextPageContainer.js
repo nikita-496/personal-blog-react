@@ -13,7 +13,7 @@ const TextPageContainer = (props) => {
   }, [])
 
   return <>
-    <TextPage {...props}  articles={props.articles} />
+    <TextPage {...props}  articles={props.articles} id={props.match.params.articleId}/>
   </>
 }
 let mapStateToProps = state => {

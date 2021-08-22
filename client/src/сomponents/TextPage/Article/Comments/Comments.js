@@ -10,7 +10,7 @@ export default function Comments ({commentText, updateComments, ...props}) {
       <h4 className={styles.title}>Комментарии</h4>
       <CommentFiled commentText={commentText} 
       updateComments={updateComments} create={props.create}
-      comments={props.comments}
+      comments={props.comments} change={props.change}
       id={props.id}/>
       <Comment commentData={props.commentData} />
     </div>
