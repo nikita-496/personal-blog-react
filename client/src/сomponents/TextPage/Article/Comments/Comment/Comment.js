@@ -4,7 +4,8 @@ import src from "../../../../../img/text-page/avatarAuthor.png"
 import styles from "../../../../../scss-blocks/TextPage/Comments/Comments.module.scss"
 import SubComment from "./SubComment/SubComment"
 
-export default function CommentView ({commentText}) {
+export default function CommentView (props) {
+  let data = props.commentData
   return (
     <ul className={styles.comments}>
         <li>
@@ -17,7 +18,7 @@ export default function CommentView ({commentText}) {
           </div>
 
           <div className={styles.text}>
-            {commentText}
+            {(data ? data.text : "")}
           </div>
           
           {/*<Button text="Ответить"/>*/}

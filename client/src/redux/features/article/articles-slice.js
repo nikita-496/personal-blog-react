@@ -1,6 +1,6 @@
 import settingDate from "../../../utility/date"
 import update from "../../../utility/update"
-import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_COMMENTS_UPDATE, ARTICLE_DESCRIPTION_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, GET_ARTICLE,} from "./case"
+import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_DESCRIPTION_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, ARTICLE_UPDATE, GET_ARTICLE,} from "./case"
 
 const initialState = {
     newTitle: "",
@@ -9,14 +9,15 @@ const initialState = {
     newCategory: "",
     article: [
         {
-         _id: "",    
-         title: "",
-         description: "",
-         text: "",
-         publicDate: null,
-         category: "",
-        }   
-    ]
+          _id: "",    
+          title: "",
+          description: "",
+          text: "",
+          publicDate: null,
+          category: "",
+          comment: [],
+        }  
+    ] 
 }       
 
 const articleCreationReducer = (state = initialState, action) => {
@@ -33,11 +34,7 @@ const articleCreationReducer = (state = initialState, action) => {
         case ARTICLE_CATEGORY_UPDATE: {
             return update(state, action, "newCategory", "state.newCategory")
         }
-        case ARTICLE_COMMENTS_UPDATE: {
-            return update(state, action, "newCommentText", "state.newCommentText")
-        }
         case ARTICLE_ADD: {
-            debugger
             let stateCopy = {...state}
             let newArticle = {
                 title: state.newTitle,
@@ -45,14 +42,12 @@ const articleCreationReducer = (state = initialState, action) => {
                 text: state.newText,
                 publicDate: settingDate(),
                 category: state.newCategory,
-                commentText: state.newCommentText
             }
             stateCopy.article = newArticle
             stateCopy.newTitle = ""
             stateCopy.newDescription = ""
             stateCopy.newText = ""
             stateCopy.newCategory = ""
-            stateCopy.newCommentText = ""
             return stateCopy
         }
         case ARTICLE_FILTER : {

@@ -22,26 +22,13 @@ export class ArticleService {
       const response = await axios.get(`/articles/${articleId}`)
       return response
    }
-   //Создание комменатрия
-   /*static async updateArticle (articleId, updatedData) {
+   static async withArticleComments (articleId, updatedData) {
       const response = await axios.put(`/articles/${articleId}`, {
-         commentText: updatedData
+         comment: updatedData
       })
-      console.log(response)
-      debugger
       return response
-      await axios.put(`/articles/${articleId}`, {
-         commentText: updatedData
-      }, {
-         validateStatus: function (status) {
-            return status 
-          }
-      }).then(res => console.log(res.data))
-      .catch(err => console.log(err.res.data, err.res.status))
    }
-   }*/
 }
-
 export class NotesService {
    static async createNotes (notesData) {
       const response = await axios.post("/notes", notesData.notes.noteItems)
@@ -55,7 +42,10 @@ export class NotesService {
 
 export class CommentService {
    static async createComments (commentData) {
-      const response = await axios.post("/commtents", commentData.comments.comment)
+      const response = await axios.post("/comments", commentData.comments.comment)
       return response 
    }
+   static async getCommentsByPostId (id) {
+      
+   } 
 }

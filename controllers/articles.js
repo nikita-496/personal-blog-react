@@ -7,7 +7,7 @@ const ObjectID = require("mongodb").ObjectID
   description: req.body.description,
   publicDate: req.body.publicDate,
   category: req.body.category,
-  commentText: req.body.commentText
+  comment: req.body.comment
 })  
 
 //POST 
@@ -51,7 +51,7 @@ exports.findById = (req, res) => {
 
 exports.update = (req, res) => {
  let article = changeArticle(req)
- let newComment = {commentText: req.body.commentText}
+ let newComment = {comment: req.body.comment}
  let  details = {"_id": new ObjectID(req.params.id)}
   Article.updateOne(details, newComment, (err, result) => {
     if (err){

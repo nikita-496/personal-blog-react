@@ -22,22 +22,24 @@ export default function TextPage (props) {
           </div>
          </Tags>
 
-         <Title titleArticle={props.article.title}/>
+         <Title titleArticle={props.articles.article.title}/>
          <Tags articleData = {true}>
           <div className={stylesTag.tags}>
-            <time className={stylesTag.date}>{props.article.publicDate}</time>
-            <span className={stylesTag.category}>{props.article.category}</span>
+            <time className={stylesTag.date}>{props.articles.article.publicDate}</time>
+            <span className={stylesTag.category}>{props.articles.article.category}</span>
           </div>
         </Tags>
 
-         <SubTitle text={props.article.description}/>
-         <SubTitle text={props.article.text}/>
+         <SubTitle text={props.articles.article.description}/>
+         <SubTitle text={props.articles.article.text}/>
          <Logo/>
        </div>
        
        <Reference />
-      <Comments commentText={props.article.commentText} newComment={props.newComment} updateComments={props.updateComments} 
-      createComment={props.getArticleById} id={props.article._id}/>
+      <Comments commentText={props.comments.newCommentText} 
+      updateComments={props.updateText} create={props.createComment} 
+      commentData={props.articles.article.comment} comments={props.comments.comment} 
+      id={props.articles.article._id}/>
     </Card>
      </article>
    )

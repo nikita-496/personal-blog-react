@@ -3,7 +3,7 @@ import update from "../../../utility/update"
 import { ADD, GET, TEXT_UPDATE } from "./case"
 
 const initialState = {
-  newComment: "",
+  newCommentText: "",
   comment: [
       {
        _id: "",    
@@ -18,16 +18,16 @@ const initialState = {
 const commentCreationReducer = (state = initialState, action) => {
   switch(action.type) {
       case TEXT_UPDATE : {
-          return update(state, action, "newComment", "state.newComment") 
+          return update(state, action, "newCommentText", "state.newCommentText") 
       }
       case ADD : {
         let stateCopy = {...state}
         let newComment = {
-            text: state.newComment,
+            text: state.newCommentText,
             publicDate: settingDate(),
         }
         stateCopy.comment = newComment
-        stateCopy.newComment = ""
+        stateCopy.newCommentText = ""
         return stateCopy
       }
       case GET : {
