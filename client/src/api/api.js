@@ -6,7 +6,7 @@ export class ArticleService {
       return response.data
    }
    static async getArticlesPost (page, limit ) {
-    const response = await axios.get("/select", {
+    const response = await axios.get("/selectArticles", {
       params: {
          page: page,
          limit: limit,
@@ -37,6 +37,15 @@ export class NotesService {
    static async getNotes () {
       const response = await axios.get("/notes")
       return response
+   }
+   static async getNotesByQuery (page, limit ) {
+      const response = await axios.get("/selectNotes", {
+        params: {
+           page: page,
+           limit: limit,
+        }
+     })
+     return response.data
    }
 }
 

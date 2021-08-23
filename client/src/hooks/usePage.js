@@ -11,7 +11,7 @@ const usePage = (defaultPage, defaultLimit) => {
   const changePage = (page) => {
     setPage(page)
   }
-  return [page, limit, changePage, setTotalPages, pages]
+  return [page, limit, changePage, setTotalPages, pages, setPage, totalPages]
 }
 
 export default usePage

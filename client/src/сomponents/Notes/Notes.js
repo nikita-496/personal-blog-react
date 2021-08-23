@@ -11,7 +11,7 @@ const  Notes = (props) => {
   const modal = useStatusView(false)
   return(
     <div className={styles.wrapper}>
-      <ViewNotes notes={props.notes} get={props.getNotesThunk}/>
+      <ViewNotes get={props.getNotesThunk}/>
 
       <div className={styles.btn} >
       <Button create={true} onClick={modal.handleStatusChange}>

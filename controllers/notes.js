@@ -66,3 +66,37 @@ exports.delete = (req, res) => {
     res.send("Note " + req.params.id + " deleted!")
   })
 }
+
+exports.pagination = async (req, res) => {
+
+  try {
+    const page = parseInt(req.query.page);
+    const limit = parseInt(req.query.limit); 
+    
+    //Т.к. в ответе на запрос получаем массив (среди прочего), в котором
+    //индексация начинается с 0 позиции, а страницы с 1 
+    //то при отображении порции данных из массива, следует учитывать этот факт 
+    const startIndex = (page - 1) * limit
+
+    let results = await Note.find({})  
+                      .skip(startIndex) 
+                      .limit(limit)
+                      .select("-__v");
+        
+    let numOfCustomer = await Note.countDocuments({});
+  
+    res.status(200).json({
+      "message": "Paginating is completed! Query parameters: page = " + page + ", limit = " + limit,
+      "totalPages": Math.ceil(numOfCustomer / limit),
+      "totalItems": numOfCustomer,
+      "limit": limit,
+      "currentPageSize": results.length,
+      "notes": results
+    });      
+  } catch (error) {
+    res.status(500).send({
+      message: "Error -> Can NOT complete a paging request!",
+      error: error.message,
+    });    
+  }
+}
