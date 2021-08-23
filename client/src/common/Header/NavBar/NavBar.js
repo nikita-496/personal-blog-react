@@ -1,8 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
 import { NavLink } from "react-router-dom"
+import { AuthContext } from "../../Context/context"
 import styles from "../../scss-blocks/Header/NavBar.module.scss"
 
 export default function NavBar () {
+  const {isAuth, setIsAuth} = useContext(AuthContext)
+  //в момент выхода из приложения, удаляем запись об авторизации из хранилища
+  const logout = () => {
+    setIsAuth(false)
+    localStorage.removeItem("auth")
+  }
+
   return (
     <span className={styles.s}>
       <NavLink className={styles.nav} to="/all">Главная</NavLink>
@@ -14,6 +22,7 @@ export default function NavBar () {
       <NavLink className={styles.nav} to="/reset"></NavLink>
       <NavLink className={styles.nav} to="/error"></NavLink>
       <NavLink className={styles.nav} to="/profile">Профиль</NavLink>
+      <button onClick={logout}>Выйти</button>
     </span>
   )
 }
