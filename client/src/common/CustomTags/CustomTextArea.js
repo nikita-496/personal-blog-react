@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from "react" 
+import React, {useEffect, useRef } from "react" 
 import useControlled from "../../hooks/useControlled"
 import Button from "../Button/Button"
+import styles from "../scss-blocks/Field.module.scss"
 
-const CustomTextArea = ({stylingTitle, stylingСontent, formControl, ...props}) => {
+
+const CustomTextArea = (props) => {
   const textAreaRef  = useRef(null)
   const [text, handle] = useControlled(props.value, props.callback)
   //textarea autosize - dynamic height textarea
@@ -11,19 +13,22 @@ const CustomTextArea = ({stylingTitle, stylingСontent, formControl, ...props}) 
       const scrollHeight = textAreaRef.current.scrollHeight
       textAreaRef.current.style.height = scrollHeight + "px"
     }, [text])
+
   return (
-    <div>
-      <textarea
-        ref={textAreaRef}
-        className={(stylingTitle) ? stylingTitle : (stylingСontent) ? stylingСontent
-        : formControl}
-        placeholder={props.placeholder ? props.placeholder : null}
-        value={text}
+    <>
+      <div className={styles.formGroup}>
+        <textarea ref={textAreaRef} className={props.className}
+        placeholder={props.placeholder} value={text}
         onChange={handle} />
-      { (formControl) ? <>{props.children}
-      <Button createComment={props.createComment} text={text} id={props.id}>Отправить комментарий</Button>
-      </> : <></>}
-    </div>
+        {props.isFormControll}
+      </div>
+      {props.isToSend ? 
+        <Button createComment={props.create} text={text} 
+         change={props.changeState} id={props.id} flag={props.flag}>
+            {props.isToSend}
+          </Button> : <></>
+      }
+  </>
   )
 }
 

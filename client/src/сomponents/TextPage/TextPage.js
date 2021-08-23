@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useState } from "react"
 import Card from "../../common/Card/Card"
 import Tags from "../../common/Card/Tags/Tags"
 import SubTitle from "../../common/Description/SubTitle"
@@ -12,16 +12,14 @@ import share from "../../img/text-page/share.svg"
 import useFetching from "../../hooks/useFetching"
 import Preloader from "../../common/Preoloader/Preloader"
 
-export default function TextPage (props) {
+export default function TextPage (props) {  
   const [comment, setComment] = useState("")
-
   const [fetchComments, isComLoading, comError] = useFetching( async (id) => {
       await props.getArticleById(id)
   })
-
   useEffect(()=> fetchComments(props.id),[comment])
- 
-    const changeState = (comment) => {
+  
+    function changeState (comment) {
       setComment (comment)
     }
    return(
@@ -51,10 +49,10 @@ export default function TextPage (props) {
        </div>
        
        <Reference />
-      <Comments commentText={props.comments.newCommentText} 
-      updateComments={props.updateText} create={props.createComment} 
-      commentData={props.articles.article.comment} comments={props.comments.comment} 
-      id={props.articles.article._id} change={changeState}/>
+      <Comments 
+            value={props.comments.newCommentText} callback={props.updateText} 
+            create={props.createComment} commentData={props.articles.article.comment}
+            changeState={changeState} id={props.id}/>
     </Card>
      </article>
      }

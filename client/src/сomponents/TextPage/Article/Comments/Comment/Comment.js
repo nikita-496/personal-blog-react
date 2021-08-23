@@ -1,11 +1,8 @@
-import Button from "../../../../../common/Button/Button"
 import Logo from "../../../../../common/Logo/Logo"
 import src from "../../../../../img/text-page/avatarAuthor.png"
 import styles from "../../../../../scss-blocks/TextPage/Comments/Comments.module.scss"
-import SubComment from "./SubComment/SubComment"
 
-export default function CommentView (props) {
-  let data = props.commentData
+export default function CommentView ({commentData}) {
   return (
     <ul className={styles.comments}>
         <li>
@@ -18,7 +15,7 @@ export default function CommentView (props) {
           </div>
 
           <div className={styles.text}>
-            {(data ? data.text : "")}
+            {commentData ? commentData.text : ""}
           </div>
           
           {/*<Button text="Ответить"/>*/}
