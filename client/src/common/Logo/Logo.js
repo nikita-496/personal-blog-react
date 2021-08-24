@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "../../common/scss-blocks/Logo.module.scss"
+import styles from "../scss-blocks/Logo.module.scss"
 
 export default function Logo (props) {
   return (

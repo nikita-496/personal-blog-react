@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState} from "react"
 import { NotesService } from "../../../api/api"
-import DataExtraction from "../../../common/Data/DataExtraction"
-import DataList from "../../../common/Data/DataList"
+import DataExtraction from "../../../common/_functionality/Data/DataExtraction"
+import DataList from "../../../common/_functionality/Data/DataList"
 import useFetching from "../../../hooks/useFetching"
 import useObserver from "../../../hooks/useObserver"
 import usePage from "../../../hooks/usePage"
@@ -29,7 +29,7 @@ export default function ViewNotes () {
           <DataExtraction data={notes} />
         </>
       </DataList>
-      <div ref={lastElelment} style={{height: 20, background: "blue"}}></div>
+      <div ref={lastElelment}></div>
     </div>
   )
 }

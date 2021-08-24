@@ -1,6 +1,6 @@
 import React from "react"
-import Post from "../../сomponents/Home/Posts/Post/Post"
-import Note from "../../сomponents/Notes/ViewNotes/Note"
+import Post from "../../../сomponents/Home/Posts/Post/Post"
+import Note from "../../../сomponents/Notes/ViewNotes/Note"
 
 
 const DataExtraction = ({data, post}) => {

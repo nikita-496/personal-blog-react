@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { AuthContext } from "../../common/Context/context"
+import { AuthContext } from "../../common/_functionality/Context/context"
 import Filed from "../../common/Field/Field"
 import styles from "../../scss-blocks/Auth/Auth.module.scss"
 

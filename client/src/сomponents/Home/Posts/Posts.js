@@ -2,10 +2,10 @@ import React, { useEffect } from "react"
 import Pagination from "../../../common/Pagination/Pagination"
 import useFetching from "../../../hooks/useFetching"
 import { ArticleService } from "../../../api/api"
-import DataExtraction from "../../../common/Data/DataExtraction"
+import DataExtraction from "../../../common/_functionality/Data/DataExtraction"
 import usePage from "../../../hooks/usePage"
 import useSelectedCategoty from "../../../hooks/useSelectedCategory"
-import DataList from "../../../common/Data/DataList"
+import DataList from "../../../common/_functionality/Data/DataList"
 import FiltrationElements from "../../../common/FiltrationElemens/FiltrationElements"
 
 export default function Posts ({article, getArticles}) {

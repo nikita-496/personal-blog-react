@@ -1,5 +1,5 @@
 import React from "react"
-import Preloader from "../Preoloader/Preloader"
+import Preloader from "../../Preoloader/Preloader"
 
 const DataList = ({meta, children}) => {
   return (

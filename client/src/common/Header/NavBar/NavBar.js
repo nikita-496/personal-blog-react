@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { NavLink } from "react-router-dom"
-import { AuthContext } from "../../Context/context"
+import { AuthContext } from "../../_functionality/Context/context"
 import styles from "../../scss-blocks/Header/NavBar.module.scss"
 
 export default function NavBar () {

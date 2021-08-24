@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter} from "react-router-dom";
-import Header from "../src/common/Header/Header";
-import SideBar from "../src/common/SideBar/SideBar";
+import Header from "./common/Header/Header";
+import SideBar from "./common/SideBar/SideBar";
 import styles from "./App.module.scss";
 import AppRouter from "./common/AppRouter";
-import { AuthContext } from "./common/Context/context";
+import { AuthContext } from "./common/_functionality/Context/context";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false) 

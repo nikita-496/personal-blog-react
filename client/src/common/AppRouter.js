@@ -2,7 +2,7 @@ import React from "react"
 import { useContext } from "react"
 import { Redirect, Route, Switch } from "react-router"
 import { privateRoutes, publicRoutes } from "../router/routes"
-import { AuthContext } from "./Context/context"
+import { AuthContext } from "../common/_functionality/Context/context"
 import Preloader from "./Preoloader/Preloader"
 
 const AppRouter = () => {
