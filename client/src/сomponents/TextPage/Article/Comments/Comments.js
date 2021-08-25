@@ -1,16 +1,18 @@
 import React from "react"
-import CommentFiled from "../../../../common/Field/Field"
-import styles from "../../../../scss-blocks/TextPage/Comments/Comments.module.scss"
+import styles from "../../../../common/scss-blocks/Field.module.scss"
 import Comment from "./Comment/Comment"
+import FiledwithLine from "../../../../common/Field/FieldWithHover"
 
 export default function Comments (props) {
   return (
     <div className={styles.wrapperCommets}>
       <h4 className={styles.title}>Комментарии</h4>
-      <CommentFiled value={props.value} callback={props.callback}
-       create={props.create} changeState={props.changeState} id={props.id} flag={"comment"}
-       placeholder={"Текст комментария"}/>
+      <FiledwithLine  createComment={props.createComment} changeState={props.changeState} 
+          value={props.value} callback= {props.callback} 
+          placeholder={"Текст комментария"} text={"Оставить комменатрий"}
+          isButton={props.isButton} id={props.id} comment={props.comment}/>
       <Comment commentData={props.commentData}/>
     </div>
   )
 }
+

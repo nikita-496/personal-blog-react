@@ -24,7 +24,7 @@ const SelectTag = ({data}) => {
  
   return (
     <Card active={true}>
-        <p>Перед отправкой выберите категории статьи</p>
+        <p>Перед публикацией выберите категории</p>
 
         <div className={styles.flexBtn}>
         <Category>
@@ -33,7 +33,7 @@ const SelectTag = ({data}) => {
         </div>
 
       <Button onClick={() => post(create,changeMode)} >
-        отправить
+        опубликовать
       </Button>
     </Card>
   )

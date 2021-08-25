@@ -1,5 +1,5 @@
 import React from "react"
-import Filed from "../../common/Field/Field"
+import FiledwitHover from "../../common/Field/FieldWithHover"
 import styles from "../../scss-blocks/Reset/Reset.module.scss"
 
 export default function Reset () {
@@ -8,8 +8,8 @@ export default function Reset () {
       <p className={styles.title}>Восстановить пароль</p>
       <div className={styles.profileWrapper}>
           <div>
-            <Filed type="email" placeholder="E-mail"/>
-            <Filed btn="true" type="password" text="Восстановить" placeholder="Пароль"/>
+            <FiledwitHover type="email" placeholder="E-mail"/>
+            <FiledwitHover btn="true" type="password" text="Восстановить" placeholder="Пароль"/>
           </div>
 
           <div className={styles.authFooter}>

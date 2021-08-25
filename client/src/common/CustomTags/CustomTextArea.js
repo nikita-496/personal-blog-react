@@ -1,8 +1,5 @@
-import React, {useEffect, useRef } from "react" 
+import { useEffect, useRef } from "react"
 import useControlled from "../../hooks/useControlled"
-import Button from "../Button/Button"
-import styles from "../scss-blocks/Field.module.scss"
-
 
 const CustomTextArea = (props) => {
   const textAreaRef  = useRef(null)
@@ -16,22 +13,11 @@ const CustomTextArea = (props) => {
 
   return (
     <>
-      <div className={styles.formGroup}>
-        <textarea ref={textAreaRef} className={props.className}
-        placeholder={props.placeholder} value={text}
-        onChange={handle} />
-        {props.isFormControll}
-      </div>
-      {props.isToSend ? 
-        <Button createComment={props.create} text={text} 
-         change={props.changeState} id={props.id} flag={props.flag}>
-            {props.isToSend}
-          </Button> : <></>
-      }
-  </>
+       <textarea ref={textAreaRef} className={props.className}
+        placeholder={props.placeholder} type={props.type}
+        value={text} onChange={handle} /> 
+    </>
   )
 }
 
 export default CustomTextArea
-
-

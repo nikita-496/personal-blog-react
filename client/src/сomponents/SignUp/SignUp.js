@@ -1,5 +1,5 @@
 import React from "react"
-import Filed from "../../common/Field/Field"
+import FiledwitHover from "../../common/Field/FieldWithHover"
 import styles from "../../scss-blocks/SignUp/SignUp.module.scss"
 
 
@@ -9,10 +9,10 @@ export default function SignUp () {
       <p className={styles.title}>Регистрация</p>
       <div className={styles.profileWrapper}>
           <div>
-            <Filed placeholder="Имя пользователя"/>
-            <Filed type="email"placeholder="E-mail"/>
-          <Filed  type="password" placeholder="Пароль"/>
-          <Filed btn="true" type="password"  text="Регистрация" placeholder="Подтвердить пароль"/>
+            <FiledwitHover placeholder="Имя пользователя"/>
+            <FiledwitHover type="email"placeholder="E-mail"/>
+          <FiledwitHover  type="password" placeholder="Пароль"/>
+          <FiledwitHover btn="true" type="password"  text="Регистрация" placeholder="Подтвердить пароль"/>
           </div>
 
           <div className={styles.authFooter}>

@@ -2,19 +2,24 @@ import React from "react"
 import styles from "../scss-blocks/Button.module.scss"
 
 export default function Button (props) {
-  const handle = (id, call, comment) => {
+  const onCreate = (id, cb, comment) => {
     props.createComment(id)
-    call(comment)
+    cb(comment)
   }
+  
+  const selectCategorise = (categories) => categories.map(category => <button key={category} className={styles[category]} 
+      text={category} onClick={props.onClick}> {(category === "other" ? "другое" : category)}
+      </button>)
+
   return (
     <div className={styles.btnWrapper}>
-      {props.category ? 
-        props.category.map(c => {
-          return <button key={c} className={styles[c]} text={c} onClick={props.onClick}> {(c=== "other" ? "другое" : c)}</button>
-        })
-        : (props.flag) ? <button className={props.create ? styles.create : styles.link} onClick={() => handle(props.id, props.change, props.text)}>{props.children}</button>
-        : <button className={props.create ? styles.create : styles.link}>{props.children}</button>
+      {
+        props.category ? selectCategorise(props.category) 
+        : (props.id) ? <button className={styles.request} 
+        onClick={() => onCreate(props.id, props.changeState, props.value)}>{props.children}</button>
+        : <button className={props.create ? styles.modal : styles.request} onClick={props.onClick}>{props.children}</button>
       }
+
     </div>
   )
 }

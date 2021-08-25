@@ -1,21 +1,22 @@
 import styles from "../../../scss-blocks/SandBox/SandBox.module.scss";
 import TextOptions from "./Options/TextOptions";
 import FormatOptions from "./Options/FormatOptions";
-import ContentBody from "./ContentBody";
-import TitleBody from "./TittleBody";
-import { useContext } from "react";
-import { DataContext } from "../SandBox";
-import CustomTextArea from "../../../common/CustomTags/CustomTextArea";
+import Area from "../../../common/CustomTags/CustomTextArea";
 
-const ArticleBody = () => {
-  const data = useContext(DataContext)
+const ArticleBody = (props) => {
   return (
     <>
-      <TitleBody stylingTitle={styles.editeTitleTextarea} title={data.newTitle} update={data.updateTitle}/>
-      <CustomTextArea placeholder={"Описание"} value={data.newDescription} callback={data.updateDescription}/>
+     <Area className={styles.editeTitleTextarea} placeholder={"Заголовок"}
+     value={props.newTitle} callback={props.updateTitle} />
+
+      <Area placeholder={"Описание"} 
+      value={props.newDescription} callback={props.updateDescription} />
+
       <div className={styles.content}>
         <TextOptions/>
-        <ContentBody stylingСontent={styles.editeContentTextarea} text={data.newText} update={data.updateText}/>
+        <Area styles={styles.editeContentTextarea} 
+        value={props.newText} callback={props.updateText} 
+        placeholder={"Введите текст или выбирите опции"} />
         <FormatOptions />
       </div>
     </>

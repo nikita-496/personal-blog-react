@@ -11,8 +11,9 @@ import Reference from "./Article/Reference/Reference"
 import share from "../../img/text-page/share.svg"
 import useFetching from "../../hooks/useFetching"
 import Preloader from "../../common/Preoloader/Preloader"
+import withButton from "../../hoc/withButton"
 
-export default function TextPage (props) {  
+function TextPage (props) {  
   const [comment, setComment] = useState("")
   const [fetchComments, isComLoading, comError] = useFetching( async (id) => {
       await props.getArticleById(id)
@@ -49,13 +50,16 @@ export default function TextPage (props) {
        </div>
        
        <Reference />
-      <Comments 
-            value={props.comments.newCommentText} callback={props.updateText} 
-            create={props.createComment} commentData={props.articles.article.comment}
-            changeState={changeState} id={props.id}/>
+      <Comments commentData={props.articles.article.comment} 
+          createComment={props.createComment} changeState={changeState} id={props.id}
+          value={props.comments.newCommentText} callback= {props.updateText} 
+          isButton={props.isButton} comment={comment}
+      />
     </Card>
      </article>
      }
      </>
    )
   } 
+
+  export default withButton(TextPage)

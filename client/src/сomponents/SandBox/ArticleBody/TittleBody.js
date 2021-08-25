@@ -1,12 +1,12 @@
 import React  from "react"
-import CustomTextArea from "../../../common/CustomTags/CustomTextArea"
+import Area from "../../../common/CustomTags/Area"
 
 const TitleBody = ({title, update, stylingTitle}) => {
   return (
-    <div>
-      <CustomTextArea placeholder={"Заголовок"} stylingTitle={stylingTitle}
-      value={title} callback={update}/>
-    </div>
+      <Area 
+      placeholder={"Заголовок"} stylingTitle={stylingTitle}
+      value={title} callback={update}
+      />
   )
 }
 export default TitleBody

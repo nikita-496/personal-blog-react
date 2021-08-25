@@ -1,6 +1,10 @@
 @import "../scss-blocks/_vars/vars.scss";
 @import "../scss-blocks/_mixins/mixins.scss";
 
+.title{
+  @include titleH4;
+ }
+ 
 .form{
   .formGroup{
     position: relative;
