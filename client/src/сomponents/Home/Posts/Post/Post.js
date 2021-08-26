@@ -15,7 +15,7 @@ export default function Post (props) {
       <Card>
           <div className={styles.content}>
             <Logo src={props.src}/>
-            <Title titleArticle={props.titleArticle}/>
+            <Title titleArticle={true}>{props.titleArticle}</Title>
             <SubTitle description={props.description}/>
             { props.titleArticle === "Ничего не найдено!" ? <></>
             :  <Tags link={"читать"} >
