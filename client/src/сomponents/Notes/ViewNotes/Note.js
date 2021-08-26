@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../../../common/Card/Card";
-import SubTitle from "../../../common/Description/SubTitle";
+import SubTitle from "../../../common/Text/SubTitle";
 import styles from "../../../scss-blocks/Notes/Note.module.scss"
 
 const Note = (props) => {

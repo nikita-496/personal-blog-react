@@ -2,10 +2,12 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 import Card from "../../../../common/Card/Card"
 import Tags from "../../../../common/Card/Tags/Tags"
-import Description from "../../../../common/Description/Description"
+import Description from "../../../../common/Card/CardContent/CardContent"
 import Logo from "../../../../common/Logo/Logo"
 import styles from "../../../../scss-blocks/Home/Post/Post.module.scss"
 import stylesTag from "../../../../common/scss-blocks/Card/Tags.module.scss"
+import Title from "../../../../common/Text/Title"
+import SubTitle from "../../../../common/Text/SubTitle"
 
 export default function Post (props) {
   return(
@@ -13,9 +15,9 @@ export default function Post (props) {
       <Card>
           <div className={styles.content}>
             <Logo src={props.src}/>
-            <Description description={props.description} titleArticle={props.titleArticle}/>
-            {
-            (props.titleArticle === "Ничего не найдено!") ? <></>
+            <Title titleArticle={props.titleArticle}/>
+            <SubTitle description={props.description}/>
+            { props.titleArticle === "Ничего не найдено!" ? <></>
             :  <Tags link={"читать"} >
                 <div className={stylesTag.tags}>
                   <time className={stylesTag.date}>{props.date}</time>
@@ -25,7 +27,7 @@ export default function Post (props) {
                     <span className={stylesTag.link}>читать</span>
                 </NavLink>
               </Tags>
-          } 
+            } 
           </div>  
       </Card>
     </div>

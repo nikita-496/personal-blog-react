@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from "react"
 import Card from "../../common/Card/Card"
 import Tags from "../../common/Card/Tags/Tags"
-import SubTitle from "../../common/Description/SubTitle"
-import Title from "../../common/Description/Title"
+import SubTitle from "../../common/Text/SubTitle"
+import Title from "../../common/Text/Title"
 import Logo from "../../common/Logo/Logo"
 import styles from "../../scss-blocks/TextPage/TextPage.module.scss"
 import stylesTag from "../../common/scss-blocks/Card/Tags.module.scss"
@@ -12,6 +12,7 @@ import share from "../../img/text-page/share.svg"
 import useFetching from "../../hooks/useFetching"
 import Preloader from "../../common/Preoloader/Preloader"
 import withButton from "../../hoc/withButton"
+
 
 function TextPage (props) {  
   const [comment, setComment] = useState("")

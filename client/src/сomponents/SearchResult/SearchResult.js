@@ -1,4 +1,4 @@
-import React from "react"
+{/*import React from "react"
 import CardPost from "../../common/Card/CardPosts/CardPosts"
 import styles from "../../scss-blocks/SearchResult/SearchResult.module.scss"
 
@@ -12,4 +12,4 @@ export default function SearchResult () {
       <CardPost nameLink="перейти"/>
     </div>
   )
-}
+}*/}
