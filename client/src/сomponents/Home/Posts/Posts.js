@@ -6,7 +6,7 @@ import DataExtraction from "../../../common/_functionality/Data/DataExtraction"
 import usePage from "../../../hooks/usePage"
 import useSelectedCategoty from "../../../hooks/useSelectedCategory"
 import DataList from "../../../common/_functionality/Data/DataList"
-import FiltrationElements from "../../../common/FiltrationElemens/FiltrationElements"
+import SelectCategory from "../../../common/Categories/SelectCategory"
 
 export default function Posts ({article, getArticles}) {
   const [category, handleCategory] = useSelectedCategoty("все")
@@ -22,7 +22,8 @@ export default function Posts ({article, getArticles}) {
   return(
       <DataList meta={{post: true, isLoading, error}}>
         <>
-        <FiltrationElements handle={handleCategory} getArticles={getArticles}/> 
+        {/*<FiltrationElements handle={handleCategory} getArticles={getArticles}/> */}
+        <SelectCategory callback={handleCategory}/>
         <DataExtraction data={article} post={true}/>
         <Pagination pages={pages} currentPage={page} handlePage ={changePage}/>
         </>

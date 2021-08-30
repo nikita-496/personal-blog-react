@@ -14,7 +14,7 @@ export default function Button (props) {
   return (
     <div className={styles.btnWrapper}>
       {
-        props.category ? selectCategorise(props.category) 
+        props.name ? selectCategorise(props.name) 
         : (props.id) ? <button className={styles.request} 
         onClick={() => onCreate(props.id, props.changeState, props.value)}>{props.children}</button>
         : <button className={props.create ? styles.modal : styles.request} onClick={props.onClick}>{props.children}</button>

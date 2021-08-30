@@ -1,7 +1,7 @@
 import React from "react"
 import Button from "../../common/Button/Button"
 import Modal from "../../common/Modal/Modal"
-import SelectTag from "../../common/SelectTag/SelectTag"
+import CreateTag from "../../common/Categories/CreateCategory"
 import useStatusView from "../../hooks/useStatusView"
 import styles from "../../scss-blocks/Notes/Notes.module.scss"
 import ViewNotes from "../Notes/ViewNotes/ViewNotes"
@@ -29,7 +29,7 @@ const  Notes = (props) => {
 
       <Modal modalWindow={modalWindow}>
         <EnteringNotes notesText={props.notesText} updateNotesText={props.updateNotesText}/> 
-          <SelectTag data={
+          <CreateTag data={
               {create: props.createNotesThunk, category: props.setCategory, modalWindow: modalWindow.handleStatusChange}
         }/>
             

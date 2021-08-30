@@ -2,10 +2,10 @@ import React from "react";
 import Button from "../../common/Button/Button";
 import Modal from "../../common/Modal/Modal";
 import Preloader from "../../common/Preoloader/Preloader";
-import SelectTag from "../../common/SelectTag/SelectTag";
 import useContentBody from "../../hooks/useStatusView";
 import styles from "../../scss-blocks/SandBox/SandBox.module.scss";
 import ArticleBody from "./ArticleBody/ArticleBody";
+import CreateCategory from "../../common/Categories/CreateCategory";
 
 const SandBox = props => {
   const editMode = useContentBody(false)
@@ -21,7 +21,7 @@ const SandBox = props => {
       </Button>
 
       <Modal editMode={editMode} modalWindow={modalWindow}>
-      <SelectTag data={
+      <CreateCategory data={
         {
       create: props.createArticle,
       editMode: editMode.handleStatusChange, modalWindow: modalWindow.handleStatusChange,
@@ -50,5 +50,4 @@ const SandBox = props => {
   </>
   )
 }
-
 export default SandBox

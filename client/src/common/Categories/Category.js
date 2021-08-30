@@ -10,7 +10,7 @@ class Category extends React.Component {
   render() {
     return (
       < > 
-        {this.props.children(this.state.categoty)}
+        {this.props.render(this.state.categoty)}
       </>
     )
   }
