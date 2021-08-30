@@ -51,7 +51,7 @@ const articleCreationReducer = (state = initialState, action) => {
             return stateCopy
         }
         case ARTICLE_FILTER : {
-            let stateCopy = {...state, article: (action.payload[1] === "css" || action.payload[1] ==="javasript" 
+            let stateCopy = {...state, article: (action.payload[1] === "css" || action.payload[1] ==="javascript" 
             || action.payload[1] ==="react" || action.payload[1] === "другое") 
                 ? action.payload[0].filter(s => s.category === action.payload[1])
                 //подумать как улучшить данную логику. Возможно стоит на этапе создания статьей отсеивать статьи без заголовков
