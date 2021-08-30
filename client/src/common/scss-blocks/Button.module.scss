@@ -12,28 +12,41 @@
   @include bxshad($effect);
 }
 .css{
-  margin-right: 2rem;
+  margin-right: 2em;
   @include btn (5px, 0.66em, 1.25em);
   color:$white;
   @include bxshad(#0077b6);
 }
 
 .javascript{
-  margin-right: 2rem;
+  margin-right: 2em;
   @include btn (5px, 0.66em, 1.25em);
   color:$white;
   @include bxshad(#ffc300);
 }
 
 .react{
-  margin-right: 2rem;
+  margin-right: 2em;
   @include btn (5px, 0.66em, 1.25em);
   color:$white;
   @include bxshad(#2ec4b6);
 }
 
 .other{
+  margin-right: 2em;
   @include btn (5px, 0.66em, 1.25em);
   color:$white;
   @include bxshad(#ffb5a7);
+}
+
+.all{
+  @include btn (5px, 0.66em, 1.25em);
+  color:$white;
+  @include bxshad(#8DD35F);
+}
+
+.allNotVisible{
+  background: transparent;
+  border: none !important;
+  font-size:0;
 }

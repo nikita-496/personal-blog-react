@@ -4,13 +4,13 @@ class Category extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      categoty: ["css", "javascript", "react", "other"]
+      category: ["css", "javascript", "react", "other", "all"]
     }
   }
   render() {
     return (
       < > 
-        {this.props.render(this.state.categoty)}
+        {this.props.render(this.state.category)}
       </>
     )
   }

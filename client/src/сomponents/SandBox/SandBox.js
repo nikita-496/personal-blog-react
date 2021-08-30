@@ -16,7 +16,7 @@ const SandBox = props => {
       <ArticleBody newTitle={props.newTitle} newText={props.newText} 
         newDescription={props.newDescription} updateTitle={props.updateTitle} 
         updateDescription={props.updateDescription} updateText={props.updateText} />
-      <Button onClick={modalWindow.handleStatusChange}>
+      <Button callback={modalWindow.handleStatusChange}>
         готово к публикации
       </Button>
 

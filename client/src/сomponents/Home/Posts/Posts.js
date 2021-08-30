@@ -22,10 +22,9 @@ export default function Posts ({article, getArticles}) {
   return(
       <DataList meta={{post: true, isLoading, error}}>
         <>
-        {/*<FiltrationElements handle={handleCategory} getArticles={getArticles}/> */}
-        <SelectCategory callback={handleCategory}/>
+        <SelectCategory callback={handleCategory} filter={true}/>
         <DataExtraction data={article} post={true}/>
-        <Pagination pages={pages} currentPage={page} handlePage ={changePage}/>
+        <Pagination pages={pages} currentPage={page} handlePage={changePage}/>
         </>
       </DataList>
   )

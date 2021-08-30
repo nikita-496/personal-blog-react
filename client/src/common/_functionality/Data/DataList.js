@@ -7,7 +7,7 @@ const DataList = ({meta, children}) => {
       {meta.error && <h1>Произошла ошибка ${meta.error}</h1>}
       {meta.isLoading ? <Preloader></Preloader> 
         : meta.post ?  <> {children} </>
-        : 1}
+        : null}
     </div>
   )
 }
