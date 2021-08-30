@@ -7,7 +7,7 @@ import SelectCategory from "./SelectCategory"
 const CreateCategory = ({data}) => {
   const category = data.category
   const create = data.create
-  const changeMode = [data.editMode,data.modal]
+  const changeMode = [data.editMode,data.modalWindow]
 
   const postCategory = (create,initial) => {
     create()
@@ -27,8 +27,8 @@ const CreateCategory = ({data}) => {
       <div className={styles.flexBtn}>
       <SelectCategory callback={handleCategory}/>                 
       </div>
-
-      <Button onClick={() => postCategory(create,changeMode)} >
+      {/*//ОСТАНОВИЛСЯ СДЕСЬ. Разобраться почему не работает кнопку опубликовать у notes*/}
+      <Button callback={() => postCategory(create,changeMode)}>
         опубликовать
       </Button>
     </Card>
