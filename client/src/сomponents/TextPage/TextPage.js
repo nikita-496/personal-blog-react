@@ -37,7 +37,7 @@ function TextPage (props) {
           </div>
          </Tags>
 
-         <Title titleArticle={props.articles.article.title}/>
+         <Title titleArticle={true}>{props.articles.article.title}</Title>
          <Tags articleData = {true}>
           <div className={stylesTag.tags}>
             <time className={stylesTag.date}>{props.articles.article.publicDate}</time>
