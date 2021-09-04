@@ -10,15 +10,17 @@ import Social from "./Social/Social"
 
 export default function Sidebar () {
   return (
-    <div className={styles.sidebar}>
+    <aside className={styles.sidebar}>
       <HeaderSideBar />
-      <Avatar />
-      <Title title={true}>Никита Шевкунов</Title>
-      <SubTitle about={"блог Front-end разработчика"}/>
-      <Social />
-      <AboutMe />
-      <Button />
-    </div>
+      <div className={styles.fixedPart}>
+        <Avatar />
+        <Title title={true}>Никита Шевкунов</Title>
+        <SubTitle about={"блог Front-end разработчика"}/>
+        <Social />
+        <AboutMe />
+        <Button />
+      </div>
+    </aside>
   )
 }
 

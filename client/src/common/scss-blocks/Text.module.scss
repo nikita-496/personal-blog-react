@@ -3,6 +3,7 @@
 
 
 .text{
-  margin-top: 6rem;
+  width: 23em;
+  padding: 1em 0;
   @include descriptions($white, 1.2rem, 600, center)
 }

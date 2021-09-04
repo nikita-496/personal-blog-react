@@ -5,4 +5,9 @@
   grid-area: s;
   background-color: $primary-color;
   @include boxshadow(5px, 0, 15px, 0, #050505, .1);
+  .fixedPart{
+    position: fixed;
+    top:15em;
+    left:0;
+  }
 }

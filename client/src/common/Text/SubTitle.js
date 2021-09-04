@@ -19,5 +19,3 @@ export default function SubTitle (props) {
     </div>
   )
 }
-
-/*<p className={styles.subTitleArticle}>{props.text}</p>*/

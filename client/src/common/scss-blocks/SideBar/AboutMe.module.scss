@@ -1,0 +1,18 @@
+@import "../_vars/vars.scss";
+@import "../_mixins/mixins.scss";
+
+.wrapper{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  max-height: 7em;
+  .topLine{
+    @include status-border();
+    border-top: 1px solid $gray;
+  
+  }
+  .bottomLine{
+    @include status-border();
+    border-bottom: 1px solid $gray;
+  }
+}

@@ -172,3 +172,8 @@
   }
 }
 
+/* status-line on Sidebar */
+@mixin status-border() {
+  display: inline-block;
+  width: 15em;
+}
