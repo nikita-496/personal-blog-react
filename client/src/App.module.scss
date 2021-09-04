@@ -1,6 +1,6 @@
 @import-normalize;
 @import "../src/common/scss-blocks/_vars/vars.scss";
-
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 
 html {
@@ -8,13 +8,15 @@ html {
 }
 
 body{
-  /*font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";*/
-  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
+  margin: 0;
 }
 
+p{
+  margin: 0;
+}
 li{
   list-style: none;
 }
@@ -23,7 +25,6 @@ a{
   text-decoration: none;
 }
 
-/* Grig */
 .content {
   grid-area: c;
   background-color: $main-color;
