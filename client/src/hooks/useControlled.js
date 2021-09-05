@@ -8,7 +8,8 @@ const useControlled = (state, callback) => {
       callback(e.target.value)
       setText(e.target.value)
     }
-    else {setText(e.target.value)}
+    setText(e.target.value)
+
   }
   return [text, handleText] 
 }
