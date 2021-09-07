@@ -31,7 +31,7 @@ function TextPage (props) {
      { (isComLoading) ? <Preloader></Preloader> 
       : <article>
       <Card>
-       <div className={styles.content}>
+       <section className={styles.content}>
          <Tags header={true}>
           <div className={styles.tagsHeader}>
             <NavLink to={"/all"} className={styles.action}> вернуться назад </NavLink>
@@ -50,7 +50,7 @@ function TextPage (props) {
          <SubTitle text={props.articles.article.description}/>
          <SubTitle text={props.articles.article.text}/>
          <Logo/>
-       </div>
+       </section>
        
        <Reference />
       <Comments commentData={props.articles.article.comment} 

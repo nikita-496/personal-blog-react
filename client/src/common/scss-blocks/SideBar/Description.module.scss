@@ -9,10 +9,12 @@
   @include descriptions($white, 1.8rem, 600, left) 
 
 }
-
+.newParagraph{
+  padding: .8em 0;
+}
 .subTitleArticle, .subTitleNotes {
   @include descriptions($gray, 1.4rem, 300, left);
-  padding-bottom: .8em;
+  line-height: 1.8;
 }
 .subTitleArticle:first-child , .subTitleNotes:first-child{
   padding-top: 4em;
