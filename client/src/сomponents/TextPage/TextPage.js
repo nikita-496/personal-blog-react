@@ -12,9 +12,11 @@ import share from "../../img/text-page/share.svg"
 import useFetching from "../../hooks/useFetching"
 import Preloader from "../../common/Preoloader/Preloader"
 import withButton from "../../hoc/withButton"
+import { NavLink } from "react-router-dom"
 
 
-function TextPage (props) {  
+function TextPage (props) { 
+
   const [comment, setComment] = useState("")
   const [fetchComments, isComLoading, comError] = useFetching( async (id) => {
       await props.getArticleById(id)
@@ -32,7 +34,7 @@ function TextPage (props) {
        <div className={styles.content}>
          <Tags header={true}>
           <div className={styles.tagsHeader}>
-            <a href="/all" className={styles.action}> вернуться назад </a>
+            <NavLink to={"/all"} className={styles.action}> вернуться назад </NavLink>
             <a href="/" className={styles.actionShare}> поделиться <img src={share} alt="share"/></a>
           </div>
          </Tags>

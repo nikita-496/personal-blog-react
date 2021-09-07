@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, } from "react"
 import Pagination from "../../../common/Pagination/Pagination"
 import useFetching from "../../../hooks/useFetching"
 import { ArticleService } from "../../../api/api"
@@ -9,6 +9,16 @@ import DataList from "../../../common/_functionality/Data/DataList"
 import SelectCategory from "../../../common/Categories/SelectCategory"
 
 export default function Posts ({article, getArticles}) {
+ 
+  let data = article
+  //Обработка данных о статье, когда возвращаемся из страницы с полным текстом статьи (TextPage) на страницу публикаций (Posts)
+  //данные о тексте приходят в объекте, для последующего извлечения из них инофрмации (методом map), требуется преобразовать их в массив объекта.
+  if(!Array.isArray(article)) {
+    let articleArr = []
+    articleArr.push(article)
+    data = articleArr
+  }
+
   const [category, handleCategory] = useSelectedCategoty("все")
   const [page, limit, changePage, setTotalPages, pages] = usePage(1,8)
   const [fetchPosts, isLoading, error] = useFetching(async () => {
@@ -16,6 +26,7 @@ export default function Posts ({article, getArticles}) {
     const response = await ArticleService.getArticlesPost(page, limit)
     setTotalPages(response.totalPages)
   })
+
   //чтобы страницы обновлялись без отставания, установим зависимость
   useEffect(() => fetchPosts(),[page,category])
   
@@ -23,7 +34,7 @@ export default function Posts ({article, getArticles}) {
       <DataList meta={{post: true, isLoading, error}}>
         <>
         <SelectCategory callback={handleCategory} filter={true}/>
-        <DataExtraction data={article} post={true}/>
+        <DataExtraction data={data} post={true}/>
         <Pagination pages={pages} currentPage={page} handlePage={changePage}/>
         </>
       </DataList>
