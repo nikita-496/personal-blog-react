@@ -1,6 +1,6 @@
 import settingDate from "../../../utility/date"
 import update from "../../../utility/update"
-import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_DESCRIPTION_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, ARTICLE_UPDATE, GET_ARTICLE,} from "./case"
+import { ARTICLE_ADD, ARTICLE_CATEGORY_UPDATE, ARTICLE_DESCRIPTION_UPDATE, ARTICLE_FILTER, ARTICLE_TEXT_UPDATE, ARTICLE_TITLE_UPDATE, GET_ARTICLE,} from "./case"
 
 const initialState = {
     newTitle: "",

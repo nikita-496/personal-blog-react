@@ -11,6 +11,7 @@ export class ArticleService {
          page: page,
          limit: limit,
       }
+      
    })
       return response.data
    }
@@ -48,13 +49,9 @@ export class NotesService {
      return response.data
    }
 }
-
 export class CommentService {
    static async createComments (commentData) {
       const response = await axios.post("/comments", commentData.comments.comment)
       return response 
    }
-   static async getCommentsByPostId (id) {
-      
-   } 
 }

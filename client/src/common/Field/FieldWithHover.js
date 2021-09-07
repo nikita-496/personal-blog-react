@@ -5,6 +5,7 @@ import styles from "../scss-blocks/Field.module.scss"
 
 export default function FiledwitHover (props) { 
   return ( 
+    <>
     <form className={styles.form}>
       <div className={styles.formGroup}>
         <CustomTextArea value={props.value} callback={props.callback} placeholder={props.placeholder} 
@@ -14,5 +15,6 @@ export default function FiledwitHover (props) {
       {props.isButton ? <Button createComment={props.createComment} value={props.value}
       changeState={props.changeState} id={props.id}>{props.text}</Button> : <></>}
     </form>
+    </>
   )
 }

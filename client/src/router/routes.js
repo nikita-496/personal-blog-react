@@ -35,4 +35,3 @@ export const publicRoutes = [
   {path: "/error", component: <ErrorPage/>, exact: true}
 ]
 
-// {path: "/all", component: <Home/>, exact: true},
