@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import FiledwitHover from "../../common/Field/FieldWithHover"
+import FieldwitHover from "../../common/Field/FieldWithHover"
 import { AuthContext } from "../../common/_functionality/Context/context"
 import styles from "../../scss-blocks/Auth/Auth.module.scss"
 
@@ -17,8 +17,8 @@ export default function Auth () {
       <p className={styles.title}>Вход</p>
       <form className={styles.profileWrapper} >
           <div>
-            <FiledwitHover  placeholder="Имя пользователя"/>
-            <FiledwitHover btn="true" type="password" text="Войти" placeholder="Пароль"/>
+            <FieldwitHover  placeholder="Имя пользователя"/>
+            <FieldwitHover btn="true" type="password" text="Войти" placeholder="Пароль"/>
           </div>
           <div className={styles.authFooter}>
             <ul>

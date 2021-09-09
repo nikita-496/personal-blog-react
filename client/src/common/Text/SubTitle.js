@@ -1,10 +1,10 @@
 import React from "react"
-import styles from "../scss-blocks/Text.module.scss"
+import SubTitlestyles from "../scss-blocks/Text.module.scss"
 
 export default function SubTitle (props) {
   const handleText = text => {
     let paragraphList = text.split("\n").map(paragraph => 
-    <p className={ paragraph === "" ? styles.newParagraph : styles.subTitleArticle}>{paragraph}</p>
+    <p className={ paragraph === "" ? SubTitlestyles.newParagraph : SubTitlestyles.subTitleArticle}>{paragraph}</p>
     )
     
     return paragraphList
@@ -14,10 +14,10 @@ export default function SubTitle (props) {
     <>
       {
          (props.description) ?  
-         <p className={styles.subTitleArticle}>{props.description}</p>
+         <p className={SubTitlestyles.subTitleArticle}>{props.description}</p>
          :  (props.text) ?  handleText(props.text) 
-         :  (props.about) ? <p className={styles.about}>{props.about}</p>
-         : <p className={styles.subTitleNotes}>{props.notes}</p>
+         :  (props.about) ? <p className={SubTitlestyles.about}>{props.about}</p>
+         : <p className={SubTitlestyles.subTitleNotes}>{props.notes}</p>
       }
     </>
   )

@@ -1,11 +1,20 @@
+@import "../_vars/vars.scss";
 
 .socialWrapper{
   display: flex;
-  justify-content: center;
-
   margin: 2.5em 0;
 
-  .socialLink:nth-child(2){
-    padding: 0 1.5em;
+  .telegram, .instagram, .github, .linkedin{
+    width: 2em;
+    height: 2em;
   }
+  .telegram,.linkedin {
+    color: $btnBlue;
+  }
+  .telegram:hover, .linkedin:hover {
+    color: $blue;
+  }
+}
+.socialWrapper .socialIcon:not(:first-child) {
+  padding-left: .625em;
 }

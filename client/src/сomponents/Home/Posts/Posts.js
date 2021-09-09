@@ -6,7 +6,6 @@ import DataExtraction from "../../../common/_functionality/Data/DataExtraction"
 import usePage from "../../../hooks/usePage"
 import useSelectedCategoty from "../../../hooks/useSelectedCategory"
 import DataList from "../../../common/_functionality/Data/DataList"
-import SelectCategory from "../../../common/Categories/SelectCategory"
 
 export default function Posts ({article, getArticles}) {
  

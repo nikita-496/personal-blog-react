@@ -4,10 +4,10 @@
 
 .btnWrapper{
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   margin-top: 5em;
   .work, .feedback {
-    @include btn(3em, 1.1em, 1.9em);
+    @include btn(.25em, .321em, 2.929em);
     a {
       text-decoration: none;
       color:$white;
@@ -15,6 +15,7 @@
   }
   .work{
     @include bxshad(#CD251A);
+    margin-bottom: .5em;
   }
     
   .feedback{

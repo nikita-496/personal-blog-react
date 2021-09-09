@@ -5,5 +5,21 @@
 .text{
   width: 23em;
   padding: 1em 0;
-  @include descriptions($white, 1.2rem, 600, center)
+  letter-spacing: .1em;
+  @include descriptions($gray, .875rem, 600, center)
+}
+
+.about{
+  font-size: .875rem;
+  color: $gray;
+  opacity: .6;
+  letter-spacing: .08em;
+}
+
+
+.heading:after{
+  display: inline-block;
+  content: "\25CF";
+  color: rgba(112, 204, 22, 1);
+  padding-bottom: .219em;
 }

@@ -2,7 +2,6 @@
 @import "../scss-blocks//_mixins/mixins.scss";
 
 .menu{
-  position: sticky;
   padding: 1.563em .938em 0 .938em ;
   width: 12.875em;
 
@@ -18,12 +17,12 @@
       width: 11em;
     }
     .navItem{
-      @include item-navigation(.125em, .625em .688em .625em 0, rgba(181, 181, 181, 1));
+      @include item-navigation(.125em, .625em .688em .625em 0, $white);
       height: 2.5em;
       width: 11em;
       text-decoration: none;
       &:hover{  
-        background-color: rgb(94,98,103);
+        background-color:$blue;
         border-radius: 3px;
         padding-left: .938em;
         transition: .3s all;
@@ -54,7 +53,7 @@
         }
       }
       .active{
-        background-color: rgb(94,98,103);
+        background-color: $btnBlue;
         padding-left: .938em;
  
     }

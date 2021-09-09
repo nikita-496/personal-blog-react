@@ -4,7 +4,7 @@
 .request{
   @include btn (5px, 0.66em, 1.25em);
   color:$white;
-  @include bxshad($btnBlue);
+  @include bxshad($effect);
 }
 .modal{
   @include btn (50%, 0.1em, 0.1em);

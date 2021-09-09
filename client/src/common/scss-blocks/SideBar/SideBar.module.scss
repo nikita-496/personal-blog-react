@@ -2,12 +2,21 @@
 @import "../_mixins/mixins.scss";
 
 .sidebar {
-  grid-area: s;
-  background-color: $primary-color;
-  @include boxshadow(5px, 0, 15px, 0, #050505, .1);
-  .fixedPart{
-    position: fixed;
-    top:15em;
-    left:0;
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+
+  position: sticky;
+  top: 4.125em;
+
+  width: 14.375em;
+  @include boxshadow(1px, 0, 15px, 0, #050505, .1);
+  background-image: linear-gradient(to bottom, rgb(235,235,235), rgb(207,211,215));
+  .container{
+    margin: 0 1.25em;
+  }
+
+  .authorInfo{
+    margin-top: 1em;
   }
 }

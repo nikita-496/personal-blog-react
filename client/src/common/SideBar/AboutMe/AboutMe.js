@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react"
 import Text from "../../Text/Text"
-import styles from "../../scss-blocks/SideBar/AboutMe.module.scss"
+import aboutStyles from "../../scss-blocks/SideBar/AboutMe.module.scss"
 import Button from "../../Button/Button"
-import FiledwitHover from "../../Field/FieldWithHover"
-
+import FieldwitHover from "../../Field/FieldWithHover"
+import { FiEdit } from"react-icons/fi"
+import { FaRegWindowClose } from "react-icons/fa"
 
 export default function AboutMe () {
   const [editMode, setEditMode] = useState(false)
@@ -21,19 +22,20 @@ export default function AboutMe () {
   const onButton = () => setEditMode(!editMode)
 
   return (
-    <div className={styles.wrapper}>
-      <span className={styles.editIcon} onClick={() => setEditMode(!editMode)}/>
-    {editMode ? <>
-      <form className={styles.form}>
-      <FiledwitHover value={statusText} callback={handleStatusText} 
-      type="text" placeholder="Расскажите о себе ..."/>
-      </form>
-      <Button callback={onButton}>сохранить</Button>
+    <div className={aboutStyles.wrapper}>
+     {editMode ? <>
+        <form className={aboutStyles.form}>
+        <FaRegWindowClose className={aboutStyles.editIcon}  onClick={() => setEditMode(!editMode)}/>
+        <FieldwitHover value={statusText} callback={handleStatusText} 
+        type="text" placeholder="Расскажите о себе"/>
+        </form>
+        <Button callback={onButton}>сохранить</Button>
       </>
       : <>
-      <span className={styles.topLine}/>
-      <Text text={statusText}/>
-      <span className={styles.bottomLine}></span>
+        <span className={aboutStyles.topLine}/>
+        <FiEdit className={aboutStyles.editIcon} onClick={() => setEditMode(!editMode)}/>
+        <Text text={statusText}/>
+        <span className={aboutStyles.bottomLine}></span>
       </>
     }
   

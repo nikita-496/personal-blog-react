@@ -22,20 +22,15 @@
 /* btn */
 @mixin btn ($br, $pT, $pR) {
   display: inline-block;
-  vertical-align: top;
-  padding: $pT  $pR;
+  padding: $pT $pR;
 
   background: $main-color;
   border: none;
   cursor: pointer;
   border-radius: $br;
 
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: .875rem;
   font-family: inherit;
-
-  line-height: 1.1;
-
   transition: background-color .2s linear;
 }
 
@@ -124,8 +119,8 @@
 
   margin-bottom: 1.5rem;
   font-family: inherit;
-  font-size: 1.4rem;
-  color:$white;
+  font-size: 1rem;
+  color:$gray;
 
   overflow: hidden;
 
@@ -177,7 +172,7 @@
 }
 
 /* status-line on Sidebar */
-@mixin status-border() {
+@mixin status-border($w) {
   display: inline-block;
-  width: 15em;
+  width: $w;
 }

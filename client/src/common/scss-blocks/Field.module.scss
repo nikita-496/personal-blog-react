@@ -9,16 +9,21 @@
   .formGroup{
     position: relative;
     .formControl{
-      @include field();
 
+      @include field();
       &:focus + .formLine{
         width:100%;
       }
+      &::placeholder{
+        font-size: 1rem;
+        color: $gray;
+      }
+    }
     }
     .formLine{
       width: 0;
       height: 1px;
-      background-color: $effect;
+      background-color: $btnBlue;
 
       position: absolute;
       left: 0;
@@ -29,4 +34,3 @@
 
    }
   } 
-}

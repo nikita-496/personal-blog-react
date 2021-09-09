@@ -1,5 +1,5 @@
 import React from "react"
-import FiledwitHover from "../../common/Field/FieldWithHover"
+import FieldwitHover from "../../common/Field/FieldWithHover"
 import Logo from "../../common/Logo/Logo"
 import withButton from "../../hoc/withButton"
 import src from "../../img/profile/avatar.png"
@@ -11,10 +11,10 @@ import styles from "../../scss-blocks/Profile/Profile.module.scss"
       <p className={styles.title}>Профиль</p>
       <div className={styles.profileWrapper}>
         <div className={styles.field}>
-          <FiledwitHover  placeholder="Имя пользователя" />
-          <FiledwitHover type="email" placeholder="E-mail"/>
-          <FiledwitHover type="password" placeholder="Новый пароль" />
-          <FiledwitHover type="password" placeholder="Подтвердить пароль" isButton={isButton} text={"Сохранить"}/>
+          <FieldwitHover  placeholder="Имя пользователя" />
+          <FieldwitHover type="email" placeholder="E-mail"/>
+          <FieldwitHover type="password" placeholder="Новый пароль" />
+          <FieldwitHover type="password" placeholder="Подтвердить пароль" isButton={isButton} text={"Сохранить"}/>
         </div>
 
         <div>

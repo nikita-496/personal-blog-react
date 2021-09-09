@@ -8,23 +8,24 @@
   align-items: center;
   max-height: 7em;
   .topLine{
-    @include status-border();
+    @include status-border(100%);
     border-top: 1px solid $gray;
   
   }
   .editIcon{
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
+    display: none;
+    width: 1.2em;
+    height: 1.2em;
 
     position: absolute;
-    top:-.8em;
-
-    border-radius: 50%;
-    background-color: $tagColor;
+    top:-.6em;
+    right: 1em
+  }
+  .editField:placeholder{
+    font-size: .875em;
   }
   .bottomLine{
-    @include status-border();
+    @include status-border(100%);
     border-bottom: 1px solid $gray;
   }
 
@@ -37,4 +38,17 @@
       
     }
   }
+}
+.wrapper:hover{
+  .topLine{
+    @include status-border(80%);
+    margin-right:2.4em;
+    transition: .5s all;
+    
+  }
+  .editIcon{
+    display: inline-block;
+    transition: .5s all;
+  }
+ 
 }
