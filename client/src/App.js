@@ -5,6 +5,7 @@ import SideBar from "./common/SideBar/SideBar";
 import styles from "./App.module.scss";
 import AppRouter from "./common/AppRouter";
 import { AuthContext } from "./common/_functionality/Context/context";
+import NavBarContainer from "./common/NavBar/NavBarContainer";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false) 
@@ -28,13 +29,14 @@ function App() {
     }>
       <BrowserRouter>
         <div className={styles.wrapper}>
-          <SideBar className={styles.sidebar}/>
           <Header className={styles.header}/>
+          <NavBarContainer/>
           <main className={styles.content}>
             <div className={styles.container}>
             <AppRouter/> 
             </div>
           </main>
+          <SideBar className={styles.sidebar}/>
         </div>
       </BrowserRouter>
     </AuthContext.Provider>

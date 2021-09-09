@@ -1,7 +1,7 @@
 import React from "react"
 import SubTitle from "../Text/SubTitle"
 import Title from "../Text/Title"
-import styles from "../scss-blocks/SideBar/SideBar.module.scss"
+import sideBarStyles from "../scss-blocks/SideBar/SideBar.module.scss"
 import AboutMe from "./AboutMe/AboutMe"
 import Avatar from "./Avatar/Avatar"
 import Button from "./Button/Button"
@@ -10,9 +10,9 @@ import Social from "./Social/Social"
 
 export default function Sidebar () {
   return (
-    <aside className={styles.sidebar}>
+    <aside className={sideBarStyles.sidebar}>
       <HeaderSideBar />
-      <div className={styles.fixedPart}>
+      <div className={sideBarStyles.fixedPart}>
         <Avatar />
         <Title title={true}>Никита Шевкунов</Title>
         <SubTitle about={"блог Front-end разработчика"}/>

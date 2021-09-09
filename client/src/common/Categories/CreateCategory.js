@@ -27,7 +27,6 @@ const CreateCategory = ({data}) => {
       <div className={styles.flexBtn}>
       <SelectCategory callback={handleCategory}/>                 
       </div>
-      {/*//ОСТАНОВИЛСЯ СДЕСЬ. Разобраться почему не работает кнопку опубликовать у notes*/}
       <Button callback={() => postCategory(create,changeMode)}>
         опубликовать
       </Button>

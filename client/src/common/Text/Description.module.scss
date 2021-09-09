@@ -1,5 +1,5 @@
-@import "../_vars/vars.scss";
-@import "../_mixins/mixins.scss";
+@import "../scss-blocks/_vars/vars.scss";
+@import "../scss-blocks/_mixins/mixins.scss";
 
 .heading{
  @include descriptions($white, 1.8rem, 600, center) 

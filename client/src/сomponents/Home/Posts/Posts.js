@@ -33,7 +33,6 @@ export default function Posts ({article, getArticles}) {
   return(
       <DataList meta={{post: true, isLoading, error}}>
         <>
-        <SelectCategory callback={handleCategory} filter={true}/>
         <DataExtraction data={data} post={true}/>
         <Pagination pages={pages} currentPage={page} handlePage={changePage}/>
         </>

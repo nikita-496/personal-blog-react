@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "../scss-blocks/SideBar/Description.module.scss"
+import styles from "../scss-blocks/Text.module.scss"
 
 export default function SubTitle (props) {
   const handleText = text => {

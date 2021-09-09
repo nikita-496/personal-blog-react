@@ -1,11 +1,12 @@
 import React from "react"
 import Button from "../Button/Button"
-import Category from "./Category"
 
-const SelectCategory = ({callback, ...props}) => <Category 
-    render={gategoryName => (<Button name={gategoryName} callback={callback} filter={props.filter}/>
-  )}>
-  </Category>                       
+const SelectCategory = ({callback, ...props}) =>  {
+  const categories = ["css", "javascript", "react", "other"]
+  return (
+  <Button name={categories} callback={callback} filter={props.filter}/>
+  )
+}                    
 
 
 export default SelectCategory

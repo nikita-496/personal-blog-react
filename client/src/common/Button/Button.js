@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "../scss-blocks/Button.module.scss"
+import buttonStyles from "./Button.module.scss"
 
 const Button = props => {
   const onCreate = (id, cb, comment) => {
@@ -7,21 +7,21 @@ const Button = props => {
     cb(comment)
   }
   
-  const selectCategories = categories => categories.map(category => <button key={category} 
-      className={category !== "all" ? styles[category] : styles[defineClassStyle()]} 
+  const selectCategories = (categories) => categories.map(category => 
+    <button key={category} className={buttonStyles[category]}
       text={category} onClick={props.callback}> {defineComponentRendering(category)}
       </button>)
   
-  const defineComponentRendering = (category) => category === "other" ? "другое" : category === "all" ? "все" : category
-  const defineClassStyle = () =>  props.filter ? "all" : "allNotVisible"    
+  const defineComponentRendering = (category) => category === "other" ? "другое" : category
+
  
   return (
-    <div className={styles.btnWrapper}>
+    <div className={buttonStyles.btnWrapper}>
       {
-        props.name ? selectCategories(props.name) 
-        : (props.id) ? <button className={styles.request} 
-        onClick={() => onCreate(props.id, props.changeState, props.value)}>{props.children}</button>
-        : <button className={props.create ? styles.modal : styles.request} onClick={props.callback}>{props.children}</button>
+        (props.name) ? selectCategories(props.name) 
+        : (props.id) ? <button className={buttonStyles.request} 
+          onClick={() => onCreate(props.id, props.changeState, props.value)}>{props.children}</button>
+        : <button className={props.create ? buttonStyles.modal : buttonStyles.request} onClick={props.callback}>{props.children}</button>
       }
     </div>
   )

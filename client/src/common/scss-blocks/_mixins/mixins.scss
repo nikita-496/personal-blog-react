@@ -1,19 +1,23 @@
 @import "../_vars/vars.scss";
-/* common */
+
 @mixin boxshadow ($x, $y, $blir, $spread, $c, $t) {
   box-shadow: $x $y $blir $spread rgba($c, $t);
 }
 
-
 @mixin descriptions ($c, $f, $fw, $ta) {
   color: $c;
-
   font-size: $f;
   font-weight: $f;
   font-family: $Roboto;
-
   text-align: $ta;
 } 
+
+/* item naviagation styles */
+@mixin item-navigation ($mb, $pz, $c ) {
+  margin-bottom: $mb;
+  padding: $pz;
+  color: $c 
+}
 
 /* btn */
 @mixin btn ($br, $pT, $pR) {

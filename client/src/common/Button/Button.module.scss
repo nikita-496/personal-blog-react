@@ -39,14 +39,3 @@
   @include bxshad(#ffb5a7);
 }
 
-.all{
-  @include btn (5px, 0.66em, 1.25em);
-  color:$white;
-  @include bxshad(#8DD35F);
-}
-
-.allNotVisible{
-  background: transparent;
-  border: none !important;
-  font-size:0;
-}

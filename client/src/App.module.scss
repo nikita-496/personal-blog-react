@@ -3,20 +3,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 
-html {
-  font-size: 62.5%;
+:root {
+  font-size: calc(1vw + .1.5em);
+  box-sizing: border-box;
 }
 
+*,
+::after,
+::before
+{
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+
+}
 body{
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
-  font-size: 1.6rem;
-  margin: 0;
 }
 
-p{
-  margin: 0;
-}
 li{
   list-style: none;
 }
@@ -27,10 +32,9 @@ a{
 input{
   outline: none;
 }
-
 .content {
-  grid-area: c;
-  background-color: $main-color;
+  grid-area: mainContent;
+  background-color: $white;
   .container {
     min-height: 100vh;
     margin: 8em;
@@ -39,11 +43,11 @@ input{
 
 .wrapper {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: 40px 100%;
+  grid-template-columns: 176px 1fr 300px;
+  grid-template-rows: 50px 100%;
   grid-template-areas: 
-    "s h"
-    "s c";
+    "header header header"
+    "navbar mainContent sidebar";
 }
 
 

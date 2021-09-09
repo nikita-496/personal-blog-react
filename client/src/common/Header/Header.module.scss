@@ -1,0 +1,28 @@
+@import "../scss-blocks/_vars/vars.scss";
+
+.header {
+  grid-area: header;
+  padding: .5em 0;
+  background-color: rgba(37, 39, 42, 1);
+  .headerContainer{
+    margin: 0 3.9em;
+    .headerMenu{
+      display: flex;
+      justify-content: space-between; 
+    }
+  }
+}
+
+.searchBox{
+  margin: 0 4em;
+  flex: 1;
+  .globalSearch{
+    padding-left: .938em;
+    width: 85%;
+    height: 2.5em;
+
+    border-radius: 3px;
+    border:none;
+    background-color: rgba(211,215,220, .8);
+  }
+}

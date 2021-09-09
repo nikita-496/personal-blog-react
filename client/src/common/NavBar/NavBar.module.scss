@@ -1,0 +1,62 @@
+@import "../scss-blocks/_vars/vars.scss";
+@import "../scss-blocks//_mixins/mixins.scss";
+
+.menu{
+  position: sticky;
+  padding: 1.563em .938em 0 .938em ;
+  width: 12.875em;
+
+  background-image: linear-gradient(to bottom, (rgb(65,63,62), rgb(4,4,4)));
+}
+.siteNav {
+  grid-area: navbar;
+  display: flex;
+  flex-direction: column;
+    li{
+      display: flex;
+      height: 3em;
+      width: 11em;
+    }
+    .navItem{
+      @include item-navigation(.125em, .625em .688em .625em 0, rgba(181, 181, 181, 1));
+      height: 2.5em;
+      width: 11em;
+      text-decoration: none;
+      &:hover{  
+        background-color: rgb(94,98,103);
+        border-radius: 3px;
+        padding-left: .938em;
+        transition: .3s all;
+      }
+      .icons{
+          display: inline-block;
+          width: 1.25em;
+          height: 1.25em;
+  
+          background-repeat: no-repeat;
+          background-size: contain;
+  
+          vertical-align: middle;
+          margin-right: .5em;
+          margin-bottom: .2em;
+        }
+        .iconMain{
+          background-image: url(../../img/nav-bar/home.png);
+        }
+        .iconCss{
+          background-image: url(../../img/nav-bar/css-3.svg);
+        }
+        .iconJs{
+          background-image: url(../../img/nav-bar/javascript.svg);
+        }
+        .iconReact{
+          background-image: url(../../img/nav-bar/react.svg);
+        }
+      }
+      .active{
+        background-color: rgb(94,98,103);
+        padding-left: .938em;
+ 
+    }
+  }
+
