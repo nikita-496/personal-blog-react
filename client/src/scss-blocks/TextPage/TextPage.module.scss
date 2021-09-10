@@ -14,8 +14,6 @@
     @include tags($Roboto);
     color: #ffff;
     opacity: .6;
-
-    @include link ();
     &:hover {
       opacity: .9;
       color: $btnBlue;

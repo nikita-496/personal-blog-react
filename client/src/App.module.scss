@@ -19,7 +19,7 @@
 }
 body{
   font-family: 'Roboto', sans-serif;
-  line-height: 1.5;
+  line-height: 20px;
   width: 100%;
   overflow-x: hidden;
 }
@@ -36,7 +36,7 @@ input{
 }
 .content {
   grid-area: mainContent;
-  background-color: $white;
+  background-color: #EBECF0;
   .container {
     min-height: 100vh;
     margin: 8em;

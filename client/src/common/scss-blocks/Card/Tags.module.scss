@@ -4,17 +4,44 @@
 .tagsFooter{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   .tags{
-    padding-bottom: 2em;
-    margin-top: -2em;
+    display: flex;
   }
+  .iconTimeWrap{
+    padding-top: .15em;
+    padding-right: .15em;
+  }
+  .iconLikeWrap{
+    display: inline-block;
+    padding: 0 .2em;
+  }
+  .like{
+    border: 1px solid #50C878;
+    border-radius: 3px;
+    padding: .3em;
+    margin-left: 15em;
+    margin-right: .3em;
+  }
+  .iconLike{
+    padding: .04em;
+    padding-top: .13em;
+  }
+  .counterLike, .link{
+    font-size: 0.875rem;
+  }
+  .counterLike{
+    padding: .1em .3em;
+  }
+
   .link {
-    font-size: 1.4rem;
     color: $blue;
-    @include link ()
+    &:hover{
+      color: $btnBlue;
+    }
   } 
   .date{
+    font-size: .75rem;
     @include dotTags(#C4C4C4);
   }
   .date, .category, .datePublic{
@@ -23,7 +50,6 @@
   .category{
     &:hover {
       cursor: pointer;
-      text-decoration: underline;
     }
   }
 }

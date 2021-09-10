@@ -5,12 +5,11 @@
   margin-top: $marTop;
   .content{
     padding: $padContentPost;
-
-    .link {
-      font-size: 1.4rem;
-      color: $blue;
-      @include link ()
-    } 
-
+    .postWrap{
+      .link {
+        font-size: 1.4rem;
+        color: $blue;
+      } 
+    }
   }
 }

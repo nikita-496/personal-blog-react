@@ -1,15 +1,14 @@
 import React  from "react"
-import styles from "../../scss-blocks/Card/Tags.module.scss"
+import tagStyles from "../../scss-blocks/Card/Tags.module.scss"
 
 
 export default function Tags (props) {
   return (
     <>
         {
-            (props.header) ? <div className={styles.tagsHeader}> {props.children} </div> 
-          : (props.link === "читать") ? <div className={styles.tagsFooter}> {props.children} </div>
-          : (props.articleData) ? <div className={styles.tagsFooter}> {props.children} </div>
-          : <div className={styles.works}> {props.children} </div>
+            (props.header) ? <div className={tagStyles.tagsHeader}> {props.children} </div> 
+          : (props.link || props.articleData) ? <div className={tagStyles.tagsFooter}> {props.children} </div>
+          : <div className={tagStyles.works}> {props.children} </div>
         } 
    </>
   )

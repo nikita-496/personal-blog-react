@@ -75,7 +75,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
       font-family: $ff;
       font-weight: 400;
-      font-size: 1.2rem;
+      font-size: .875rem;
       color:$tagColor;
 }
 
@@ -91,12 +91,6 @@
     background-color: $c;
   }
 }
-
-@mixin link () {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
 
 @mixin titleH4 () {
   font-size: 1.6rem;
