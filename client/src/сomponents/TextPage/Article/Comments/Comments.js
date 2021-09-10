@@ -1,12 +1,12 @@
 import React from "react"
-import styles from "../../../../common/scss-blocks/Field.module.scss"
+import fieldStyles from "../../../../common/scss-blocks/Field.module.scss"
 import Comment from "./Comment/Comment"
 import FieldwitHover from "../../../../common/Field/FieldWithHover"
 
 export default function Comments (props) {
   return (
-    <div className={styles.wrapperCommets}>
-      <h4 className={styles.title}>Комментарии</h4>
+    <div className={fieldStyles.wrapperCommets}>
+      <h4 className={fieldStyles.title}>Комментарии</h4>
       <FieldwitHover  createComment={props.createComment} changeState={props.changeState} 
           value={props.value} callback= {props.callback} 
           placeholder={"Текст комментария"} text={"Оставить комменатрий"}

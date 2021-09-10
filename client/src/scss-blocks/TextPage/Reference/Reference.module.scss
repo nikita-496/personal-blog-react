@@ -2,30 +2,34 @@
 @import "../../../common/scss-blocks/_mixins/mixins.scss";
 
 .wrapperReference{
-  border-bottom: 1px solid #1C1C1C;  
-  border-top: 1px solid #1C1C1C;
-
+  border-bottom: 1.5px solid $tagColor;  
+  border-top: 1.5px solid $tagColor;
+  margin: 2.5em 0;
   @include boundaries();
   
   .title{
-   @include titleH4()
+   @include titleH3();
+   padding: 1em 0; 
   }
 
   .list{
     display: flex;
     justify-content: space-between;
-    padding: 0px;
+    padding-bottom: 1.5em;
     .listItem{
       h4{
-        width: 270px;
+        width: 19.286em;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 1.4rem;
-        color:#F3EBA2;
+        font-size: .875rem;
       }
       a{
+        color: $gray;
         cursor: pointer;
+        &:hover{
+         color: $secondary-color;
+        }
       }
     }
   }

@@ -4,7 +4,7 @@ import SubTitlestyles from "../scss-blocks/Text.module.scss"
 export default function SubTitle (props) {
   const handleText = text => {
     let paragraphList = text.split("\n").map(paragraph => 
-    <p className={ paragraph === "" ? SubTitlestyles.newParagraph : SubTitlestyles.subTitleArticle}>{paragraph}</p>
+    <p className={ paragraph === "" ? SubTitlestyles.newParagraph : SubTitlestyles.subTitleArticleText}>{paragraph}</p>
     )
     
     return paragraphList

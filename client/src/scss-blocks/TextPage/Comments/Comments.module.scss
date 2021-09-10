@@ -6,22 +6,44 @@
   margin-top: 5rem;
   .header {
     display: flex;
-    margin-bottom: 1.5rem;
-    .author{
-      flex-grow: 1;
-      padding-left: 1.5rem;
+    .left{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding-left: 1em;
+      .author{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: .2em;
+      }
+      .name{
+        font-size: .875em;
+        font-weight: 600;
+      }
+      .date{
+        font-size: .875em;
+        color:$tagColor;
+      }
     }
-    .name{
-      font-weight: 600;
+    .text{
+      width: 100%;
+      border: 1px solid $tagColor;
+      border-radius: 2px;
+      font-size: .875em;
+      padding: .5em .443em .51em .443em;
+      margin-bottom: .5em;
     }
-    .date{
-      color:$tagColor;
+    .likes{
+      align-self: flex-end;
+      .icon{
+        padding: .01em;
+      }
+      .count{
+        padding: 0 .5em;
+      }
     }
   }
-  .text{
-    margin-bottom: 1.5rem;
-    line-height: 1.3;
-  }
+    
 }
 
 

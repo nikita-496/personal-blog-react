@@ -4,15 +4,15 @@ import Tags from "../../common/Card/Tags/Tags"
 import SubTitle from "../../common/Text/SubTitle"
 import Title from "../../common/Text/Title"
 import Logo from "../../common/Logo/Logo"
-import styles from "../../scss-blocks/TextPage/TextPage.module.scss"
-import stylesTag from "../../common/scss-blocks/Card/Tags.module.scss"
+import textPageStyles from "../../scss-blocks/TextPage/TextPage.module.scss"
 import Comments from "./Article/Comments/Comments"
 import Reference from "./Article/Reference/Reference"
-import share from "../../img/text-page/share.svg"
+import { FiShare2 } from "react-icons/fi"
 import useFetching from "../../hooks/useFetching"
 import Preloader from "../../common/Preoloader/Preloader"
 import withButton from "../../hoc/withButton"
 import { NavLink } from "react-router-dom"
+import MetaTag from "../../common/Card/Tags/MetaTag"
 
 
 function TextPage (props) { 
@@ -31,33 +31,35 @@ function TextPage (props) {
      { (isComLoading) ? <Preloader></Preloader> 
       : <article>
       <Card>
-       <section className={styles.content}>
+       <section className={textPageStyles.content}>
          <Tags header={true}>
-          <div className={styles.tagsHeader}>
-            <NavLink to={"/all"} className={styles.action}> вернуться назад </NavLink>
-            <a href="/" className={styles.actionShare}> поделиться <img src={share} alt="share"/></a>
+          <div className={textPageStyles.tagsHeader}>
+            <NavLink to={"/all"} className={textPageStyles.action}> вернуться назад </NavLink>
+            <a href="/" className={textPageStyles.actionShare}> поделиться 
+              <div className={textPageStyles.iconShare}>
+                <FiShare2/> 
+              </div>
+            </a>
           </div>
          </Tags>
 
          <Title titleArticle={true}>{props.articles.article.title}</Title>
          <Tags articleData = {true}>
-          <div className={stylesTag.tags}>
-            <time className={stylesTag.date}>{props.articles.article.publicDate}</time>
-            <span className={stylesTag.category}>{props.articles.article.category}</span>
-          </div>
+           <MetaTag date={props.articles.article.publicDate} 
+           category={props.articles.article.category}
+           />
         </Tags>
+        <Logo/>
 
-         <SubTitle text={props.articles.article.description}/>
+         <SubTitle description={props.articles.article.description}/>
          <SubTitle text={props.articles.article.text}/>
-         <Logo/>
-       </section>
-       
-       <Reference />
-      <Comments commentData={props.articles.article.comment} 
+         <Reference />
+         <Comments commentData={props.articles.article.comment} 
           createComment={props.createComment} changeState={changeState} id={props.id}
           value={props.comments.newCommentText} callback= {props.updateText} 
           isButton={props.isButton} comment={comment}
-      />
+         />
+       </section>
     </Card>
      </article>
      }

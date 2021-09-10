@@ -92,9 +92,9 @@
   }
 }
 
-@mixin titleH4 () {
-  font-size: 1.6rem;
-  color:$white
+@mixin titleH3 () {
+  font-size: 1rem;
+  color: $primary-color;
 }
   
 
@@ -160,8 +160,8 @@
 
 @mixin boundaries() {
   &:hover {
-    border-bottom: 1px solid $effect;  
-    border-top: 1px solid $effect;
+    border-bottom: 1px solid $btnBlue;  
+    border-top: 1px solid $btnBlue;
   }
 }
 

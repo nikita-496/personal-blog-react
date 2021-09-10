@@ -2,7 +2,8 @@
 @import "../scss-blocks/_mixins/mixins.scss";
 
 .title{
-  @include titleH4;
+  @include titleH3;
+  padding-bottom: .5em;
  }
  
 .form{

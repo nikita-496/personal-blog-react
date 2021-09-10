@@ -45,7 +45,7 @@
     @include dotTags(#C4C4C4);
   }
   .date, .category, .datePublic{
-    @include tags($Loto);
+    @include tags($Lato);
   }
   .category{
     &:hover {

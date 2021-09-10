@@ -4,19 +4,21 @@
 .content{
   padding: $padContentText;
 }
-
 //TagHeader 
 .tagsHeader{
   display:flex;
-  align-items: baseline;
   justify-content: space-between;
-  .action,.actionShare {
-    @include tags($Roboto);
-    color: #ffff;
-    opacity: .6;
+  padding-bottom: 1.5em;
+  .action,.actionShare, .actionShare {
+    @include tags($Lato);
+    color: $blue;
+    opacity: .8;
     &:hover {
-      opacity: .9;
       color: $btnBlue;
+    }
+    .iconShare{
+      display: inline-block; 
+      padding-left: .2em;
     }
   }
 }

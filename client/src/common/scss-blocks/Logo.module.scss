@@ -1,5 +1,15 @@
+@import "./_vars/vars.scss";
+
 .logo{
   display: block;
   width: auto;
   height: auto;
+}
+
+.commentAuthor{
+  width: 2.5em;
+  height: 2.5em;
+  margin-top: .4em;
+  border: 1px solid $secondary-color;
+  border-radius: 50%;
 }
