@@ -13,16 +13,18 @@ const  HeaderSideBar = () =>  <Logo src={logoHeader}> </Logo>
 export default function Sidebar () {
   return (
     <aside className={sideBarStyles.sidebar}>
-      <HeaderSideBar />
-      <div className={sideBarStyles.container}>
-        <article className={sideBarStyles.authorInfo}>
-          <Title title={true}>Никита Шевкунов</Title>
-          <SubTitle about={"Front-end разработчик"}/>
-        </article>
-        <Social />
-        <AboutMe />
-        <Button />
-      </div>
+      <article className={sideBarStyles.sidebarArticle}>
+        <HeaderSideBar />
+        <div className={sideBarStyles.container}>
+          <article className={sideBarStyles.authorInfo}>
+            <Title title={true}>Никита Шевкунов</Title>
+            <SubTitle about={"Front-end разработчик"}/>
+          </article>
+          <Social />
+          <AboutMe />
+          <Button />
+        </div>
+      </article>
     </aside>
   )
 }
