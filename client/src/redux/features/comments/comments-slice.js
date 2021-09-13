@@ -10,6 +10,8 @@ const initialState = {
        author: "",
        avatar: "",
        text: "",
+       parentId: null,
+       likes: 0, 
        publicDate: null,
       }   
   ]

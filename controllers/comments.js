@@ -5,6 +5,8 @@ const ObjectID = require("mongodb").ObjectID
   author: req.body.author,
   avatar: req.body.avatar,
   text: req.body.text,
+  parentId: req.body.parentId,
+  likes: req.body.likes,
   publicDate: req.body.publicDate,
 }) 
 
