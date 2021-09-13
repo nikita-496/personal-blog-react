@@ -3,10 +3,24 @@ import src from "../../../../../img/text-page/avatarAuthor.png"
 import commentStyles from "../../../../../scss-blocks/TextPage/Comments/Comments.module.scss"
 import { FcLikePlaceholder } from "react-icons/fc"
 import { RiDislikeLine } from "react-icons/ri"
+import SubComment from "./SubComment/SubComment"
  
-export default function CommentView ({commentData}) {
+export default function CommentView ({comment}) {
+  console.log(comment)
   return (
-    <ul className={commentStyles.comments}>
+    <article className={commentStyles.comment}>
+      <div className={commentStyles.commentAvatar}>
+       <img src={comment.avatar} alt="s"/>
+      </div>
+      <div className={commentStyles.commentRightPart}>
+        <div className={commentStyles.commentContent}>
+          <p className={commentStyles.commentAuthor}>{comment.author}</p>
+          <p className={commentStyles.commentDate}>{comment.publicDate}</p>
+        </div>
+        <p className={commentStyles.commentText}>{comment.text}</p>
+      </div>
+    
+    {/*<ul className={commentStyles.comments}>
         <li>
           <div className={commentStyles.header}>
 
@@ -28,6 +42,7 @@ export default function CommentView ({commentData}) {
 
           </div>
         </li>
-      </ul>
+  </ul>*/}
+  </article>
   )
 }

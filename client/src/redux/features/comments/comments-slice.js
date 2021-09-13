@@ -4,6 +4,8 @@ import { ADD, GET, TEXT_UPDATE } from "./case"
 
 const initialState = {
   newCommentText: "",
+  likesCount: 0,
+  parentId: null,
   comment: [
       {
        _id: "",    
@@ -26,6 +28,8 @@ const commentCreationReducer = (state = initialState, action) => {
         let stateCopy = {...state}
         let newComment = {
             text: state.newCommentText,
+            parentId: state.parentId,
+            likes: state.likesCount,
             publicDate: settingDate(),
         }
         stateCopy.comment = newComment

@@ -2,7 +2,10 @@
 @import "../../../common/scss-blocks/_mixins/mixins.scss";
 
 
-.comments{
+.commentText{
+  color: red;
+}
+/*.comments{
   margin-top: 5rem;
   .header {
     display: flex;
@@ -25,7 +28,7 @@
         color:$tagColor;
       }
     }
-    .text{
+    .commentText{
       width: 100%;
       border: 1px solid $tagColor;
       border-radius: 2px;
@@ -44,6 +47,6 @@
     }
   }
     
-}
+}*/
 
 
